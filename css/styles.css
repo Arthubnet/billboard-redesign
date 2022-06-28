@@ -94,11 +94,13 @@ p {
   -webkit-box-align: unset;
       -ms-flex-align: unset;
           align-items: unset;
+  overflow: hidden;
 }
 
-#hero .hero__navbar {
+.hero__navbar {
+  height: 8vh;
   background: black;
-  padding: 25px 5%;
+  padding: 0 5%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -114,21 +116,21 @@ p {
           align-items: center;
 }
 
-#hero .hero__navbar-logo {
+.hero__navbar-logo {
   color: white;
   font-size: 30px;
   font-weight: bold;
 }
 
-#hero .hero__navbar-logo a {
+.hero__navbar-logo a {
   text-decoration: none;
 }
 
-#hero .hero__navbar-menu {
+.hero__navbar-menu {
   width: 35%;
 }
 
-#hero .hero__navbar-menu ul {
+.hero__navbar-menu ul {
   padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -138,39 +140,62 @@ p {
           justify-content: space-between;
 }
 
-#hero .hero__navbar-menu li {
+.hero__navbar-menu li {
   list-style: none;
   float: left;
 }
 
-#hero .hero__navbar-menu li a {
+.hero__navbar-menu li a {
   text-decoration: none;
   text-transform: uppercase;
   color: white;
 }
 
-#hero .hero__navbar-menu li a:hover {
+.hero__navbar-menu li a:hover {
   color: #c51d6f;
 }
 
-#hero .hero__navbar-btn button {
+.hero__navbar-btn button {
   padding: 10px 50px;
   cursor: pointer;
   text-transform: uppercase;
   background: #c51d6f;
 }
 
-#hero .hero__title {
+.hero__navbar-burger {
+  display: none;
+  width: 32px;
+  height: 25px;
+  -webkit-transition: all 0.3s linear;
+  -webkit-transition: -webkit-transform 0.5s ease-in;
+  transition: -webkit-transform 0.5s ease-in;
+  transition: transform 0.5s ease-in;
+  transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
+}
+
+.hero__navbar-burger span {
+  display: block;
+  width: 30px;
+  height: 1px;
+  background: #c51d6f;
+  margin: 3px 0 8px 1px;
+}
+
+.hero__navbar-burger:hover {
+  cursor: pointer;
+}
+
+.hero__title {
   padding: 0 5% 3% 5%;
   color: white;
 }
 
-#hero .hero__title h1 {
+.hero__title h1 {
   padding: 0;
   margin: 1% 0;
 }
 
-#hero .hero__title h1 span {
+.hero__title h1 span {
   color: #c51d6f;
 }
 
@@ -880,5 +905,110 @@ p {
   }
   .bands__container__promo {
     width: 100%;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .hero__navbar-btn {
+    display: none;
+  }
+  .hero__navbar-burger {
+    display: block;
+  }
+  .hero__navbar-burger.active {
+    -webkit-transform: rotate(90deg);
+    transform: rotate(90deg);
+  }
+  .hero__navbar-menu .hero__navbar-lists {
+    position: absolute;
+    right: 0;
+    height: 92vh;
+    top: 8vh;
+    background-color: white;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 30%;
+    gap: 5%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-transform: translate(100%);
+            transform: translate(100%);
+    -webkit-transition: -webkit-transform 0.5s ease-in;
+    transition: -webkit-transform 0.5s ease-in;
+    transition: transform 0.5s ease-in;
+    transition: transform 0.5s ease-in, -webkit-transform 0.5s ease-in;
+  }
+  .hero__navbar-menu .hero__navbar-lists li {
+    opacity: 0;
+  }
+  .hero__navbar-menu .hero__navbar-lists li a {
+    color: black;
+  }
+  .hero__navbar-menu .hero__navbar-lists li a:hover {
+    color: #c51d6f;
+  }
+  .hero__navbar-menu .hero__navbar-lists.nav-active {
+    -webkit-transform: translate(0);
+            transform: translate(0);
+  }
+  @-webkit-keyframes navLinkFade {
+    from {
+      -webkit-transform: translateX(50px);
+              transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateX(0px);
+              transform: translateX(0px);
+    }
+  }
+  @keyframes navLinkFade {
+    from {
+      -webkit-transform: translateX(50px);
+              transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      -webkit-transform: translateX(0px);
+              transform: translateX(0px);
+    }
+  }
+  .hero__title h1 {
+    font-size: 2.5rem;
+  }
+  .news__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    gap: 20px;
+  }
+  .news__container__column {
+    width: 100%;
+    gap: 20px;
+  }
+  .news__container__item {
+    width: 100%;
+  }
+  .bands__container__promo .promo-title h2 {
+    font-size: 1.8rem;
+  }
+  .more__container h2 {
+    font-size: 1.1rem;
+  }
+}
+
+@media all and (max-width: 350px) {
+  .scroll-up {
+    display: none;
   }
 }

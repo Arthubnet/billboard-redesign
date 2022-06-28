@@ -1,4 +1,35 @@
+/* Navbar */
+
+const navSlide = () => {
+  let burger = document.querySelector(".hero__navbar-burger");
+  let navbar = document.querySelector(".hero__navbar-lists");
+  let navLinks = document.querySelectorAll(".hero__navbar-lists li");
+
+  let burgerToggle = () => {
+    navbar.classList.toggle("nav-active");
+    burger.classList.toggle("active");
+  };
+  burger.addEventListener("click", () => {
+    burgerToggle();
+    //Animate links
+    navLinks.forEach((link, index) => {
+      if (link.style.animation) {
+        link.style.animation = "";
+      } else
+        link.style.animation = `navLinkFade 0.5s ease forwards ${
+          index / 15 + 0.5
+        }s`;
+      link.addEventListener("click", () => {
+        burgerToggle();
+      });
+    });
+  });
+};
+
+navSlide();
+
 /* News */
+
 const newsContainer = document.querySelector(".news__container");
 const newsColumns = document.querySelectorAll(".news__container__column");
 const freshFilter = document.querySelector(".news-fresh");
