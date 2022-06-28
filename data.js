@@ -173,24 +173,21 @@ let videosData = [
 let bandsData = [
   {
     id: "hu",
-    title:
-      "The Hu return with This Is Mongol single and spectacular desert video",
-    author: "Andrey Shevshenko",
+    title: "The Hu return with This Is Mongol single and spectacular video",
+    author: "Andrey Coy",
     time: "5 hours ago",
     img: "https://d3nxoulyw7bc8u.cloudfront.net/images/artists/None/45e8cb4f-cf8b-4047-98db-791110e45cef.jpg",
   },
   {
-    id: "slipknot",
-    title:
-      "Drummer Nails Slipknot Cover With One Hand, Drinks Soda With the Other.",
+    id: "metallica",
+    title: `METALLICA Releases "Fight Fire With Fire" Live In Brazil`,
     author: "Henry Gray",
     time: "10 hours ago",
-    img: "https://cms.kerrang.com/images/_1200x630_crop_center-center_82_none/Slipknot_190628_113203.jpg?mtime=1561717923",
+    img: "https://cdn-img.scalabs.com.au/yK7DeI7lMr4J3UPG0asysrNuGix3Qy5su7kRLMnmM_I/aHR0cHM6Ly9zdy10/cmlwbGVtLXByZC5z/Y2FkaWdpdGFsLmlv/L21lZGlhLzQxNzk5/L2phbWVzLWhldGZp/ZWxkLmpwZz9wcmVz/ZXQ9TWFpbkltYWdl",
   },
   {
     id: "soad",
-    title:
-      "System Of A Down: “As long as we’re on the same page, we can continue",
+    title: `System Of A Down: “As long as we’re on the same page, we'll play"`,
     author: "Hannah Dailey",
     time: "3 hours ago",
     img: "https://cdn.mos.cms.futurecdn.net/pHLyg8XNqe6zzxShC3EvDd-1200-80.jpg",
