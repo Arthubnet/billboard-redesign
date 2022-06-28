@@ -154,6 +154,18 @@ let videosData = [
       "Global News Post Malone criticized for going ahead with concert despite coronavirus outbreak",
     img: "https://globalnews.ca/wp-content/uploads/2019/09/saint-tropez-post-malone-2.jpg?quality=85&strip=all",
   },
+  {
+    genre: "Video Top",
+    title:
+      "Global News Post Malone criticized for going ahead with concert despite coronavirus outbreak",
+    img: "https://globalnews.ca/wp-content/uploads/2019/09/saint-tropez-post-malone-2.jpg?quality=85&strip=all",
+  },
+  {
+    genre: "Video Top",
+    title:
+      "Global News Post Malone criticized for going ahead with concert despite coronavirus outbreak",
+    img: "https://globalnews.ca/wp-content/uploads/2019/09/saint-tropez-post-malone-2.jpg?quality=85&strip=all",
+  },
 ];
 
 /* Bands */

@@ -334,6 +334,8 @@ h2 {
   .video {
     width: 90%;
     padding: 5% 0;
+    display: flex;
+    flex-direction: column;
     &__carousel {
       position: relative;
       transition: all 0.5s;
@@ -392,16 +394,32 @@ h2 {
         }
       }
     }
-    .arrow-left {
-      position: absolute;
-      top: 50%;
-      left: 550px;
-    }
+    .video-arrows {
+      display: flex;
+      width: 100%;
+      /* justify-content: center; */
+      gap: 20px;
+      margin-top: 50px;
+      font-size: 25px;
+      .video-arrow {
+        cursor: pointer;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:hover {
+          background: #c51d6f;
+        }
+      }
+      /*   .arrow-left {
+        cursor: pointer;
 
-    .arrow-right {
-      position: absolute;
-      top: 50%;
-      left: 1150px;
+      }
+      .arrow-right {
+        cursor: pointer;
+      } */
     }
   }
 }
@@ -607,4 +625,12 @@ h2 {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #606060;
+}
+
+/* Mobile */
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
 }
