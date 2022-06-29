@@ -741,6 +741,18 @@ p {
       width: 100%;
     }
   }
+
+  .video__carousel__inner {
+    &__item {
+      .video-promo {
+        img {
+          width: 90vw;
+          height: 50vh;
+        }
+      }
+    }
+  }
+
   .bands__container {
     &__promo {
       .promo-title {
@@ -808,12 +820,24 @@ p {
       height: 20px;
     }
   }
+
   .video__carousel__inner {
-    width: 100%;
     &__item {
-      width: 100%;
-      img {
-        width: 100%;
+      .video-promo {
+        img {
+          width: 90vw;
+          height: 30vh;
+        }
+      }
+    }
+  }
+
+  .popup {
+    &__close {
+      align-self: center;
+      padding-bottom: 50%;
+      h3 {
+        font-size: 0.7rem;
       }
     }
   }

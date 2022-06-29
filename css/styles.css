@@ -1010,6 +1010,10 @@ p {
   .news__container__item {
     width: 100%;
   }
+  .video__carousel__inner__item .video-promo img {
+    width: 90vw;
+    height: 50vh;
+  }
   .bands__container__promo .promo-title h2 {
     font-size: 1.8rem;
   }
@@ -1078,14 +1082,18 @@ p {
       height: 20px;
     }
   }
-  .video__carousel__inner {
-    width: 100%;
+  .video__carousel__inner__item .video-promo img {
+    width: 90vw;
+    height: 30vh;
   }
-  .video__carousel__inner__item {
-    width: 100%;
+  .popup__close {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    padding-bottom: 50%;
   }
-  .video__carousel__inner__item img {
-    width: 100%;
+  .popup__close h3 {
+    font-size: 0.7rem;
   }
   .bands__container__cards {
     -webkit-box-orient: vertical;

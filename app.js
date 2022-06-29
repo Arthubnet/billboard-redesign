@@ -184,6 +184,7 @@ const body = document.body;
 const carousel = document.querySelector(".video__carousel");
 const rightBtn = document.querySelector(".arrow-right");
 const leftBtn = document.querySelector(".arrow-left");
+const carouselItem = document.querySelector(".video__carousel__inner__item");
 
 let playVideo = () => {
   document.querySelector(".video").play();
@@ -217,8 +218,17 @@ popup.children[1].addEventListener("click", () => {
 
 // carousel
 let padding = 50;
-let scrollPerClick =
-  document.querySelector(".video__carousel__inner__item").clientWidth + padding;
+let scrollPerClick = carouselItem.clientWidth + padding;
+
+let checkScrollSize = () => {
+  scrollPerClick = carouselItem.clientWidth + padding;
+};
+
+window.addEventListener("resize", () => {
+  if (window.innerWidth <= 768) {
+    checkScrollSize();
+  }
+});
 
 let scrollAmount = 0;
 
