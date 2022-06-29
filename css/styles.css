@@ -30,7 +30,7 @@ section {
 }
 
 h1 {
-  font-size: 3.2rem;
+  font-size: 4rem;
   text-transform: uppercase;
   font-weight: 500;
   padding-bottom: 1%;
@@ -186,6 +186,7 @@ p {
 }
 
 .hero__title {
+  width: 60%;
   padding: 0 5% 3% 5%;
   color: white;
 }
@@ -520,7 +521,8 @@ p {
 }
 
 .video__carousel__inner__item .video-promo img {
-  width: 500px;
+  width: 530px;
+  height: 400px;
 }
 
 .video__carousel__inner__item .video-promo .videoBtn {
@@ -627,7 +629,7 @@ p {
   text-transform: uppercase;
   -ms-flex-item-align: start;
       align-self: flex-start;
-  margin-top: 2%;
+  margin: 2% 1% 0 0;
 }
 
 .popup__close h3 {
@@ -871,6 +873,15 @@ p {
 }
 
 /* Mobile */
+@media all and (max-width: 1450px) {
+  .hero__title {
+    width: 100%;
+  }
+  .hero__title h1 {
+    font-size: 3.5rem;
+  }
+}
+
 @media all and (max-width: 1200px) {
   .news-title h2,
   .bands__container__cards__card h2 {
@@ -940,8 +951,8 @@ p {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-transform: translate(100%);
-            transform: translate(100%);
+    -webkit-transform: translate(101%);
+            transform: translate(101%);
     -webkit-transition: -webkit-transform 0.5s ease-in;
     transition: -webkit-transform 0.5s ease-in;
     transition: transform 0.5s ease-in;
@@ -1002,13 +1013,102 @@ p {
   .bands__container__promo .promo-title h2 {
     font-size: 1.8rem;
   }
-  .more__container h2 {
-    font-size: 1.1rem;
+  .more__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .more__container__item {
+    width: 100%;
   }
 }
 
-@media all and (max-width: 350px) {
+@media all and (max-width: 450px) {
+  h1 {
+    font-size: 2rem;
+  }
   .scroll-up {
     display: none;
+  }
+  .hero__title {
+    padding-bottom: 15%;
+  }
+  .hero__title p {
+    font-size: 0.8rem;
+  }
+  .hero__title h1 {
+    padding: 5% 0;
+    font-size: 1.8rem;
+  }
+  .news-title h2,
+  .bands__container__cards__card h2,
+  .more__container__item h2 {
+    font-size: 1.1rem;
+  }
+  .music__list__song {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .music__list__song .song-equalizer {
+    width: 25%;
+  }
+  .music__list__song h3 {
+    font-size: 1rem;
+  }
+  .music__list .song-artist {
+    display: none;
+  }
+  @-webkit-keyframes up_down {
+    0%,
+    100% {
+      height: 2px;
+    }
+    50% {
+      height: 20px;
+    }
+  }
+  @keyframes up_down {
+    0%,
+    100% {
+      height: 2px;
+    }
+    50% {
+      height: 20px;
+    }
+  }
+  .video__carousel__inner {
+    width: 100%;
+  }
+  .video__carousel__inner__item {
+    width: 100%;
+  }
+  .video__carousel__inner__item img {
+    width: 100%;
+  }
+  .bands__container__cards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+    padding-bottom: 10px;
+  }
+  .bands__container__promo .promo-title {
+    width: 100%;
+  }
+  .bands__container__promo .promo-title h2 {
+    font-size: 1.5rem;
+  }
+  .bands__container__promo .promo-title .author {
+    width: 80%;
+  }
+  .news,
+  .music,
+  .video,
+  .bands,
+  .more {
+    width: 95%;
   }
 }

@@ -106,7 +106,7 @@ let songsData = [
   },
   {
     id: 3,
-    name: "We Don't Talk About Bruno",
+    name: "About us",
     path: "https://ytop1.com/ru/Thankyou?token=U2FsdGVkX1%2fE8pG4GkvKj56jU0vzSrMALLIIjPIS7QSVpkCn2RhluKO2UA3Q6pScgvM%2fwIBtjLldISlFtaRnSI3XFKZkYjm9YDW7kpNzD3wZsvLsy8n9DexAPV29Is34i02XVhVog2sKfYqDSyUCGIYTDVFF37WvYhRKkrWkZEG%2ffoXwTyveY6Z71qzM%2f721pxyaTrf7P7kumH%2b7qBpcaGpDiuU5Y6NiYkkkqUsKWxc%3d&s=youtube&id=&h=3789168762462316212",
     artist: "Carolina Gaitan",
     duration: { time: "6:44", miliseconds: 385800 },
@@ -145,26 +145,23 @@ let videosData = [
   {
     genre: "Video Top",
     title:
-      "Global News Post Malone criticized for going ahead with concert despite coronavirus outbreak",
-    img: "https://globalnews.ca/wp-content/uploads/2019/09/saint-tropez-post-malone-2.jpg?quality=85&strip=all",
+      "How Dua Lipa went from aspiring singer to one of today's top global female pop stars",
+    img: "https://cae8b291f7a009bc3e401054-wceel7psqz6.netdna-ssl.com/wp-content/uploads/2016/12/Dua-Lipa.jpg?x40218",
   },
   {
     genre: "Video Top",
-    title:
-      "Global News Post Malone criticized for going ahead with concert despite coronavirus outbreak",
-    img: "https://globalnews.ca/wp-content/uploads/2019/09/saint-tropez-post-malone-2.jpg?quality=85&strip=all",
+    title: "Keanu Reeves - latest news, breaking stories and comment",
+    img: "https://static.independent.co.uk/2022/04/29/07/newFile.jpg?quality=50&width=640&auto=webp",
   },
   {
     genre: "Video Top",
-    title:
-      "Global News Post Malone criticized for going ahead with concert despite coronavirus outbreak",
-    img: "https://globalnews.ca/wp-content/uploads/2019/09/saint-tropez-post-malone-2.jpg?quality=85&strip=all",
+    title: "Sade's Signature Beauty Is More Timeless Than Ever Before",
+    img: "https://thesource.com/wp-content/uploads/2018/03/sade.jpg",
   },
   {
     genre: "Video Top",
-    title:
-      "Global News Post Malone criticized for going ahead with concert despite coronavirus outbreak",
-    img: "https://globalnews.ca/wp-content/uploads/2019/09/saint-tropez-post-malone-2.jpg?quality=85&strip=all",
+    title: "Korean Singer Han Yeo Reum wants to collaborate with BTS Jungkook",
+    img: "https://www.allkpop.com/upload/2020/01/content/070506/1578391616-4eb88255-488e-45a5-ba2e-e18f6fe8ab8f.jpeg",
   },
 ];
 
