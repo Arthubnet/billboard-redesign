@@ -560,6 +560,23 @@ p {
   }
 }
 
+/* Footer */
+
+.footer {
+  width: 100%;
+  background-color: white;
+  text-align: center;
+
+  p {
+    font-size: 0.8rem;
+    color: black;
+    padding: 1% 0;
+  }
+  a {
+    color: blue;
+  }
+}
+
 /* Scroll up arrow */
 
 .scroll-up {

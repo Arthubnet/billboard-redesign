@@ -61,7 +61,8 @@ let newsOnRender = () => {
   newsFilter(freshData);
   freshFilter.classList.add("active");
 };
-newsOnRender();
+
+newsOnRender(freshData);
 
 freshFilter.addEventListener("click", () => {
   newsFilter(freshData);
