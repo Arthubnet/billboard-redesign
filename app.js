@@ -43,7 +43,7 @@ let newsFilter = (filter) => {
           return `<div class="news__container__column__item">
                  <div>
                    <img
-                     src="${column.img}" alt="${column.alt}""
+                     src="${column.img}" alt="${column.alt}" loading="lazy"
                    />
                  </div>
                  <div class="news-title">
@@ -164,7 +164,7 @@ slider.innerHTML = videosData
   .map((video) => {
     return `<div class="video__carousel__inner__item">
               <div class="video-promo">
-                <img src="${video.img}" alt="system" />
+                <img src="${video.img}" alt="${video.genre}" loading="lazy" />
                 <div class="videoBtn">
                   <span></span>
                 </div>
@@ -310,7 +310,7 @@ moreNews.innerHTML = moreNewsData
   .map((arr) => {
     return `<div class="more__container__item">
             <img
-              src="${arr.img}" alt="${arr.name}"
+              src="${arr.img}" alt="${arr.name}" loading="lazy"
             />
             <h3>${arr.genre}</h3>
             <h2>
