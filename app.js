@@ -190,8 +190,21 @@ const videoPromo = document.querySelectorAll(".video-promo");
 let playVideo = () => {
   document.querySelector(".video").play();
 };
+
+let stopSong = () => {
+  music.pause();
+  songs.forEach((song) => {
+    song.addEventListener("click", () => {});
+    song.children[1].classList.add("pause");
+  });
+  bars.forEach((bar) => {
+    bar.classList.remove("active");
+  });
+};
+
 videoPromo.forEach((btn) => {
   btn.addEventListener("click", () => {
+    stopSong();
     popup.classList.add("active");
     setTimeout(() => {
       body.classList.add("noscroll");
