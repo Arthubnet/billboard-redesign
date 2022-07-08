@@ -156,7 +156,7 @@ let videosData = [
   {
     genre: "Video Top",
     title: "Sade's Signature Beauty Is More Timeless Than Ever Before",
-    img: "https://thesource.com/wp-content/uploads/2018/03/sade.jpg",
+    img: "http://untitled-magazine.com/online/wp-content/uploads/2022/02/sade.jpg",
   },
   {
     genre: "Video Top",
