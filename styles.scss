@@ -805,6 +805,12 @@ p {
       font-size: 1.8rem;
     }
   }
+
+  .news {
+    .template__title {
+      padding-top: 20px;
+    }
+  }
   .news-title,
   .bands__container__cards__card,
   .more__container__item {
@@ -838,14 +844,22 @@ p {
     }
   }
 
-  .video__carousel__inner {
-    &__item {
-      .video-promo {
-        img {
+  .video {
+    &__carousel__inner {
+      align-items: unset;
+      &__item {
+        .video-promo {
           width: 90vw;
-          height: 30vh;
+          height: 35vh;
+          img {
+            width: 100%;
+            height: 100%;
+          }
         }
       }
+    }
+    .video-arrows {
+      margin: 0;
     }
   }
 
@@ -859,22 +873,25 @@ p {
     }
   }
 
-  .bands__container {
-    &__cards {
-      flex-direction: column;
-      height: 100%;
-      padding-bottom: 10px;
-      &__card {
-      }
-    }
-    &__promo {
-      .promo-title {
-        width: 100%;
-        h2 {
-          font-size: 1.5rem;
+  .bands {
+    padding-top: 30px;
+    &__container {
+      &__cards {
+        flex-direction: column;
+        height: 100%;
+        padding-bottom: 10px;
+        &__card {
         }
-        .author {
-          width: 80%;
+      }
+      &__promo {
+        .promo-title {
+          width: 100%;
+          h2 {
+            font-size: 1.4rem;
+          }
+          .author {
+            width: 80%;
+          }
         }
       }
     }
@@ -886,5 +903,13 @@ p {
   .bands,
   .more {
     width: 95%;
+  }
+  .more__container {
+    gap: 20px;
+    &__item {
+      h3 {
+        padding-top: 5px;
+      }
+    }
   }
 }

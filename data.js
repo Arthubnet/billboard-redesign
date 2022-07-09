@@ -160,8 +160,8 @@ let videosData = [
   },
   {
     genre: "Video Top",
-    title: "Korean Singer Han Yeo Reum wants to collaborate with BTS Jungkook",
-    img: "https://www.allkpop.com/upload/2020/01/content/070506/1578391616-4eb88255-488e-45a5-ba2e-e18f6fe8ab8f.jpeg",
+    title: "Tany death: 22-year-old Korean singer dies in car crash",
+    img: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/16/12/tany-korea.jpg?quality=75&width=982&height=726&auto=webp",
   },
 ];
 
