@@ -179,7 +179,7 @@ slider.innerHTML = videosData
   })
   .join("");
 
-const popup = document.querySelector(".popup");
+const vidModal = document.querySelector(".video-modal");
 const body = document.body;
 const carousel = document.querySelector(".video__carousel");
 const rightBtn = document.querySelector(".arrow-right");
@@ -205,17 +205,17 @@ let stopSong = () => {
 videoPromo.forEach((btn) => {
   btn.addEventListener("click", () => {
     stopSong();
-    popup.classList.add("active");
+    vidModal.classList.add("active");
     setTimeout(() => {
       body.classList.add("noscroll");
     }, 300);
-    popup.addEventListener("transitionend", playVideo());
-    popup.removeEventListener("transitionend", playVideo());
+    vidModal.addEventListener("transitionend", playVideo());
+    vidModal.removeEventListener("transitionend", playVideo());
   });
 });
 
 let stopVideo = () => {
-  popup.classList.remove("active");
+  vidModal.classList.remove("active");
   body.classList.remove("noscroll");
   document.querySelector(".video").pause();
   document.querySelector(".video").currentTime = 0;
@@ -226,7 +226,7 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-popup.children[1].addEventListener("click", () => {
+vidModal.children[1].addEventListener("click", () => {
   stopVideo();
 });
 

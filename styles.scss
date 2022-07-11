@@ -369,6 +369,10 @@ p {
           position: relative;
           font-size: 0;
           transition: 0.4s ease;
+          filter: grayscale(1);
+          &:hover {
+            filter: none;
+          }
           img {
             width: 530px;
             height: 400px;
@@ -433,9 +437,9 @@ p {
   }
 }
 
-// Video popup
+// Video modal
 
-.popup {
+.video-modal {
   position: fixed;
   width: 100vw;
   height: 100vh;
@@ -863,7 +867,7 @@ p {
     }
   }
 
-  .popup {
+  .video-modal {
     &__close {
       align-self: center;
       padding-bottom: 50%;
