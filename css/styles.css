@@ -128,6 +128,7 @@ p {
 
 .hero__navbar-menu {
   width: 35%;
+  margin-left: 10%;
 }
 
 .hero__navbar-menu ul {
@@ -155,11 +156,131 @@ p {
   color: #c51d6f;
 }
 
-.hero__navbar-btn button {
-  padding: 10px 50px;
+.hero__navbar .subscribe {
+  height: 40px;
+  width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
   cursor: pointer;
   text-transform: uppercase;
+}
+
+.hero__navbar .subscribe-btn {
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  color: white;
   background: #c51d6f;
+  line-height: 40px;
+  font-weight: 500;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  -webkit-box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+  -webkit-transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.hero__navbar .subscribe-btn:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+}
+
+.hero__navbar .subscribe #subscribe:checked ~ .subscribe-btn {
+  height: 40px;
+  width: 100px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.hero__navbar .subscribe-field {
+  height: 100%;
+  width: 0%;
+  opacity: 0;
+  pointer-events: none;
+  position: relative;
+  -webkit-transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.hero__navbar .subscribe-field input {
+  height: 100%;
+  width: 100%;
+  border: 2px solid #fff;
+  padding: 0 100px 0 15px;
+  font-size: 20px;
+  outline: none;
+  -webkit-box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+  color: black;
+}
+
+.hero__navbar .subscribe-field input::-webkit-input-placeholder {
+  color: #999;
+  font-size: 18px;
+}
+
+.hero__navbar .subscribe-field input:-ms-input-placeholder {
+  color: #999;
+  font-size: 18px;
+}
+
+.hero__navbar .subscribe-field input::-ms-input-placeholder {
+  color: #999;
+  font-size: 18px;
+}
+
+.hero__navbar .subscribe-field input::placeholder {
+  color: #999;
+  font-size: 18px;
+}
+
+.hero__navbar .subscribe-field .subscribe-btn2 {
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  font-size: 14px;
+  color: white;
+  line-height: 30px;
+  background: #c51d6f;
+  height: 30px;
+  width: 100px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.hero__navbar .subscribe-field .subscribe-btn2:active {
+  -webkit-transform: translateY(-50%) scale(0.9);
+          transform: translateY(-50%) scale(0.9);
+}
+
+.hero__navbar .subscribe #subscribe:checked ~ .subscribe-field {
+  width: 100%;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero__navbar .subscribe #subscribe {
+  display: none;
 }
 
 .hero__navbar-burger {
@@ -898,53 +1019,7 @@ p {
 
 /* Mobile */
 @media all and (max-width: 1450px) {
-  .hero__title {
-    width: 100%;
-  }
-  .hero__title h1 {
-    font-size: 3.5rem;
-  }
-}
-
-@media all and (max-width: 1200px) {
-  .news-title h2,
-  .bands__container__cards__card h2 {
-    font-size: 1.4rem;
-  }
-}
-
-@media all and (max-width: 992px) {
-  .bands__container {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .bands__container__cards {
-    width: 100%;
-    height: 30%;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-  .bands__container__cards__card {
-    height: 100%;
-    padding: 2%;
-  }
-  .bands__container__cards__card p {
-    font-size: 0.8rem;
-  }
-  .bands__container__cards__card h2 {
-    font-size: 1.1rem;
-  }
-  .bands__container__promo {
-    width: 100%;
-  }
-}
-
-@media all and (max-width: 768px) {
-  .hero__navbar-btn {
+  .hero__navbar .subscribe {
     display: none;
   }
   .hero__navbar-burger {
@@ -1020,6 +1095,52 @@ p {
   .hero__title h1 {
     font-size: 2.5rem;
   }
+  .hero__title {
+    width: 100%;
+  }
+  .hero__title h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .news-title h2,
+  .bands__container__cards__card h2 {
+    font-size: 1.4rem;
+  }
+}
+
+@media all and (max-width: 992px) {
+  .bands__container {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .bands__container__cards {
+    width: 100%;
+    height: 30%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .bands__container__cards__card {
+    height: 100%;
+    padding: 2%;
+  }
+  .bands__container__cards__card p {
+    font-size: 0.8rem;
+  }
+  .bands__container__cards__card h2 {
+    font-size: 1.1rem;
+  }
+  .bands__container__promo {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 768px) {
   .news__container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
