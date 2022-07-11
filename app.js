@@ -111,12 +111,16 @@ musicList.innerHTML = songsData
 
 const songs = document.querySelectorAll(".music__list__song");
 const bars = document.querySelectorAll(".bar");
+let currentSong = "";
 
 songs.forEach((song, i) => {
   song.addEventListener("click", () => {
     music.pause();
     bars.forEach((bar) => {
       bar.classList.remove("active");
+    });
+    songsData.map((item) => {
+      if (item.id == song.id) currentSong = item;
     });
     var equalizer = song.children[4].querySelectorAll(".bar");
     if (song.children[1].className.includes("pause")) {
@@ -130,21 +134,12 @@ songs.forEach((song, i) => {
       music.play();
       equalizer.forEach((item) => {
         item.classList.add("active");
-        if (song.id == 2) {
-          setTimeout(() => {
-            item.classList.remove("active");
-            songs.forEach((btn) => {
-              btn.children[1].classList.add("pause");
-            });
-          }, 255000);
-        } else {
-          setTimeout(() => {
-            item.classList.remove("active");
-            songs.forEach((btn) => {
-              btn.children[1].classList.add("pause");
-            });
-          }, 385800);
-        }
+        setTimeout(() => {
+          item.classList.remove("active");
+          songs.forEach((btn) => {
+            btn.children[1].classList.add("pause");
+          });
+        }, currentSong.duration.milliseconds);
       });
     } else {
       song.children[1].classList.toggle("pause");
