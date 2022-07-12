@@ -188,10 +188,9 @@ const rightBtn = document.querySelector(".arrow-right");
 const leftBtn = document.querySelector(".arrow-left");
 const carouselItem = document.querySelector(".video__carousel__inner__item");
 const videoPromo = document.querySelectorAll(".video-promo");
+const iFrame = document.getElementById("youtube");
 
-let playVideo = () => {
-  document.querySelector(".video").play();
-};
+let playVideo = () => {};
 
 let stopSong = () => {
   music.pause();
@@ -206,6 +205,7 @@ let stopSong = () => {
 
 videoPromo.forEach((btn) => {
   btn.addEventListener("click", () => {
+    iFrame.classList.add("active");
     stopSong();
     vidModal.classList.add("active");
     setTimeout(() => {
@@ -217,11 +217,14 @@ videoPromo.forEach((btn) => {
 });
 
 let stopVideo = () => {
+  iFrame.classList.remove("active");
+  let url = iFrame.getAttribute("src");
+  iFrame.setAttribute("src", "");
+  iFrame.setAttribute("src", url);
   vidModal.classList.remove("active");
   body.classList.remove("noscroll");
-  document.querySelector(".video").pause();
-  document.querySelector(".video").currentTime = 0;
 };
+
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
     stopVideo();
