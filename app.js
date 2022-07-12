@@ -138,16 +138,18 @@ songs.forEach((song, i) => {
         }
       });
       song.children[1].classList.toggle("pause");
-      music.play();
-      equalizer.forEach((item) => {
-        item.classList.add("active");
-        setTimeout(() => {
-          item.classList.remove("active");
-          songs.forEach((btn) => {
-            btn.children[1].classList.add("pause");
-          });
-        }, currentSong.duration.milliseconds);
-      });
+      music.oncanplay = () => {
+        music.play();
+        equalizer.forEach((item) => {
+          item.classList.add("active");
+          setTimeout(() => {
+            item.classList.remove("active");
+            songs.forEach((btn) => {
+              btn.children[1].classList.add("pause");
+            });
+          }, currentSong.duration.milliseconds);
+        });
+      };
     } else {
       song.children[1].classList.toggle("pause");
     }
@@ -189,8 +191,6 @@ const leftBtn = document.querySelector(".arrow-left");
 const carouselItem = document.querySelector(".video__carousel__inner__item");
 const videoPromo = document.querySelectorAll(".video-promo");
 const iFrame = document.getElementById("youtube");
-
-let playVideo = () => {};
 
 let stopSong = () => {
   music.pause();
