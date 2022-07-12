@@ -736,11 +736,11 @@ p {
   z-index: 100;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%) scale(0);
-          transform: translate(-50%, -50%) scale(0);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-transform: translate(-50%, -50%) scale(0);
+          transform: translate(-50%, -50%) scale(0);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -750,6 +750,16 @@ p {
   z-index: 1001;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+}
+
+.video-modal #youtube {
+  width: 80%;
+  height: 80%;
+  display: none;
+}
+
+.video-modal #youtube.active {
+  display: block;
 }
 
 .video-modal__close {
@@ -769,6 +779,9 @@ p {
 }
 
 .video-modal.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-transform: translate(-50%, -50%) scale(1);
           transform: translate(-50%, -50%) scale(1);
 }

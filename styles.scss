@@ -522,12 +522,20 @@ p {
   z-index: 100;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) scale(0);
   display: flex;
+  transform: translate(-50%, -50%) scale(0);
   justify-content: center;
   align-items: center;
   z-index: 1001;
   transition: 0.5s;
+  #youtube {
+    width: 80%;
+    height: 80%;
+    display: none;
+    &.active {
+      display: block;
+    }
+  }
   &__close {
     cursor: pointer;
     text-transform: uppercase;
@@ -541,6 +549,7 @@ p {
     }
   }
   &.active {
+    display: flex;
     transform: translate(-50%, -50%) scale(1);
   }
   video {

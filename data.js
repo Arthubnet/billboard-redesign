@@ -135,6 +135,7 @@ let videosData = [
     title:
       "Ricky Martin on coming out as gay: 'I've been super happy ever since'",
     img: "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2020_29/3396653/200713-ricky-martin-jm-1503.jpg",
+    path: "https://www.youtube.com/embed/pmoYP_QvGsM",
   },
   {
     genre: "Video Top",
@@ -157,11 +158,6 @@ let videosData = [
     genre: "Video Top",
     title: "Sade's Signature Beauty Is More Timeless Than Ever Before",
     img: "http://untitled-magazine.com/online/wp-content/uploads/2022/02/sade.jpg",
-  },
-  {
-    genre: "Video Top",
-    title: "Tany death: 22-year-old Korean singer dies in car crash",
-    img: "https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/04/16/12/tany-korea.jpg?quality=75&width=982&height=726&auto=webp",
   },
 ];
 
