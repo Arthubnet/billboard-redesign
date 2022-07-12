@@ -28,6 +28,13 @@ const navSlide = () => {
 
 navSlide();
 
+const subscribeBtn = document.querySelector(".subscribe-btn2");
+let subscribeField = document.getElementById("input");
+
+subscribeBtn.addEventListener("click", () => {
+  subscribeField.value = "";
+});
+
 /* News */
 
 const newsContainer = document.querySelector(".news__container");
