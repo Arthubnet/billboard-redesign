@@ -1044,8 +1044,6 @@ p {
       }
       &__cards {
         flex-direction: column;
-        &__card {
-        }
       }
     }
   }
@@ -1222,8 +1220,6 @@ p {
       &__promo {
         height: 80vh;
         .promo-title {
-          .author {
-          }
           h2 {
             font-size: 1.4rem;
           }

@@ -358,7 +358,6 @@ slider.innerHTML = videosData
   .join("");
 
 const vidModal = document.querySelector(".video-modal");
-
 const carousel = document.querySelector(".video__carousel");
 const rightBtn = document.querySelector(".arrow-right");
 const leftBtn = document.querySelector(".arrow-left");
@@ -408,8 +407,13 @@ document.addEventListener("keydown", function (e) {
   }
 });
 
-vidModal.children[1].addEventListener("click", () => {
-  stopVideo();
+document.addEventListener("click", (e) => {
+  if (
+    e.target.matches(".video-modal") ||
+    e.target.matches(".video-modal__close h3")
+  ) {
+    stopVideo();
+  }
 });
 
 // carousel
