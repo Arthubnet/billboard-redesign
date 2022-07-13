@@ -7,21 +7,22 @@ const navSlide = () => {
   let navbar = document.querySelector(".hero__navbar-lists");
   let navLinks = document.querySelectorAll(".hero__navbar-lists li");
 
+  let navbarToggle = () => {
+    navbar.classList.toggle("nav-active");
+    burger.classList.toggle("active");
+    body.classList.toggle("noscroll");
+  };
   navLinks.forEach((link) => {
     link.addEventListener("click", () => {
       navLinks.forEach((link, index) => {
         link.style.animation = "";
       });
-      navbar.classList.toggle("nav-active");
-      burger.classList.toggle("active");
-      body.classList.toggle("noscroll");
+      navbarToggle();
     });
   });
 
   burger.addEventListener("click", () => {
-    navbar.classList.toggle("nav-active");
-    burger.classList.toggle("active");
-    body.classList.toggle("noscroll");
+    navbarToggle();
     //Animate links
     navLinks.forEach((link, index) => {
       if (link.style.animation) {
@@ -93,13 +94,13 @@ weekFilter.addEventListener("click", () => {
 
 /* Songs */
 
-const music = document.getElementById("audio");
+const music = document.querySelector("audio");
 const musicList = document.querySelector(".music__list");
 
 musicList.innerHTML = songsData
   .map((song) => {
     return `<div class="frame">
-            <div id="${song.id}" class="music__list__song">
+            <div id=${song.id} class="music__list__song">
               <div class="song-number"><p>${song.id}</p></div>
               <div class="song-play-btn pause">
                 <span></span>
@@ -132,44 +133,102 @@ const playerTitle = document.querySelector(".player__description__title");
 const playerPanel = document.querySelector(".player");
 const playerCover = document.querySelector(".player-cover");
 const playController = document.querySelector(".playBtn");
+const prevController = document.querySelector(".prevBtn");
+const nextController = document.querySelector(".nextBtn");
 
-let currentSong = {};
 let playing = false;
 let playerActive = false;
 
-let onPause = (song, equalizer) => {
+let onPause = () => {
   playing = true;
-  song.children[1].classList.remove("pause");
-  equalizer.forEach((bar) => {
-    bar.classList.add("active");
-  });
-  playController.src = "./assets/img/circle-pause-solid.svg";
   music.play();
 };
 
-let onPlay = (song, equalizer) => {
+let onPlay = () => {
   playing = false;
-  song.children[1].classList.add("pause");
-  equalizer.forEach((item) => {
-    item.classList.remove("active");
-  });
-  playController.src = "./assets/img/circle-play-solid.svg";
   music.pause();
 };
-songs.forEach((song) => {
-  song.addEventListener("click", () => {
-    let equalizer = song.children[4].querySelectorAll(".bar");
-    if (currentSong.id != song.id) {
+
+nextController.addEventListener("click", () => {
+  if (parseInt(music.id) < 5) {
+    let nextSong = parseInt(music.id) + 1;
+    setMusic(nextSong);
+    onPause();
+  } else {
+    setMusic(1);
+    onPause();
+  }
+});
+
+prevController.addEventListener("click", () => {
+  if (parseInt(music.id) > 1) {
+    let nextSong = parseInt(music.id) - 1;
+    setMusic(nextSong);
+    onPause();
+  } else {
+    setMusic(5);
+    onPause();
+  }
+});
+
+let equalizerOn = (e) => {
+  songs.forEach((song) => {
+    song.children[1].classList.add("pause");
+    if (song.id == Number(e.srcElement.id)) {
       bars.forEach((bar) => {
         bar.classList.remove("active");
       });
+      let equalizer = song.children[4].querySelectorAll(".bar");
+      equalizer.forEach((item) => {
+        item.classList.add("active");
+      });
+      song.children[1].classList.remove("pause");
+      playController.src = "./assets/img/circle-pause-solid.svg";
+      playController.title = "Pause";
+    }
+  });
+  songsData.forEach((songObj) => {
+    if (songObj.id == Number(e.srcElement.id)) {
+      playerTitle.children[0].textContent = songObj.artist;
+      playerTitle.children[1].textContent = songObj.name;
+      playerCover.src = songObj.cover;
+    }
+  });
+};
+
+let pauseOn = (e) => {
+  songs.forEach((song) => {
+    if (song.id == Number(e.srcElement.id)) {
+      let equalizer = song.children[4].querySelectorAll(".bar");
+      equalizer.forEach((item) => {
+        item.classList.remove("active");
+      });
+      song.children[1].classList.add("pause");
+      playController.src = "./assets/img/circle-play-solid.svg";
+      playController.title = "Play";
+    }
+  });
+};
+
+let stopAnimation = () => {
+  songs.forEach((song) => {
+    song.children[1].classList.add("pause");
+  });
+  bars.forEach((bar) => {
+    bar.classList.remove("active");
+  });
+};
+
+music.addEventListener("ended", stopAnimation);
+music.addEventListener("pause", pauseOn);
+music.addEventListener("play", equalizerOn);
+
+songs.forEach((song) => {
+  song.addEventListener("click", () => {
+    if (Number(music.id) != song.id) {
       songsData.map((item) => {
         if (item.id == song.id) {
-          setMusic(item.path);
-          currentSong = item;
-          playerTitle.children[0].innerHTML = currentSong.artist;
-          playerTitle.children[1].innerHTML = currentSong.name;
-          playerCover.src = currentSong.cover;
+          setMusic(song.id);
         }
       });
       if (!playerActive) {
@@ -177,24 +236,30 @@ songs.forEach((song) => {
         playerPanel.classList.add("active");
       }
       if (playing) {
-        songs.forEach((btn) => {
-          btn.children[1].classList.add("pause");
-        });
-        onPause(song, equalizer);
+        onPause();
       } else {
-        onPause(song, equalizer);
+        onPause();
       }
       return;
     }
-    if (currentSong.id == song.id) {
+    if (Number(music.id) == song.id) {
       if (playing) {
-        onPlay(song, equalizer);
+        onPlay();
       } else {
-        onPause(song, equalizer);
+        onPause();
       }
     }
   });
 });
+
+let setMusic = (id) => {
+  songsData.map((song) => {
+    if (song.id == id) {
+      music.src = song.path;
+      music.id = song.id;
+    }
+  });
+};
 
 /* Controls */
 
@@ -202,8 +267,6 @@ const progressBar = document.querySelector(".progress");
 let progressInner = document.querySelector(".progress-inner");
 let songCurrentTime = document.getElementById("current-time");
 let songDuration = document.getElementById("song-duration");
-const prevController = document.querySelector(".prevBtn");
-const nextController = document.querySelector(".nextBtn");
 const volumeBtn = document.querySelector(".volumeBtn");
 const volumeProgress = document.querySelector(".progress-volume");
 const volumeProgressInner = document.querySelector(".progress-volume__inner");
@@ -211,26 +274,8 @@ const volumeProgressInner = document.querySelector(".progress-volume__inner");
 playController.addEventListener("click", () => {
   if (!playing) {
     playing = true;
-    songs.forEach((song) => {
-      let equalizer = song.children[4].querySelectorAll(".bar");
-      if (song.id == currentSong.id) {
-        song.children[1].classList.remove("pause");
-        equalizer.forEach((item) => {
-          item.classList.add("active");
-        });
-        playController.src = "./assets/img/circle-pause-solid.svg";
-      }
-    });
     music.play();
   } else {
-    songs.forEach((song) => {
-      let equalizer = song.children[4].querySelectorAll(".bar");
-      song.children[1].classList.add("pause");
-      equalizer.forEach((item) => {
-        item.classList.remove("active");
-      });
-      playController.src = "./assets/img/circle-play-solid.svg";
-    });
     playing = false;
     music.pause();
   }
@@ -270,14 +315,6 @@ let setVolume = (e) => {
   music.volume = e.offsetX / volumeProgress.clientWidth;
 };
 
-let stopAnimation = () => {
-  songs.forEach((song) => {
-    song.children[1].classList.add("pause");
-  });
-  bars.forEach((bar) => {
-    bar.classList.remove("active");
-  });
-};
 let currentVolume;
 volumeBtn.addEventListener("click", () => {
   if (music.volume) {
@@ -292,14 +329,10 @@ volumeBtn.addEventListener("click", () => {
     volumeBtn.src = "./assets/img/volume-high-solid.svg";
   }
 });
-music.addEventListener("ended", stopAnimation);
+
 volumeProgress.addEventListener("click", setVolume);
 progressBar.addEventListener("click", setCurrentTime);
 music.addEventListener("timeupdate", time);
-
-let setMusic = (path) => {
-  music.src = path;
-};
 
 /* Video */
 
