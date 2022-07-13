@@ -195,6 +195,7 @@ let songDuration = document.getElementById("song-duration");
 const playController = document.querySelector(".playBtn");
 const prevController = document.querySelector(".prevBtn");
 const nextController = document.querySelector(".nextBtn");
+const volumeBtn = document.querySelector(".volumeBtn");
 const volumeProgress = document.querySelector(".progress-volume");
 const volumeProgressInner = document.querySelector(".progress-volume__inner");
 
@@ -255,6 +256,19 @@ let stopAnimation = () => {
     bar.classList.remove("active");
   });
 };
+let currentVolume;
+volumeBtn.addEventListener("click", () => {
+  if (music.volume) {
+    currentVolume = music.volume;
+    music.volume = 0;
+    volumeProgressInner.style.width = `0px`;
+    return;
+  } else {
+    music.volume = currentVolume;
+    volumeProgressInner.style.width = `${currentVolume * 100}px`;
+    console.log(currentVolume * 100);
+  }
+});
 music.addEventListener("ended", stopAnimation);
 volumeProgress.addEventListener("click", onVolumeProgress);
 progressBar.addEventListener("click", onProgress);

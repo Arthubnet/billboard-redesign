@@ -529,11 +529,14 @@ p {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-
     img {
       width: 25px;
       height: 25px;
-      padding-right: 5px;
+      margin-right: 15px;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+      }
     }
     .progress-volume {
       width: 30%;
