@@ -101,21 +101,21 @@ let songsData = [
   },
   {
     id: 2,
-    name: "Shape of My Heart",
-    path: "https://ytop1.com/Thankyou?token=U2FsdGVkX1%2f7MZ15u7VLW6nPytYrHg1UQvhcmj90oj1p%2f6ddwU%2fEjg4tZ2dcur7riHVsJ9vO8IiQwHp2u8J30DLoQHscRM9u0rCzTnrPeyW0PxyIi1Ob2IMeK4sHJX%2fJqvf%2btF0fl7xKRm8KhjOni8IVsyxHQ0K4qWAwW1t92xM%3d&s=youtube&id=&h=844019832527451702",
-    artist: "Sting",
-    duration: "4:38",
+    name: "Anumati",
+    path: "https://ytop1.com/Thankyou?token=U2FsdGVkX1%2brPCXEMHtc%2bwGr%2fkKvaARPiWsYvRCbv6B7wDUecTaSx8W2q1Je%2bnNc8EmoiTPjW0aK0etq6fgF8GpUxtCLxuKCHQft1tKE7SpwCuKw1iQ3GcLeCZZSK%2f45KOLBRP1AJqS8Bu0FGnu23KDzDDnmQwX9hTHwEGDxQZRCprCqpToE1KFLJa76PXGJupr2ckfKFHLvxis4lVdfSNzUx%2bherZTiTSPbDBrNHgtDBT1h1YtwuAzCRenm01FM%2fiFYBngwrbqastJV6enPrg%3d%3d&s=youtube&id=&h=844019832527452011",
+    artist: "Jo Blankenburg",
+    duration: "9:02",
     cover:
-      "https://www.chords.co.kr/wp-content/uploads/2020/09/Shape-of-my-heart_title.jpg",
+      "https://i.ytimg.com/vi/zY6fTKEh9m4/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLA502oT7WC2TbCja33gv6N17HPfqw",
   },
   {
     id: 3,
-    name: "The show must go on",
-    path: "https://ytop1.com/Thankyou?token=U2FsdGVkX18FsSij7hemmftqrGdeV5uhY2tVaBrGzwBlSG5uve%2b%2fGoCaOo0cG6XPnvreh%2frpmSHuYPKL%2fs5a206i7kHI%2f4sYPELHUsKaF4845Sgn3sgRW2dBROxMnVqO6J3PcVdSGnA6zFZavr4H7mgCriGt45lAMUIxDbaO7I%2bLZCMlnVNVNkEwdtPWGUWN&s=youtube&id=&h=844019832527451703",
-    artist: "Queen",
-    duration: "4:38",
+    name: "Marooned",
+    path: "https://ytop1.com/Thankyou?token=U2FsdGVkX18sXfdWhtNOmakF5iJ6VzfxvEsrqZQgJvY1XXbDlnGuxWJjmCOigCZGGu5UINvnvjPUO8GprfSFEXFnFD5Sf9DJwJ%2fCxCvREgFKvFLbx%2fTlswqx%2bzJRRTkDJneJI8OyrJIf7Wn%2bnHjRfOwepSvu%2brAd0tdOwxtmPXwKfvcEiOyQmG4ZEDOgy8ox&s=youtube&id=&h=844019832527452011",
+    artist: "Pink Floyd",
+    duration: "5:25",
     cover:
-      "https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/show-must-go-on-queen-gina-dsgn.jpg",
+      "https://www.cnet.com/a/img/resize/d4795b4a414ac5e4543cf6768f477336c99a9c41/2021/10/18/e7dc3a2c-0e1f-4bbd-9ffa-51409f592633/floydmars.jpg?auto=webp",
   },
   {
     id: 4,
@@ -141,33 +141,42 @@ let songsData = [
 
 let videosData = [
   {
+    id: 100,
     genre: "Video Top",
     title:
-      "Ricky Martin on coming out as gay: 'I've been super happy ever since'",
-    img: "https://media-cldnry.s-nbcnews.com/image/upload/t_fit-1240w,f_auto,q_auto:best/newscms/2020_29/3396653/200713-ricky-martin-jm-1503.jpg",
-    path: "https://www.youtube.com/embed/pmoYP_QvGsM",
+      "Leon The Professional New York City Jean Reno Movie Art Huge Print Poster",
+    img: "https://ae01.alicdn.com/kf/HTB1k4M0NXXXXXcyaXXXq6xXFXXXS/Leon-The-Professional-New-York-City-Jean-Reno-Movie-Art-Huge-Print-Poster-TXHOME-D6170.jpg",
+    path: "https://www.youtube.com/embed/QK-Z1K67uaA",
   },
   {
+    id: 101,
     genre: "Video Top",
-    title:
-      "Global News Post Malone criticized for going ahead with concert despite coronavirus outbreak",
-    img: "https://globalnews.ca/wp-content/uploads/2019/09/saint-tropez-post-malone-2.jpg?quality=85&strip=all",
+    title: "Bird's Teardrops || Estas Tonne feat. Peia || Ashland, Oregon",
+    img: "https://render.fineartamerica.com/images/rendered/default/poster/10/8/break/images/artworkimages/medium/2/estas-tonne-no8-fei-a.jpg",
+    path: "https://www.youtube.com/embed/hn10okvX19E",
   },
   {
+    id: 102,
     genre: "Video Top",
-    title:
-      "How Dua Lipa went from aspiring singer to one of today's top global female pop stars",
-    img: "https://cae8b291f7a009bc3e401054-wceel7psqz6.netdna-ssl.com/wp-content/uploads/2016/12/Dua-Lipa.jpg?x40218",
-  },
-  {
-    genre: "Video Top",
-    title: "Keanu Reeves - latest news, breaking stories and comment",
-    img: "https://static.independent.co.uk/2022/04/29/07/newFile.jpg?quality=50&width=640&auto=webp",
-  },
-  {
-    genre: "Video Top",
-    title: "Sade's Signature Beauty Is More Timeless Than Ever Before",
+    title: "Song of the Day: Jezebel by Sade, Live",
     img: "http://untitled-magazine.com/online/wp-content/uploads/2022/02/sade.jpg",
+    path: "https://www.youtube.com/embed/yK3IlV3l9xY",
+  },
+
+  {
+    id: 103,
+    genre: "Video Top",
+    title: "Eternal Eclipse - Yearning Hearts (Official Music Video)",
+    img: "https://i.ytimg.com/vi/pMIb9HRKJJQ/maxresdefault.jpg",
+    path: "https://www.youtube.com/embed/sJMc6EpHPHI",
+  },
+  {
+    id: 104,
+    genre: "Video Top",
+    title:
+      "Listen to In Me(azi version) by Izzamuzzic in Izzamusic playlist online'",
+    img: "https://i1.sndcdn.com/artworks-000246135340-ub19jf-t500x500.jpg",
+    path: "https://www.youtube.com/embed/ftIhTuro_wg",
   },
 ];
 

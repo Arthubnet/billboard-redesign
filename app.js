@@ -341,7 +341,7 @@ const slider = document.querySelector(".video__carousel__inner");
 slider.innerHTML = videosData
   .map((video) => {
     return `<div class="video__carousel__inner__item">
-              <div class="video-promo">
+              <div id="${video.id}" class="video-promo">
                 <img src="${video.img}" alt="${video.genre}" loading="lazy" />
                 <div class="videoBtn">
                   <span></span>
@@ -381,14 +381,19 @@ let stopSong = () => {
 
 videoPromo.forEach((btn) => {
   btn.addEventListener("click", () => {
+    videosData.map((video) => {
+      if (video.id == btn.id) {
+        iFrame.src = video.path;
+      }
+    });
     iFrame.classList.add("active");
     stopSong();
     vidModal.classList.add("active");
     setTimeout(() => {
       body.classList.add("noscroll");
     }, 300);
-    vidModal.addEventListener("transitionend", playVideo());
-    vidModal.removeEventListener("transitionend", playVideo());
+    /* vidModal.addEventListener("transitionend", playVideo());
+    vidModal.removeEventListener("transitionend", playVideo()); */
   });
 });
 
