@@ -101,10 +101,10 @@ let songsData = [
   },
   {
     id: 2,
-    name: "Anumati",
-    path: "https://ytop1.com/Thankyou?token=U2FsdGVkX1%2brPCXEMHtc%2bwGr%2fkKvaARPiWsYvRCbv6B7wDUecTaSx8W2q1Je%2bnNc8EmoiTPjW0aK0etq6fgF8GpUxtCLxuKCHQft1tKE7SpwCuKw1iQ3GcLeCZZSK%2f45KOLBRP1AJqS8Bu0FGnu23KDzDDnmQwX9hTHwEGDxQZRCprCqpToE1KFLJa76PXGJupr2ckfKFHLvxis4lVdfSNzUx%2bherZTiTSPbDBrNHgtDBT1h1YtwuAzCRenm01FM%2fiFYBngwrbqastJV6enPrg%3d%3d&s=youtube&id=&h=844019832527452011",
-    artist: "Jo Blankenburg",
-    duration: "9:02",
+    name: "Evolve II",
+    path: "https://ytop1.com/Thankyou?token=U2FsdGVkX1%2bufA1IpiyHwJ7sBNzf%2fDQ70cq5GsIBDeH4TXbiwCqwQpr9SRkUa9cFqf1KR5rWifOWezv5lqueEyuNeyMb%2brzYNI0hc%2b9zRDxLFl3ceHJSJKLzlZ7RssI6gAXjlSo2fS7yDohOC%2fqQZmSr7fdKIsn8pxBHRFtX0sRPGXhLlyfwe36IT5ktiulG&s=youtube&id=&h=844019832527452015",
+    artist: "Nordwise",
+    duration: "3:47",
     cover:
       "https://i.ytimg.com/vi/zY6fTKEh9m4/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLA502oT7WC2TbCja33gv6N17HPfqw",
   },
