@@ -780,6 +780,10 @@ p {
   transition: width 0.1s linear;
 }
 
+.player-main .progress-container .progress:hover .progress-inner {
+  background: #c51d6f;
+}
+
 .player-main span {
   display: block;
   font-size: 12px;
@@ -841,6 +845,10 @@ p {
   height: 100%;
   -webkit-transition: width 0.1s linear;
   transition: width 0.1s linear;
+}
+
+.player__volume .progress-volume:hover .progress-volume__inner {
+  background: #c51d6f;
 }
 
 /* Video */
