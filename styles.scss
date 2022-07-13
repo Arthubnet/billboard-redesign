@@ -290,7 +290,7 @@ p {
           color: rgba(255, 255, 255, 0.5);
         }
         .song-name {
-          width: 30%;
+          width: 35%;
         }
         .song-artist {
           width: 25%;
@@ -433,6 +433,9 @@ p {
   align-items: center;
   z-index: 100;
   transition: all 0.5s ease;
+  @media all and (max-width: 450px) {
+    height: 15vh;
+  }
 
   &.active {
     transform: translateY(0);
@@ -500,6 +503,16 @@ p {
         }
         &:active {
           transform: scale(0.9);
+        }
+      }
+      @media all and (max-width: 450px) {
+        img {
+          width: 30px;
+          height: 30px;
+          &:nth-child(2) {
+            width: 40px;
+            height: 40px;
+          }
         }
       }
     }
@@ -1036,12 +1049,13 @@ p {
 @media all and (max-width: 450px) {
   h1 {
     font-size: 2rem;
+    padding-bottom: 10px;
   }
   .scroll-up {
     display: none;
   }
   .hero__title {
-    padding-bottom: 15%;
+    padding-bottom: 7%;
     p {
       font-size: 0.8rem;
     }
@@ -1067,6 +1081,7 @@ p {
   .music__list {
     &__song {
       justify-content: space-between;
+
       .song-equalizer {
         width: 25%;
       }
@@ -1121,20 +1136,27 @@ p {
   .bands {
     padding-top: 30px;
     &__container {
-      &__cards {
-        flex-direction: column;
-        height: 100%;
-        padding-bottom: 10px;
-      }
+      height: 100vh;
+      gap: 20px;
       &__promo {
         .promo-title {
           width: 100%;
+          height: 35vh;
+          .author {
+            padding-top: 35%;
+            width: 80%;
+          }
           h2 {
             font-size: 1.4rem;
           }
-          .author {
-            width: 80%;
-          }
+        }
+      }
+      &__cards {
+        flex-direction: column;
+        padding-bottom: 10px;
+        height: unset;
+        &__card {
+          height: 16vh;
         }
       }
     }
