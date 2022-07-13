@@ -128,6 +128,25 @@ let currentSong = {};
 let playing = false;
 let playerActive = false;
 
+let onPause = (song, equalizer) => {
+  playing = true;
+  song.children[1].classList.remove("pause");
+  equalizer.forEach((bar) => {
+    bar.classList.add("active");
+  });
+  playController.src = "./assets/img/circle-pause-solid.svg";
+  music.play();
+};
+
+let onPlay = (song, equalizer) => {
+  playing = false;
+  song.children[1].classList.add("pause");
+  equalizer.forEach((item) => {
+    item.classList.remove("active");
+  });
+  playController.src = "./assets/img/circle-play-solid.svg";
+  music.pause();
+};
 songs.forEach((song) => {
   song.addEventListener("click", () => {
     let equalizer = song.children[4].querySelectorAll(".bar");
@@ -149,43 +168,20 @@ songs.forEach((song) => {
         playerPanel.classList.add("active");
       }
       if (playing) {
-        equalizer.forEach((bar) => {
-          bar.classList.add("active");
-        });
         songs.forEach((btn) => {
           btn.children[1].classList.add("pause");
         });
-        song.children[1].classList.remove("pause");
-        playController.src = "./assets/img/circle-pause-solid.svg";
-        music.play();
+        onPause(song, equalizer);
       } else {
-        playing = true;
-        song.children[1].classList.remove("pause");
-        equalizer.forEach((bar) => {
-          bar.classList.add("active");
-        });
-        playController.src = "./assets/img/circle-pause-solid.svg";
-        music.play();
+        onPause(song, equalizer);
       }
       return;
     }
     if (currentSong.id == song.id) {
       if (playing) {
-        playing = false;
-        song.children[1].classList.add("pause");
-        equalizer.forEach((item) => {
-          item.classList.remove("active");
-        });
-        playController.src = "./assets/img/circle-play-solid.svg";
-        music.pause();
+        onPlay(song, equalizer);
       } else {
-        playing = true;
-        song.children[1].classList.remove("pause");
-        equalizer.forEach((item) => {
-          item.classList.add("active");
-        });
-        playController.src = "./assets/img/circle-pause-solid.svg";
-        music.play();
+        onPause(song, equalizer);
       }
     }
   });
