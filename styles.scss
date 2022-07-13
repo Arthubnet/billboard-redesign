@@ -416,6 +416,126 @@ p {
   }
 }
 
+.player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8vh;
+  background: #1d1d1d;
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  &__container {
+    width: 90%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__title {
+    flex: 1 1 0;
+    h4 {
+      font-size: 14px;
+      font-weight: 300;
+      letter-spacing: 1px;
+      padding-bottom: 1px;
+    }
+    p {
+      font-size: 12px;
+      font-weight: 200;
+      color: #909090;
+    }
+  }
+  &-main {
+    flex: 2 1 0;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    &__controls {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      img {
+        user-select: none;
+        opacity: 0.8;
+        width: 25px;
+        height: 25px;
+        &:hover {
+          cursor: pointer;
+          opacity: 1;
+        }
+        &:nth-child(2) {
+          width: 30px;
+          height: 30px;
+        }
+      }
+      .pauseBtn {
+        display: none;
+      }
+    }
+    .progress-container {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      .progress {
+        width: 85%;
+        background: #333333;
+        border-radius: 5px;
+        cursor: pointer;
+        height: 4px;
+        &-inner {
+          width: 0;
+          background: #fff;
+          border-radius: 5px;
+          height: 100%;
+          transition: width 0.1s linear;
+        }
+      }
+    }
+    span {
+      display: block;
+      font-size: 12px;
+    }
+  }
+  .player__volume {
+    flex: 1 1 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    img {
+      width: 25px;
+      height: 25px;
+      padding-right: 5px;
+    }
+    .progress-volume {
+      width: 30%;
+      height: 4px;
+      background: #333333;
+      border-radius: 5px;
+      cursor: pointer;
+      &__inner {
+        width: 100%;
+        background: #fff;
+        border-radius: 5px;
+        height: 100%;
+        transition: width 0.1s linear;
+      }
+    }
+  }
+}
+
 /* Video */
 
 .video {
@@ -670,7 +790,7 @@ p {
 .scroll-up {
   position: fixed;
   right: 35px;
-  bottom: 50px;
+  bottom: 100px;
   z-index: 1000;
   width: 50px;
   height: 50px;
@@ -951,8 +1071,8 @@ p {
 
   .video-modal {
     &__close {
-      align-self: center;
-      padding-bottom: 50%;
+      position: absolute;
+      right: 5%;
       h3 {
         font-size: 0.7rem;
       }

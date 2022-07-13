@@ -109,7 +109,7 @@ let songsData = [
     name: "The show must go on",
     path: "https://ytop1.com/Thankyou?token=U2FsdGVkX18FsSij7hemmftqrGdeV5uhY2tVaBrGzwBlSG5uve%2b%2fGoCaOo0cG6XPnvreh%2frpmSHuYPKL%2fs5a206i7kHI%2f4sYPELHUsKaF4845Sgn3sgRW2dBROxMnVqO6J3PcVdSGnA6zFZavr4H7mgCriGt45lAMUIxDbaO7I%2bLZCMlnVNVNkEwdtPWGUWN&s=youtube&id=&h=844019832527451703",
     artist: "Queen",
-    duration: { time: "4:25", milliseconds: 264800 },
+    duration: { time: "4:38", milliseconds: 277800 },
   },
   {
     id: 4,
