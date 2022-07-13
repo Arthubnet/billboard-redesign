@@ -1,3 +1,5 @@
+const body = document.body;
+
 /* Navbar */
 
 const navSlide = () => {
@@ -5,23 +7,30 @@ const navSlide = () => {
   let navbar = document.querySelector(".hero__navbar-lists");
   let navLinks = document.querySelectorAll(".hero__navbar-lists li");
 
-  let burgerToggle = () => {
+  navLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      navLinks.forEach((link, index) => {
+        link.style.animation = "";
+      });
+      navbar.classList.toggle("nav-active");
+      burger.classList.toggle("active");
+      body.classList.toggle("noscroll");
+    });
+  });
+
+  burger.addEventListener("click", () => {
     navbar.classList.toggle("nav-active");
     burger.classList.toggle("active");
-  };
-  burger.addEventListener("click", () => {
-    burgerToggle();
+    body.classList.toggle("noscroll");
     //Animate links
     navLinks.forEach((link, index) => {
       if (link.style.animation) {
         link.style.animation = "";
-      } else
+      } else {
         link.style.animation = `navLinkFade 0.5s ease forwards ${
           index / 15 + 0.5
         }s`;
-      link.addEventListener("click", () => {
-        burgerToggle();
-      });
+      }
     });
   });
 };
@@ -316,7 +325,7 @@ slider.innerHTML = videosData
   .join("");
 
 const vidModal = document.querySelector(".video-modal");
-const body = document.body;
+
 const carousel = document.querySelector(".video__carousel");
 const rightBtn = document.querySelector(".arrow-right");
 const leftBtn = document.querySelector(".arrow-left");
