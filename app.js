@@ -193,7 +193,6 @@ const progressBar = document.querySelector(".progress");
 let progressInner = document.querySelector(".progress-inner");
 let songCurrentTime = document.getElementById("current-time");
 let songDuration = document.getElementById("song-duration");
-
 const prevController = document.querySelector(".prevBtn");
 const nextController = document.querySelector(".nextBtn");
 const volumeBtn = document.querySelector(".volumeBtn");
@@ -250,21 +249,16 @@ let time = (event) => {
   if (durationSeconds) {
     songDuration.textContent = `${durationMinutes}:${durationSeconds}`;
   }
-
-  let percenatage = (currentTime / duration) * 100;
-  progressInner.style.width = `${percenatage}%`;
+  progressInner.style.width = `${(currentTime / duration) * 100}%`;
 };
 
-let onProgress = (e) => {
-  progressInner.style.width = `${e.offsetX}px`;
-  let percent = (e.offsetX / e.srcElement.clientWidth) * 100;
-  music.currentTime = (percent / 100) * music.duration;
+let setCurrentTime = (e) => {
+  music.currentTime = (e.offsetX / progressBar.clientWidth) * music.duration;
 };
 
-let onVolumeProgress = (e) => {
+let setVolume = (e) => {
   volumeProgressInner.style.width = `${e.offsetX}px`;
-  let percent = (e.offsetX / e.srcElement.clientWidth) * 100;
-  music.volume = percent / 100;
+  music.volume = e.offsetX / volumeProgress.clientWidth;
 };
 
 let stopAnimation = () => {
@@ -290,9 +284,8 @@ volumeBtn.addEventListener("click", () => {
   }
 });
 music.addEventListener("ended", stopAnimation);
-volumeProgress.addEventListener("click", onVolumeProgress);
-progressBar.addEventListener("click", onProgress);
-progressBar.addEventListener("grab", onProgress);
+volumeProgress.addEventListener("click", setVolume);
+progressBar.addEventListener("click", setCurrentTime);
 music.addEventListener("timeupdate", time);
 
 let setMusic = (path) => {

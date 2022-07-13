@@ -708,10 +708,6 @@ p {
 }
 
 .player-main__controls img {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
   width: 20px;
   height: 20px;
 }
