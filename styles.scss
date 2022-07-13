@@ -703,6 +703,7 @@ p {
     width: 80%;
     height: 80%;
     display: none;
+
     &.active {
       display: block;
     }
@@ -712,12 +713,17 @@ p {
     text-transform: uppercase;
     align-self: flex-start;
     margin: 2% 1% 0 0;
+    opacity: 0;
+    transition: all 0.3s;
     h3 {
       color: white;
       &:hover {
         color: #c51d6f;
       }
     }
+  }
+  &:hover .video-modal__close {
+    opacity: 1;
   }
   &.active {
     display: flex;

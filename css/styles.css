@@ -1046,6 +1046,9 @@ p {
   -ms-flex-item-align: start;
       align-self: flex-start;
   margin: 2% 1% 0 0;
+  opacity: 0;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .video-modal__close h3 {
@@ -1054,6 +1057,10 @@ p {
 
 .video-modal__close h3:hover {
   color: #c51d6f;
+}
+
+.video-modal:hover .video-modal__close {
+  opacity: 1;
 }
 
 .video-modal.active {
