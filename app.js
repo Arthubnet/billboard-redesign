@@ -110,7 +110,7 @@ musicList.innerHTML = songsData
                 <div class="bar"></div>
                 <div class="bar"></div>
               </div>
-              <div class="song-length"><p>${song.duration.time}</p></div>
+              <div class="song-length"><p>${song.duration}</p></div>
             </div>
           </div>`;
   })
@@ -119,8 +119,9 @@ musicList.innerHTML = songsData
 const songs = document.querySelectorAll(".music__list__song");
 const bars = document.querySelectorAll(".bar");
 let songLength = document.querySelector(".song-length");
-const playerTitle = document.querySelector(".player__title");
+const playerTitle = document.querySelector(".player__description__title");
 const playerPanel = document.querySelector(".player");
+const playerCover = document.querySelector(".player-cover");
 
 let currentSong = {};
 let playing = false;
@@ -139,6 +140,7 @@ songs.forEach((song) => {
           currentSong = item;
           playerTitle.children[0].innerHTML = currentSong.artist;
           playerTitle.children[1].innerHTML = currentSong.name;
+          playerCover.src = currentSong.cover;
         }
       });
       if (!playerActive) {
@@ -245,6 +247,15 @@ let onVolumeProgress = (e) => {
   music.volume = percent / 100;
 };
 
+let stopAnimation = () => {
+  songs.forEach((song) => {
+    song.children[1].classList.add("pause");
+  });
+  bars.forEach((bar) => {
+    bar.classList.remove("active");
+  });
+};
+music.addEventListener("ended", stopAnimation);
 volumeProgress.addEventListener("click", onVolumeProgress);
 progressBar.addEventListener("click", onProgress);
 progressBar.addEventListener("grab", onProgress);

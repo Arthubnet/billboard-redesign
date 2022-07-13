@@ -95,35 +95,45 @@ let songsData = [
     name: "Brat",
     path: "https://ytop1.com/Thankyou?token=U2FsdGVkX19peQ2nMaPXFYGqm5fa8xmjBwEPCXFYKwAc02I82oW06fSk0o0Mk41NTYLRu%2fzedzLaoob9J2WYTGmklMX8FYRut76%2fLo7SvJp2gJxnRwHeWqQjoxNLIFYY&s=youtube&id=&h=844019832527451704",
     artist: "LeanJe",
-    duration: { time: "2:56", milliseconds: 175800 },
+    duration: "2:56",
+    cover:
+      "https://images.genius.com/39a9ee0ff3383b420394105dea72858b.1000x1000x1.jpg",
   },
   {
     id: 2,
     name: "Shape of My Heart",
     path: "https://ytop1.com/Thankyou?token=U2FsdGVkX1%2f7MZ15u7VLW6nPytYrHg1UQvhcmj90oj1p%2f6ddwU%2fEjg4tZ2dcur7riHVsJ9vO8IiQwHp2u8J30DLoQHscRM9u0rCzTnrPeyW0PxyIi1Ob2IMeK4sHJX%2fJqvf%2btF0fl7xKRm8KhjOni8IVsyxHQ0K4qWAwW1t92xM%3d&s=youtube&id=&h=844019832527451702",
     artist: "Sting",
-    duration: { time: "4:38", milliseconds: 277800 },
+    duration: "4:38",
+    cover:
+      "https://www.chords.co.kr/wp-content/uploads/2020/09/Shape-of-my-heart_title.jpg",
   },
   {
     id: 3,
     name: "The show must go on",
     path: "https://ytop1.com/Thankyou?token=U2FsdGVkX18FsSij7hemmftqrGdeV5uhY2tVaBrGzwBlSG5uve%2b%2fGoCaOo0cG6XPnvreh%2frpmSHuYPKL%2fs5a206i7kHI%2f4sYPELHUsKaF4845Sgn3sgRW2dBROxMnVqO6J3PcVdSGnA6zFZavr4H7mgCriGt45lAMUIxDbaO7I%2bLZCMlnVNVNkEwdtPWGUWN&s=youtube&id=&h=844019832527451703",
     artist: "Queen",
-    duration: { time: "4:38", milliseconds: 277800 },
+    duration: "4:38",
+    cover:
+      "https://images.fineartamerica.com/images/artworkimages/mediumlarge/2/show-must-go-on-queen-gina-dsgn.jpg",
   },
   {
     id: 4,
     name: "Sun Is Shining(Remix)",
     path: "https://ytop1.com/Thankyou?token=U2FsdGVkX1%2be59DOjqaIapFZEjSeohGerdaYt38SaH1DjVnkSH2c0rflU6Yc%2bckFCOE%2fG3J8YVtjxALu20DetPijzxTD3ztECBOeVkeibcRiP67mSkZY0q99qjEAJmfqdSmcAbEHe1kgFEEayBmKcyFnJKoGIHbLZAGmIibVUXo%3d&s=youtube&id=&h=844019832527451710",
     artist: "Bob Marley",
-    duration: { time: "7:29", milliseconds: 448800 },
+    duration: "7:29",
+    cover:
+      "https://2.bp.blogspot.com/-gf_cbHxPwXk/UuNWput61VI/AAAAAAAABoo/ns2Sb0ufl1w/s1600/bob-marley.jpg",
   },
   {
     id: 5,
     name: "Krasota",
     path: "https://ytop1.com/Thankyou?token=U2FsdGVkX19vqdf%2fCyVOD1nhGP7uMyPuBHOYOrPhOHt3aRw7WXaXvLHMXruiazfkdf2OIY4gINKK3Uji%2f7gOmPcdmG1s529ME3Yz%2f6THy3G4PfY5rK%2f8y7P%2b303UXHC9&s=youtube&id=&h=844019832527451705",
     artist: "Chaykovskaya",
-    duration: { time: "4:14", milliseconds: 253800 },
+    duration: "4:14",
+    cover:
+      "https://lastfm.freetls.fastly.net/i/u/avatar170s/cf42b9f1ee9a203818a64357ba5b2b1c",
   },
 ];
 

@@ -638,20 +638,39 @@ p {
           align-items: center;
 }
 
-.player__title {
+.player__description {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 0px;
           flex: 1 1 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
 }
 
-.player__title h4 {
+.player__description img {
+  width: 50px;
+  height: 50px;
+}
+
+.player__description__title h4 {
   font-size: 14px;
   font-weight: 300;
   letter-spacing: 1px;
   padding-bottom: 1px;
 }
 
-.player__title p {
+.player__description__title p {
   font-size: 12px;
   font-weight: 200;
   color: #909090;
