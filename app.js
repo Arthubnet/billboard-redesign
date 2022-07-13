@@ -122,6 +122,7 @@ let songLength = document.querySelector(".song-length");
 const playerTitle = document.querySelector(".player__description__title");
 const playerPanel = document.querySelector(".player");
 const playerCover = document.querySelector(".player-cover");
+const playController = document.querySelector(".playBtn");
 
 let currentSong = {};
 let playing = false;
@@ -155,6 +156,7 @@ songs.forEach((song) => {
           btn.children[1].classList.add("pause");
         });
         song.children[1].classList.remove("pause");
+        playController.src = "./assets/img/circle-pause-solid.svg";
         music.play();
       } else {
         playing = true;
@@ -162,6 +164,7 @@ songs.forEach((song) => {
         equalizer.forEach((bar) => {
           bar.classList.add("active");
         });
+        playController.src = "./assets/img/circle-pause-solid.svg";
         music.play();
       }
       return;
@@ -173,6 +176,7 @@ songs.forEach((song) => {
         equalizer.forEach((item) => {
           item.classList.remove("active");
         });
+        playController.src = "./assets/img/circle-play-solid.svg";
         music.pause();
       } else {
         playing = true;
@@ -180,6 +184,7 @@ songs.forEach((song) => {
         equalizer.forEach((item) => {
           item.classList.add("active");
         });
+        playController.src = "./assets/img/circle-pause-solid.svg";
         music.play();
       }
     }
@@ -192,7 +197,7 @@ const progressBar = document.querySelector(".progress");
 let progressInner = document.querySelector(".progress-inner");
 let songCurrentTime = document.getElementById("current-time");
 let songDuration = document.getElementById("song-duration");
-const playController = document.querySelector(".playBtn");
+
 const prevController = document.querySelector(".prevBtn");
 const nextController = document.querySelector(".nextBtn");
 const volumeBtn = document.querySelector(".volumeBtn");
@@ -202,13 +207,31 @@ const volumeProgressInner = document.querySelector(".progress-volume__inner");
 playController.addEventListener("click", () => {
   if (!playing) {
     playing = true;
+    songs.forEach((song) => {
+      let equalizer = song.children[4].querySelectorAll(".bar");
+      if (song.id == currentSong.id) {
+        song.children[1].classList.remove("pause");
+        equalizer.forEach((item) => {
+          item.classList.add("active");
+        });
+        playController.src = "./assets/img/circle-pause-solid.svg";
+      }
+    });
     music.play();
   } else {
+    songs.forEach((song) => {
+      let equalizer = song.children[4].querySelectorAll(".bar");
+      song.children[1].classList.add("pause");
+      equalizer.forEach((item) => {
+        item.classList.remove("active");
+      });
+      playController.src = "./assets/img/circle-play-solid.svg";
+    });
     playing = false;
     music.pause();
   }
 });
-let testinggg;
+
 let time = (event) => {
   let { currentTime, duration } = event.srcElement;
   /* Current */
@@ -261,12 +284,13 @@ volumeBtn.addEventListener("click", () => {
   if (music.volume) {
     currentVolume = music.volume;
     music.volume = 0;
-    volumeProgressInner.style.width = `0px`;
+    volumeProgressInner.style.width = `0%`;
+    volumeBtn.src = "./assets/img/volume-off-solid.svg";
     return;
   } else {
     music.volume = currentVolume;
-    volumeProgressInner.style.width = `${currentVolume * 100}px`;
-    console.log(currentVolume * 100);
+    volumeProgressInner.style.width = `${currentVolume * 100}%`;
+    volumeBtn.src = "./assets/img/volume-high-solid.svg";
   }
 });
 music.addEventListener("ended", stopAnimation);
@@ -312,6 +336,7 @@ const videoPromo = document.querySelectorAll(".video-promo");
 const iFrame = document.getElementById("youtube");
 
 let stopSong = () => {
+  playing = playerActive = false;
   music.pause();
   songs.forEach((song) => {
     song.addEventListener("click", () => {});
@@ -320,6 +345,8 @@ let stopSong = () => {
   bars.forEach((bar) => {
     bar.classList.remove("active");
   });
+  playController.src = "./assets/img/circle-play-solid.svg";
+  playerPanel.classList.remove("active");
 };
 
 videoPromo.forEach((btn) => {

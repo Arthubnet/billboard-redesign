@@ -478,6 +478,7 @@ p {
       justify-content: center;
       align-items: center;
       gap: 50px;
+
       img {
         user-select: none;
         opacity: 0.8;
@@ -491,9 +492,9 @@ p {
           width: 30px;
           height: 30px;
         }
-      }
-      .pauseBtn {
-        display: none;
+        &:active {
+          transform: scale(0.9);
+        }
       }
     }
     .progress-container {
@@ -536,6 +537,9 @@ p {
       &:hover {
         cursor: pointer;
         opacity: 0.8;
+      }
+      &:active {
+        transform: scale(0.9);
       }
     }
     .progress-volume {

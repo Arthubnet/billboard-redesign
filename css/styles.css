@@ -727,8 +727,9 @@ p {
   height: 30px;
 }
 
-.player-main__controls .pauseBtn {
-  display: none;
+.player-main__controls img:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 .player-main .progress-container {
@@ -799,6 +800,11 @@ p {
 .player .player__volume img:hover {
   cursor: pointer;
   opacity: 0.8;
+}
+
+.player .player__volume img:active {
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
 }
 
 .player .player__volume .progress-volume {
