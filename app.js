@@ -120,11 +120,13 @@ const songs = document.querySelectorAll(".music__list__song");
 const bars = document.querySelectorAll(".bar");
 let songLength = document.querySelector(".song-length");
 const playerTitle = document.querySelector(".player__title");
+const playerPanel = document.querySelector(".player");
 
 let currentSong = {};
 let playing = false;
+let playerActive = false;
 
-songs.forEach((song, i) => {
+songs.forEach((song) => {
   song.addEventListener("click", () => {
     let equalizer = song.children[4].querySelectorAll(".bar");
     if (currentSong.id != song.id) {
@@ -139,6 +141,10 @@ songs.forEach((song, i) => {
           playerTitle.children[1].innerHTML = currentSong.name;
         }
       });
+      if (!playerActive) {
+        playerActive = true;
+        playerPanel.classList.add("active");
+      }
       if (playing) {
         equalizer.forEach((bar) => {
           bar.classList.add("active");
@@ -241,6 +247,7 @@ let onVolumeProgress = (e) => {
 
 volumeProgress.addEventListener("click", onVolumeProgress);
 progressBar.addEventListener("click", onProgress);
+progressBar.addEventListener("grab", onProgress);
 music.addEventListener("timeupdate", time);
 
 let setMusic = (path) => {
