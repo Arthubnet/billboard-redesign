@@ -1073,14 +1073,19 @@ p {
 }
 
 /* Bands */
-.bands {
-  width: 90%;
-  padding: 5% 0;
+#bands {
+  display: block;
+}
+
+#bands .template__title {
+  margin-left: 5%;
+  margin-top: 3%;
 }
 
 .bands__container {
-  width: 100%;
-  height: 70vh;
+  margin: 0 auto;
+  width: 90%;
+  height: 80vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1091,6 +1096,41 @@ p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  margin-bottom: 5%;
+}
+
+.bands__container__promo {
+  width: 65%;
+  height: 100%;
+  background-image: url("https://d3nxoulyw7bc8u.cloudfront.net/images/artists/None/45e8cb4f-cf8b-4047-98db-791110e45cef.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+
+.bands__container__promo .promo-title {
+  width: 85%;
+  position: absolute;
+  bottom: 2%;
+  left: 2%;
+}
+
+.bands__container__promo .promo-title .author {
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.bands__container__promo .promo-title h2 {
+  background: rgba(0, 0, 0, 0.5);
+  font-size: 2.7rem;
+  margin: 1% 0;
+  text-transform: uppercase;
 }
 
 .bands__container__cards {
@@ -1130,60 +1170,6 @@ p {
 
 .bands__container__cards__card:hover {
   cursor: pointer;
-}
-
-.bands__container__cards__card .author {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: end;
-      -ms-flex-align: end;
-          align-items: flex-end;
-}
-
-.bands__container__cards__card .author p {
-  color: grey;
-}
-
-.bands__container__promo {
-  width: 65%;
-  height: 100%;
-  background-image: url("https://d3nxoulyw7bc8u.cloudfront.net/images/artists/None/45e8cb4f-cf8b-4047-98db-791110e45cef.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
-}
-
-.bands__container__promo .promo-title {
-  width: 85%;
-  position: absolute;
-  bottom: 2%;
-  left: 2%;
-}
-
-.bands__container__promo .promo-title .author {
-  width: 45%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
-.bands__container__promo .promo-title h2 {
-  background: rgba(0, 0, 0, 0.5);
-  font-size: 2.7rem;
-  margin: 1% 0;
-  text-transform: uppercase;
 }
 
 /* More News */
@@ -1386,9 +1372,6 @@ p {
               transform: translateX(0px);
     }
   }
-  .hero__title h1 {
-    font-size: 2.5rem;
-  }
   .hero__title {
     width: 100%;
   }
@@ -1402,6 +1385,9 @@ p {
   .bands__container__cards__card h2 {
     font-size: 1.4rem;
   }
+  #bands .bands__container__promo .promo-title .author {
+    width: 70%;
+  }
 }
 
 @media all and (max-width: 992px) {
@@ -1410,27 +1396,30 @@ p {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    gap: 20px;
+    height: unset;
+  }
+  .bands__container__promo {
+    width: 100%;
+    height: 60vh;
   }
   .bands__container__cards {
     width: 100%;
-    height: 30%;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
   }
   .bands__container__cards__card {
-    height: 100%;
-    padding: 2%;
+    width: 100%;
+    height: 20vh;
+    padding: 3%;
   }
   .bands__container__cards__card p {
     font-size: 0.8rem;
   }
   .bands__container__cards__card h2 {
     font-size: 1.1rem;
-  }
-  .bands__container__promo {
-    width: 100%;
   }
 }
 
@@ -1453,8 +1442,20 @@ p {
     width: 90vw;
     height: 50vh;
   }
-  .bands__container__promo .promo-title h2 {
-    font-size: 1.8rem;
+  #bands .bands__container__promo .promo-title {
+    width: 100%;
+  }
+  #bands .bands__container__promo .promo-title .author {
+    width: 75%;
+  }
+  #bands .bands__container__promo .promo-title h2 {
+    font-size: 2rem;
+  }
+  #bands .bands__container__cards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .more__container {
     -webkit-box-orient: vertical;
@@ -1548,25 +1549,20 @@ p {
   .video-modal__close h3 {
     font-size: 0.7rem;
   }
-  .bands {
-    padding-top: 30px;
+  #bands .bands__container {
+    height: 120vh;
   }
-  .bands__container {
-    height: 100vh;
-    gap: 20px;
+  #bands .bands__container__promo {
+    height: 70vh;
   }
-  .bands__container__promo .promo-title {
-    width: 100%;
-    height: 35vh;
-  }
-  .bands__container__promo .promo-title .author {
+  #bands .bands__container__promo .promo-title .author {
     padding-top: 35%;
     width: 80%;
   }
-  .bands__container__promo .promo-title h2 {
+  #bands .bands__container__promo .promo-title h2 {
     font-size: 1.4rem;
   }
-  .bands__container__cards {
+  #bands .bands__container__cards {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -1574,7 +1570,7 @@ p {
     padding-bottom: 10px;
     height: unset;
   }
-  .bands__container__cards__card {
+  #bands .bands__container__cards__card {
     height: 16vh;
   }
   .news,
@@ -1589,5 +1585,46 @@ p {
   }
   .more__container__item h3 {
     padding-top: 5px;
+  }
+}
+
+@media all and (min-device-width: 350px) and (max-device-width: 1000px) and (orientation: landscape) {
+  #hero .hero__navbar {
+    height: 12vh;
+  }
+  #hero .hero__navbar-menu .hero__navbar-lists {
+    height: 88vh;
+    top: 12vh;
+    gap: 8%;
+  }
+  #hero .hero__title h1 {
+    font-size: 1.8rem;
+  }
+  #hero .hero__title p {
+    font-size: 0.8rem;
+  }
+  .video__carousel__inner__item .video-promo img {
+    height: 90vh;
+  }
+  #bands .bands__container__promo {
+    height: 80vh;
+  }
+  #bands .bands__container__promo .promo-title h2 {
+    font-size: 1.4rem;
+  }
+  #bands .bands__container__cards__card {
+    height: 27vh;
+  }
+  .player {
+    -webkit-transform: translateY(125%);
+            transform: translateY(125%);
+    height: 20%;
+  }
+  .player .volumeBtn {
+    width: 18px;
+    height: 18px;
+  }
+  .scroll-up {
+    bottom: 80px;
   }
 }

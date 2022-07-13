@@ -731,72 +731,68 @@ p {
 }
 
 /* Bands */
-
-.bands {
+#bands {
+  display: block;
+  .template__title {
+    margin-left: 5%;
+    margin-top: 3%;
+  }
+}
+.bands__container {
+  margin: 0 auto;
   width: 90%;
-  padding: 5% 0;
-  &__container {
-    width: 100%;
-    height: 70vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    &__cards {
-      width: 34%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      &__card {
-        width: 100%;
-        height: 33.3%;
-        padding: 5%;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        border-right: 1px solid rgba(255, 255, 255, 0.2);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5%;
+
+  &__promo {
+    width: 65%;
+    height: 100%;
+    background-image: url("https://d3nxoulyw7bc8u.cloudfront.net/images/artists/None/45e8cb4f-cf8b-4047-98db-791110e45cef.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    .promo-title {
+      width: 85%;
+      position: absolute;
+      bottom: 2%;
+      left: 2%;
+      .author {
+        width: 60%;
         display: flex;
-        flex-direction: column;
         justify-content: space-between;
-        &.active {
-          background-color: rgba(197, 29, 111, 0.5);
-        }
-        &:hover {
-          cursor: pointer;
-        }
-        .author {
-          display: flex;
-          flex-direction: row;
-          justify-content: space-between;
-          align-items: flex-end;
-          p {
-            color: grey;
-          }
-        }
+      }
+      h2 {
+        background: rgba(0, 0, 0, 0.5);
+        font-size: 2.7rem;
+        margin: 1% 0;
+        text-transform: uppercase;
       }
     }
-    &__promo {
-      width: 65%;
-      height: 100%;
-      background-image: url("https://d3nxoulyw7bc8u.cloudfront.net/images/artists/None/45e8cb4f-cf8b-4047-98db-791110e45cef.jpg");
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      position: relative;
-      .promo-title {
-        width: 85%;
-        position: absolute;
-        bottom: 2%;
-        left: 2%;
-        .author {
-          width: 45%;
-          display: flex;
-          justify-content: space-between;
-        }
-        h2 {
-          background: rgba(0, 0, 0, 0.5);
-          font-size: 2.7rem;
-          margin: 1% 0;
-          text-transform: uppercase;
-        }
+  }
+  &__cards {
+    width: 34%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    &__card {
+      width: 100%;
+      height: 33.3%;
+      padding: 5%;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      &.active {
+        background-color: rgba(197, 29, 111, 0.5);
+      }
+      &:hover {
+        cursor: pointer;
       }
     }
   }
@@ -957,11 +953,6 @@ p {
     }
   }
   .hero__title {
-    h1 {
-      font-size: 2.5rem;
-    }
-  }
-  .hero__title {
     width: 100%;
     h1 {
       font-size: 3.5rem;
@@ -976,29 +967,39 @@ p {
       font-size: 1.4rem;
     }
   }
+  #bands {
+    .bands__container {
+      &__promo {
+        .promo-title .author {
+          width: 70%;
+        }
+      }
+    }
+  }
 }
 
 @media all and (max-width: 992px) {
-  .bands {
-    &__container {
-      flex-direction: column;
-      &__cards {
+  .bands__container {
+    flex-direction: column;
+    gap: 20px;
+    height: unset;
+    &__promo {
+      width: 100%;
+      height: 60vh;
+    }
+    &__cards {
+      width: 100%;
+      flex-direction: row;
+      &__card {
         width: 100%;
-        height: 30%;
-        flex-direction: row;
-        &__card {
-          height: 100%;
-          padding: 2%;
-          p {
-            font-size: 0.8rem;
-          }
-          h2 {
-            font-size: 1.1rem;
-          }
+        height: 20vh;
+        padding: 3%;
+        p {
+          font-size: 0.8rem;
         }
-      }
-      &__promo {
-        width: 100%;
+        h2 {
+          font-size: 1.1rem;
+        }
       }
     }
   }
@@ -1028,11 +1029,22 @@ p {
     }
   }
 
-  .bands__container {
-    &__promo {
-      .promo-title {
-        h2 {
-          font-size: 1.8rem;
+  #bands {
+    .bands__container {
+      &__promo {
+        .promo-title {
+          width: 100%;
+          .author {
+            width: 75%;
+          }
+          h2 {
+            font-size: 2rem;
+          }
+        }
+      }
+      &__cards {
+        flex-direction: column;
+        &__card {
         }
       }
     }
@@ -1133,15 +1145,12 @@ p {
     }
   }
 
-  .bands {
-    padding-top: 30px;
-    &__container {
-      height: 100vh;
-      gap: 20px;
+  #bands {
+    .bands__container {
+      height: 120vh;
       &__promo {
+        height: 70vh;
         .promo-title {
-          width: 100%;
-          height: 35vh;
           .author {
             padding-top: 35%;
             width: 80%;
@@ -1176,5 +1185,66 @@ p {
         padding-top: 5px;
       }
     }
+  }
+}
+
+@media all and (min-device-width: 350px) and (max-device-width: 1000px) and (orientation: landscape) {
+  #hero {
+    .hero__navbar {
+      height: 12vh;
+      &-menu {
+        .hero__navbar-lists {
+          height: 88vh;
+          top: 12vh;
+          gap: 8%;
+        }
+      }
+    }
+    .hero__title {
+      h1 {
+        font-size: 1.8rem;
+      }
+      p {
+        font-size: 0.8rem;
+      }
+    }
+  }
+  .video__carousel__inner__item {
+    .video-promo {
+      img {
+        height: 90vh;
+      }
+    }
+  }
+
+  #bands {
+    .bands__container {
+      &__promo {
+        height: 80vh;
+        .promo-title {
+          .author {
+          }
+          h2 {
+            font-size: 1.4rem;
+          }
+        }
+      }
+      &__cards {
+        &__card {
+          height: 27vh;
+        }
+      }
+    }
+  }
+  .player {
+    transform: translateY(125%);
+    height: 20%;
+    .volumeBtn {
+      width: 18px;
+      height: 18px;
+    }
+  }
+  .scroll-up {
+    bottom: 80px;
   }
 }
