@@ -45,6 +45,28 @@ subscribeBtn.addEventListener("click", () => {
   subscribeField.value = "";
 });
 
+/* Hero */
+
+const heroSlider = document.querySelector(".hero__slider");
+
+heroSlider.innerHTML = heroData.map((slide) => {
+  return `<div class="hero__slider__slide">
+          <img
+            class="hero-background"
+            src=${slide.src}
+          />
+          <div class="hero-title">
+            <p>${slide.journalist}</p>
+            <h1>
+              ${slide.title}
+            </h1>
+            <p>
+              ${slide.footer}
+            </p>
+          </div>
+        </div>`;
+});
+
 /* News */
 
 const newsContainer = document.querySelector(".news__container");
@@ -64,8 +86,8 @@ let newsFilter = (filter) => {
                    />
                  </div>
                  <div class="news-title">
-                   <h3>${column.genre}</h3>
-                   <h2>${column.title}</h2>
+                   <h4>${column.genre}</h4>
+                   <h3>${column.title}</h3>
                  </div>
                </div>`;
         })
@@ -135,6 +157,7 @@ const playerCover = document.querySelector(".player-cover");
 const playController = document.querySelector(".playBtn");
 const prevController = document.querySelector(".prevBtn");
 const nextController = document.querySelector(".nextBtn");
+const closeController = document.querySelector(".closeBtn");
 
 let playing = false;
 let playerActive = false;
@@ -169,6 +192,11 @@ prevController.addEventListener("click", () => {
     setMusic(songsData.length);
     onPause();
   }
+});
+
+closeController.addEventListener("click", () => {
+  playerActive = false;
+  playerPanel.classList.remove("active");
 });
 
 let equalizerOn = (e) => {
@@ -348,10 +376,10 @@ slider.innerHTML = videosData
                 </div>
               </div>
               <div class="video-title">
-                <h3>${video.genre}</h3>
-                <h2>
+                <h4>${video.genre}</h4>
+                <h3>
                   ${video.title}
-                </h2>
+                </h3>
               </div>
             </div>`;
   })
@@ -466,9 +494,9 @@ const author = document.querySelector(".author");
 bandCards.innerHTML = bandsData
   .map((arr) => {
     return `<div id=${arr.id} class="bands__container__cards__card">
-      <h2>
+      <h3>
         ${arr.title}
-      </h2>
+      </h3>
       <div class="author">
         <p>${arr.author}</p>
         <p>${arr.time}</p>
@@ -487,8 +515,6 @@ bandCard.forEach((card) => {
     bandsData.map((obj) => {
       if (obj.id === card.id) {
         promo.style.backgroundImage = `url(${obj.img})`;
-        author.children[0].innerHTML = obj.author;
-        author.children[1].innerHTML = obj.time;
         title.children[1].innerHTML = obj.title;
       }
     });
@@ -514,10 +540,10 @@ moreNews.innerHTML = moreNewsData
             <img
               src="${arr.img}" alt="${arr.name}" loading="lazy"
             />
-            <h3>${arr.genre}</h3>
-            <h2>
+            <h4>${arr.genre}</h4>
+            <h3>
               ${arr.title}
-            </h2>
+            </h3>
           </div>`;
   })
   .join("");

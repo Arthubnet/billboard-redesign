@@ -1,3 +1,29 @@
+/* Hero */
+
+let heroData = [
+  {
+    src: "https://assets.teenvogue.com/photos/6228d78324ee50e5eeee2500/16:9/w_2560%2Cc_limit/1377055201",
+    journalist: "06/23/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger",
+    title: "Woman of the year <span>Olivia Rodrigo</span> is writing new music",
+    footer:
+      "With the biggest hit of 2021, the singer songwriter was just getting started.",
+  },
+  {
+    src: "https://www.telekom.com/resource/image/494146/landscape_ratio4x3/1296/972/fbd84e9fc30a077d92048d7f26f88d7a/Km/bi-170510-gorillaz-en.jpg",
+    journalist: "06/23/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger",
+    title: "Woman of the year <span>Olivia Rodrigo</span> is writing new music",
+    footer:
+      "With the biggest hit of 2021, the singer songwriter was just getting started.",
+  },
+  {
+    src: "https://media.npr.org/assets/img/2021/11/10/will-smith-new-headshot-credit-lorenzo-agius_wide-fce30e30fbf83a2c586848fa991d1d61ab768cd2.jpg",
+    journalist: "06/23/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger",
+    title: "Woman of the year <span>Olivia Rodrigo</span> is writing new music",
+    footer:
+      "With the biggest hit of 2021, the singer songwriter was just getting started.",
+  },
+];
+
 /* News*/
 
 let freshData = [
@@ -118,7 +144,7 @@ let songsData = [
   },
   {
     id: 4,
-    name: "Sun Is Shining(Remix)",
+    name: "Sun Is Shining",
     path: "https://ytop1.com/Thankyou?token=U2FsdGVkX1%2be59DOjqaIapFZEjSeohGerdaYt38SaH1DjVnkSH2c0rflU6Yc%2bckFCOE%2fG3J8YVtjxALu20DetPijzxTD3ztECBOeVkeibcRiP67mSkZY0q99qjEAJmfqdSmcAbEHe1kgFEEayBmKcyFnJKoGIHbLZAGmIibVUXo%3d&s=youtube&id=&h=844019832527451710",
     artist: "Bob Marley",
     duration: "7:29",

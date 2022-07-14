@@ -8,39 +8,58 @@
 }
 body {
   background: black;
+  /*   overflow-x: hidden; */
   &.noscroll {
     overflow: hidden;
   }
 }
 
-section {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+/* Theme color */
+$theme-color: #c51d6f;
+
 h1 {
   font-size: 4rem;
   text-transform: uppercase;
   font-weight: 500;
+  margin-bottom: 1%;
+  padding: 0;
+}
+h2 {
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  font-weight: 500;
   padding-bottom: 1%;
 }
 h3 {
+  font-size: 1.5rem;
   font-weight: 400;
-  color: #c51d6f;
+}
+
+h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: $theme-color;
   text-transform: uppercase;
   padding: 15px 0 5px 0;
 }
 
-h2 {
-  font-size: 1.5rem;
-  font-weight: 500;
-}
 p {
   font-size: 1rem;
   font-weight: 400;
   letter-spacing: 0.1rem;
   line-height: 1.5;
+}
+
+/* Veriable */
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  width: 100%;
+  @include flex;
 }
 
 /* template */
@@ -49,41 +68,31 @@ p {
     margin: 10px 0 20px 0;
     button {
       background-color: transparent;
-      border: 1px #c51d6f solid;
+      border: 1px $theme-color solid;
       padding: 10px 25px;
       text-transform: uppercase;
       margin-right: 5px;
       &:hover,
       &:active {
-        background: #c51d6f;
+        background: $theme-color;
         cursor: pointer;
       }
     }
   }
 }
 
-#hero {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  position: relative;
-  background-image: url("https://assets.teenvogue.com/photos/6228d78324ee50e5eeee2500/16:9/w_2560%2Cc_limit/1377055201");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: unset;
-  overflow: hidden;
-}
+/* Navbar */
 .hero__navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
   height: 8vh;
   background: black;
   padding: 0 5%;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  z-index: 150;
   &-logo {
     color: white;
     font-size: 30px;
@@ -109,7 +118,7 @@ p {
         text-transform: uppercase;
         color: white;
         &:hover {
-          color: #c51d6f;
+          color: $theme-color;
         }
       }
     }
@@ -117,10 +126,7 @@ p {
   .subscribe {
     height: 40px;
     width: 400px;
-    display: flex;
     text-align: center;
-    align-items: center;
-    justify-content: center;
     position: relative;
     cursor: pointer;
     text-transform: uppercase;
@@ -176,7 +182,7 @@ p {
         font-size: 14px;
         color: white;
         line-height: 30px;
-        background: #c51d6f;
+        background: $theme-color;
         height: 30px;
         width: 100px;
         user-select: none;
@@ -207,7 +213,7 @@ p {
       display: block;
       width: 30px;
       height: 1px;
-      background: #c51d6f;
+      background: $theme-color;
       margin: 3px 0 8px 1px;
     }
     &:hover {
@@ -216,15 +222,41 @@ p {
   }
 }
 
-.hero__title {
-  width: 60%;
-  padding: 0 5% 3% 5%;
-  color: white;
-  h1 {
-    padding: 0;
-    margin: 1% 0;
-    span {
-      color: #c51d6f;
+/* Hero */
+
+#hero {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.hero__slider {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  display: inline-flex;
+  transform: translateX(0);
+  transition: transform 0.3s ease-out;
+  &__slide {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    .hero-background {
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+    .hero-title {
+      position: absolute;
+      width: 60%;
+      color: white;
+      bottom: 5%;
+      left: 5%;
+      h1 {
+        span {
+          color: $theme-color;
+        }
+      }
     }
   }
 }
@@ -237,14 +269,13 @@ p {
   .buttons {
     button {
       &.active {
-        background-color: #c51d6f;
+        background-color: $theme-color;
       }
     }
   }
   &__container {
     width: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     &__column {
       width: 32%;
@@ -277,8 +308,8 @@ p {
       .music__list__song {
         width: 100%;
         display: flex;
-        flex-direction: row;
         align-items: center;
+        justify-content: space-between;
         gap: 2%;
         padding: 1% 2%;
         transition: 0.2s;
@@ -287,7 +318,7 @@ p {
           transform: scale(1.005);
         }
         h3 {
-          color: rgba(255, 255, 255, 0.5);
+          color: #4a4a4a;
         }
         .song-name {
           width: 35%;
@@ -305,9 +336,6 @@ p {
           align-items: center;
           justify-content: space-between;
           position: relative;
-          @media all and (max-width: 450px) {
-            margin-left: 15%;
-          }
           .active {
             width: 12px;
             height: 2px;
@@ -374,7 +402,6 @@ p {
             height: 40px;
           }
         }
-
         .song-play-btn {
           position: relative;
           width: 40px;
@@ -394,7 +421,7 @@ p {
             width: 1px;
             height: 18px;
             border-radius: 2px;
-            background: #c51d6f;
+            background: $theme-color;
             transition: 0.5s;
             clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
           }
@@ -422,15 +449,12 @@ p {
   position: fixed;
   bottom: 0;
   left: 0;
-  transform: translateY(100%);
+  transform: translateY(130%);
   width: 100%;
   height: 8vh;
   background: #1d1d1d;
   border-top: 1px solid rgba(255, 255, 255, 0.3);
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  @include flex;
   z-index: 100;
   transition: all 0.5s ease;
   @media all and (max-width: 450px) {
@@ -441,17 +465,30 @@ p {
     transform: translateY(0);
   }
   &__container {
+    position: relative;
     width: 90%;
     height: 100%;
     display: flex;
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    .closeBtn {
+      width: 25px;
+      height: 25px;
+      background-color: $theme-color;
+      position: absolute;
+      cursor: pointer;
+      left: -4%;
+      top: -15%;
+      @include flex;
+      img {
+        width: 15px;
+        height: 15px;
+      }
+    }
   }
   &__description {
     flex: 1 1 0;
     display: flex;
-    flex-direction: row;
     justify-content: flex-start;
     align-items: center;
     gap: 15px;
@@ -463,7 +500,7 @@ p {
       }
     }
     &__title {
-      h4 {
+      h5 {
         font-size: 14px;
         font-weight: 300;
         letter-spacing: 1px;
@@ -482,10 +519,7 @@ p {
     flex-direction: column;
     gap: 5px;
     &__controls {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
+      @include flex;
       gap: 50px;
       @media all and (max-width: 450px) {
         gap: 20px;
@@ -518,10 +552,7 @@ p {
     }
     .progress-container {
       width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
+      @include flex;
       gap: 10px;
       .progress {
         width: 85%;
@@ -550,7 +581,6 @@ p {
   &__volume {
     flex: 1 1 0;
     display: flex;
-    flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     @media all and (max-width: 450px) {
@@ -582,7 +612,7 @@ p {
         transition: width 0.1s linear;
       }
       &:hover .progress-volume__inner {
-        background: #c51d6f;
+        background: $theme-color;
       }
     }
   }
@@ -602,7 +632,6 @@ p {
       display: flex;
       gap: 50px;
       overflow: hidden;
-
       &__item {
         display: flex;
         flex-direction: column;
@@ -611,7 +640,7 @@ p {
           cursor: pointer;
         }
         .video-promo {
-          height: 100%;
+          height: 400px;
           position: relative;
           font-size: 0;
           transition: 0.4s ease;
@@ -621,7 +650,7 @@ p {
           }
           img {
             width: 530px;
-            height: 400px;
+            height: 100%;
           }
           .videoBtn {
             position: absolute;
@@ -632,9 +661,7 @@ p {
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            @include flex;
             transition: 0.5s;
             &:hover {
               background-color: rgba(197, 29, 111, 1);
@@ -657,24 +684,19 @@ p {
   .video-arrows {
     display: flex;
     width: 100%;
-    /* justify-content: center; */
     gap: 20px;
     margin-top: 30px;
-
     .video-arrow {
       cursor: pointer;
       font-size: 25px;
       border-radius: 50%;
       width: 50px;
       height: 50px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       background: transparent;
       outline: none;
       border: none;
       &:hover {
-        background: #c51d6f;
+        background: $theme-color;
       }
     }
   }
@@ -690,10 +712,8 @@ p {
   z-index: 100;
   top: 50%;
   left: 50%;
-  display: flex;
   transform: translate(-50%, -50%) scale(0);
-  justify-content: center;
-  align-items: center;
+  @include flex;
   z-index: 1001;
   transition: 0.5s;
   #youtube {
@@ -714,8 +734,9 @@ p {
     transition: all;
     h3 {
       color: white;
+      font-size: 1.3rem;
       &:hover {
-        color: #c51d6f;
+        color: $theme-color;
       }
     }
   }
@@ -739,67 +760,66 @@ p {
     margin-left: 5%;
     margin-top: 3%;
   }
-}
-.bands__container {
-  margin: 0 auto;
-  width: 90%;
-  height: 80vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin-bottom: 5%;
 
-  &__promo {
-    width: 65%;
-    height: 100%;
-    background-image: url("https://d3nxoulyw7bc8u.cloudfront.net/images/artists/None/45e8cb4f-cf8b-4047-98db-791110e45cef.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: relative;
-    .promo-title {
-      width: 85%;
-      position: absolute;
-      bottom: 2%;
-      left: 2%;
-      .author {
-        width: 60%;
-        display: flex;
-        justify-content: space-between;
-      }
-      h2 {
-        background: rgba(0, 0, 0, 0.5);
-        font-size: 2.7rem;
-        margin: 1% 0;
-        text-transform: uppercase;
+  .bands__container {
+    margin: 0 auto;
+    width: 90%;
+    height: 80vh;
+    display: flex;
+
+    justify-content: space-between;
+    margin-bottom: 5%;
+    .author {
+      display: flex;
+      justify-content: space-between;
+      p {
+        color: #808080;
       }
     }
-  }
-  &__cards {
-    width: 34%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    &__card {
-      width: 100%;
-      height: 33.3%;
-      padding: 5%;
-      border-top: 1px solid rgba(255, 255, 255, 0.2);
-      border-right: 1px solid rgba(255, 255, 255, 0.2);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    &__promo {
+      width: 65%;
+      height: 100%;
+      background-image: url("https://d3nxoulyw7bc8u.cloudfront.net/images/artists/None/45e8cb4f-cf8b-4047-98db-791110e45cef.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      position: relative;
+      .promo-title {
+        width: 85%;
+        position: absolute;
+        bottom: 2%;
+        left: 2%;
+        h2 {
+          background: rgba(0, 0, 0, 0.5);
+          margin: 1% 0;
+        }
+      }
+    }
+    &__cards {
+      width: 34%;
+      height: 100%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      &.active {
-        background-color: rgba(197, 29, 111, 0.5);
-      }
-      &:hover {
-        cursor: pointer;
+      &__card {
+        width: 100%;
+        height: 33.3%;
+        padding: 5%;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        border-right: 1px solid rgba(255, 255, 255, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &.active {
+          background-color: rgba(197, 29, 111, 0.5);
+        }
+        &:hover {
+          cursor: pointer;
+        }
       }
     }
   }
 }
-
 /* More News */
 
 .more {
@@ -808,7 +828,7 @@ p {
   &__container {
     display: flex;
     justify-content: space-between;
-    flex-direction: row;
+
     &__item {
       width: 30%;
       img {
@@ -863,20 +883,18 @@ p {
     position: absolute;
     top: 0;
     left: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flex;
     width: 100%;
     height: 100%;
     font-size: 20px;
   }
   &:hover {
-    color: #c51d6f;
+    color: $theme-color;
   }
   &__svg-path {
     box-sizing: border-box;
     fill: none;
-    stroke: #c51d6f;
+    stroke: $theme-color;
     stroke-width: 4px;
     transition: 0.2s;
   }
@@ -901,7 +919,7 @@ p {
   background: #606060;
 }
 
-/* Mobile */
+/* Media query */
 
 @media all and (max-width: 1450px) {
   .hero__navbar {
@@ -922,12 +940,10 @@ p {
         height: 92vh;
         top: 8vh;
         background-color: white;
-        justify-content: center;
-        align-items: center;
+        @include flex;
         flex-direction: column;
         width: 30%;
         gap: 5%;
-        display: flex;
         transform: translate(101%);
         transition: transform 0.5s ease-in;
         li {
@@ -935,7 +951,7 @@ p {
           a {
             color: black;
             &:hover {
-              color: #c51d6f;
+              color: $theme-color;
             }
           }
         }
@@ -954,53 +970,50 @@ p {
       transform: translateX(0px);
     }
   }
-  .hero__title {
-    width: 100%;
-    h1 {
-      font-size: 3.5rem;
-    }
-  }
 }
 
 @media all and (max-width: 1200px) {
-  .news-title,
-  .bands__container__cards__card {
-    h2 {
-      font-size: 1.4rem;
-    }
-  }
-  #bands {
-    .bands__container {
-      &__promo {
-        .promo-title .author {
-          width: 70%;
-        }
-      }
+  .hero__slider__slide {
+    .hero-title {
+      width: 70%;
     }
   }
 }
 
 @media all and (max-width: 992px) {
-  .bands__container {
-    flex-direction: column;
-    gap: 20px;
-    height: unset;
-    &__promo {
-      width: 100%;
-      height: 60vh;
-    }
-    &__cards {
-      width: 100%;
-      flex-direction: row;
-      &__card {
-        width: 100%;
-        height: 20vh;
-        padding: 3%;
-        p {
-          font-size: 0.8rem;
+  h1 {
+    font-size: 3rem;
+  }
+  .video {
+    &__carousel {
+      &__inner {
+        &__item {
+          .video-promo {
+            height: auto;
+          }
         }
-        h2 {
-          font-size: 1.1rem;
+      }
+    }
+  }
+  #bands {
+    .bands__container {
+      flex-direction: column;
+      gap: 20px;
+      height: unset;
+      &__promo {
+        width: 100%;
+        height: 60vh;
+      }
+      &__cards {
+        width: 100%;
+
+        &__card {
+          width: 100%;
+          height: 20vh;
+          padding: 3%;
+          p {
+            font-size: 0.8rem;
+          }
         }
       }
     }
@@ -1039,9 +1052,6 @@ p {
           .author {
             width: 75%;
           }
-          h2 {
-            font-size: 2rem;
-          }
         }
       }
       &__cards {
@@ -1058,22 +1068,27 @@ p {
   }
 }
 
-@media all and (max-width: 450px) {
+@media all and (max-width: 500px) {
   h1 {
     font-size: 2rem;
     padding-bottom: 10px;
   }
+  h3 {
+    font-size: 1.1rem;
+  }
   .scroll-up {
     display: none;
   }
-  .hero__title {
-    padding-bottom: 7%;
-    p {
-      font-size: 0.8rem;
-    }
-    h1 {
-      padding: 5% 0;
-      font-size: 1.8rem;
+  .hero__slider__slide {
+    .hero-title {
+      width: 95%;
+      p {
+        font-size: 0.8rem;
+      }
+      h1 {
+        padding: 2% 0;
+        font-size: 2rem;
+      }
     }
   }
 
@@ -1082,25 +1097,7 @@ p {
       padding-top: 20px;
     }
   }
-  .news-title,
-  .bands__container__cards__card,
-  .more__container__item {
-    h2 {
-      font-size: 1.1rem;
-    }
-  }
-
   .music__list {
-    &__song {
-      justify-content: space-between;
-
-      .song-equalizer {
-        width: 25%;
-      }
-      h3 {
-        font-size: 1rem;
-      }
-    }
     .song-artist {
       display: none;
     }
@@ -1139,9 +1136,6 @@ p {
     &__close {
       position: absolute;
       right: 5%;
-      h3 {
-        font-size: 0.7rem;
-      }
     }
   }
 
@@ -1151,12 +1145,12 @@ p {
       &__promo {
         height: 70vh;
         .promo-title {
+          h2 {
+            font-size: 1.5rem;
+          }
           .author {
             padding-top: 35%;
             width: 80%;
-          }
-          h2 {
-            font-size: 1.4rem;
           }
         }
       }
@@ -1189,23 +1183,32 @@ p {
 }
 
 @media all and (min-device-width: 350px) and (max-device-width: 1000px) and (orientation: landscape) {
-  #hero {
-    .hero__navbar {
-      height: 12vh;
-      &-menu {
-        .hero__navbar-lists {
-          height: 88vh;
-          top: 12vh;
-          gap: 8%;
-        }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  .hero__navbar {
+    height: 12vh;
+    &-menu {
+      .hero__navbar-lists {
+        height: 88vh;
+        top: 12vh;
+        gap: 8%;
       }
     }
-    .hero__title {
-      h1 {
-        font-size: 1.8rem;
-      }
-      p {
-        font-size: 0.8rem;
+  }
+  #hero {
+    .hero__slider__slide {
+      .hero-title {
+        width: 75%;
+        h1 {
+          font-size: 1.8rem;
+        }
+        p {
+          font-size: 0.8rem;
+        }
       }
     }
   }
@@ -1221,15 +1224,12 @@ p {
     .bands__container {
       &__promo {
         height: 80vh;
-        .promo-title {
-          h2 {
-            font-size: 1.4rem;
-          }
-        }
       }
       &__cards {
         &__card {
           height: 27vh;
+          .author {
+          }
         }
       }
     }

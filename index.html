@@ -9,40 +9,66 @@
     <title>Copyboard</title>
   </head>
   <body>
+    <!-- Navbar -->
+    <nav class="hero__navbar">
+      <div class="hero__navbar-logo"><a href="/">copyboard</a></div>
+      <div class="hero__navbar-menu">
+        <ul class="hero__navbar-lists">
+          <li><a href="#news">News</a></li>
+          <li><a href="#music">Music</a></li>
+          <li><a href="#video">Videos</a></li>
+          <li><a href="#bands">Bands</a></li>
+        </ul>
+      </div>
+      <div class="subscribe">
+        <input type="checkbox" id="subscribe" />
+        <label class="subscribe-btn" for="subscribe">Subscribe</label>
+        <div class="subscribe-field">
+          <input type="email" placeholder="Email Address" id="input" />
+          <label for="subscribe" class="subscribe-btn2">Subscribe</label>
+        </div>
+      </div>
+      <div class="hero__navbar-burger">
+        <span></span><span></span><span></span>
+      </div>
+    </nav>
+
     <!-- Hero -->
 
     <section id="hero">
-      <nav class="hero__navbar">
-        <div class="hero__navbar-logo"><a href="/">copyboard</a></div>
-        <div class="hero__navbar-menu">
-          <ul class="hero__navbar-lists">
-            <li><a href="#news">News</a></li>
-            <li><a href="#music">Music</a></li>
-            <li><a href="#video">Videos</a></li>
-            <li><a href="#bands">Bands</a></li>
-          </ul>
-        </div>
-        <div class="subscribe">
-          <input type="checkbox" id="subscribe" />
-          <label class="subscribe-btn" for="subscribe">Subscribe</label>
-          <div class="subscribe-field">
-            <input type="email" placeholder="Email Address" id="input" />
-            <label for="subscribe" class="subscribe-btn2">Subscribe</label>
+      <div class="hero__slider">
+        <div class="hero__slider__slide">
+          <img
+            class="hero-background"
+            src="https://assets.teenvogue.com/photos/6228d78324ee50e5eeee2500/16:9/w_2560%2Cc_limit/1377055201"
+          />
+          <div class="hero-title">
+            <p>06/23/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger</p>
+            <h1>
+              Woman of the year <span>Olivia Rodrigo</span> is writing new music
+            </h1>
+            <p>
+              With the biggest hit of 2021, the singer songwriter was just
+              getting started.
+            </p>
           </div>
         </div>
-        <div class="hero__navbar-burger">
-          <span></span><span></span><span></span>
+        <div class="hero__slider__slide">
+          <img
+            class="hero-background"
+            src="https://media.npr.org/assets/img/2021/11/10/will-smith-new-headshot-credit-lorenzo-agius_wide-fce30e30fbf83a2c586848fa991d1d61ab768cd2.jpg"
+          />
+          <div class="hero-title">
+            <p>06/23/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger</p>
+            <h1>
+              Woman of the year <span>Olivia Rodrigo</span> is writing new music
+            </h1>
+            <p>
+              With the biggest hit of 2021, the singer songwriter was just
+              getting started.
+            </p>
+          </div>
         </div>
-      </nav>
-      <div class="hero__title">
-        <p>06/23/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger</p>
-        <h1>
-          Woman of the year <span>Olivia Rogriges</span> is writing new music
-        </h1>
-        <p>
-          With the biggest hit of 2021, the singer songwriter was just getting
-          started.
-        </p>
       </div>
     </section>
 
@@ -51,7 +77,7 @@
     <section id="news">
       <div class="news">
         <div class="template__title">
-          <h1>top news</h1>
+          <h2>top news</h2>
           <div class="buttons">
             <button class="news-fresh">Fresh</button>
             <button class="news-week">Best of the week</button>
@@ -69,7 +95,7 @@
     <section id="music">
       <div class="music">
         <div class="template__title">
-          <h1>Top 5 Songs</h1>
+          <h2>Top 5 Songs</h2>
         </div>
         <div class="music__list">
           <!-- JS data here -->
@@ -81,7 +107,7 @@
         <div class="player__description">
           <img class="player-cover" src="" />
           <div class="player__description__title">
-            <h4></h4>
+            <h5></h5>
             <p></p>
           </div>
         </div>
@@ -120,6 +146,9 @@
             <div class="progress-volume__inner"></div>
           </div>
         </div>
+        <div class="closeBtn">
+          <img src="./assets/img/close.svg" alt="close" />
+        </div>
       </div>
     </div>
 
@@ -138,7 +167,7 @@
     </div>
     <section id="video">
       <div class="video">
-        <h1>Video</h1>
+        <h2>Video</h2>
         <div class="video__carousel">
           <div class="video__carousel__inner">
             <!-- Js data here -->
@@ -159,15 +188,11 @@
 
     <section id="bands">
       <div class="template__title">
-        <h1>Popular Bands</h1>
+        <h2>Popular Bands</h2>
       </div>
       <div class="bands__container">
         <div class="bands__container__promo">
           <div class="promo-title">
-            <div class="author">
-              <p>Andrey Shevshenko</p>
-              <p>5 hours ago</p>
-            </div>
             <h2>
               The Hu return with This Is Mongol single and spectacular desert
             </h2>
@@ -181,7 +206,7 @@
 
     <section id="more">
       <div class="more">
-        <h1>More News</h1>
+        <h2>More News</h2>
         <div class="more__container">
           <!-- Js data here -->
         </div>
