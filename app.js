@@ -150,7 +150,7 @@ let onPlay = () => {
 };
 
 nextController.addEventListener("click", () => {
-  if (parseInt(music.id) < 5) {
+  if (parseInt(music.id) < songsData.length) {
     let nextSong = parseInt(music.id) + 1;
     setMusic(nextSong);
     onPause();
@@ -166,7 +166,7 @@ prevController.addEventListener("click", () => {
     setMusic(nextSong);
     onPause();
   } else {
-    setMusic(5);
+    setMusic(songsData.length);
     onPause();
   }
 });
@@ -392,8 +392,6 @@ videoPromo.forEach((btn) => {
     setTimeout(() => {
       body.classList.add("noscroll");
     }, 300);
-    /* vidModal.addEventListener("transitionend", playVideo());
-    vidModal.removeEventListener("transitionend", playVideo()); */
   });
 });
 
