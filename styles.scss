@@ -8,7 +8,6 @@
 }
 body {
   background: black;
-  /*   overflow-x: hidden; */
   &.noscroll {
     overflow: hidden;
   }
@@ -62,7 +61,7 @@ section {
   @include flex;
 }
 
-/* template */
+/* templates */
 .template__title {
   .buttons {
     margin: 10px 0 20px 0;
@@ -80,6 +79,25 @@ section {
     }
   }
 }
+
+.arrows {
+  display: flex;
+  width: 100%;
+  gap: 20px;
+  margin-top: 30px;
+  .arrow {
+    cursor: pointer;
+    font-size: 25px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    outline: none;
+    border: none;
+  }
+}
+
+/* templates end */
 
 /* Navbar */
 .hero__navbar {
@@ -112,7 +130,6 @@ section {
     li {
       list-style: none;
       float: left;
-
       a {
         text-decoration: none;
         text-transform: uppercase;
@@ -130,7 +147,7 @@ section {
     position: relative;
     cursor: pointer;
     text-transform: uppercase;
-
+    @include flex;
     &-btn {
       position: absolute;
       height: 100%;
@@ -346,47 +363,38 @@ section {
               background-color: purple;
               animation-delay: 1s;
             }
-
             &:nth-child(2) {
               background-color: crimson;
               animation-delay: 0.8s;
             }
-
             &:nth-child(3) {
               background-color: deeppink;
               animation-delay: 0.6s;
             }
-
             &:nth-child(4) {
               background-color: orange;
               animation-delay: 0.4s;
             }
-
             &:nth-child(5) {
               background-color: gold;
               animation-delay: 0.2s;
             }
-
             &:nth-child(6) {
               background-color: gold;
               animation-delay: 0.2s;
             }
-
             &:nth-child(7) {
               background-color: orange;
               animation-delay: 0.4s;
             }
-
             &:nth-child(8) {
               background-color: deeppink;
               animation-delay: 0.6s;
             }
-
             &:nth-child(9) {
               background-color: crimson;
               animation-delay: 0.8s;
             }
-
             &:nth-child(10) {
               background-color: purple;
               animation-delay: 1s;
@@ -444,7 +452,6 @@ section {
     }
   }
 }
-
 .player {
   position: fixed;
   bottom: 0;
@@ -460,7 +467,6 @@ section {
   @media all and (max-width: 450px) {
     height: 15vh;
   }
-
   &.active {
     transform: translateY(0);
   }
@@ -681,20 +687,8 @@ section {
       }
     }
   }
-  .video-arrows {
-    display: flex;
-    width: 100%;
-    gap: 20px;
-    margin-top: 30px;
-    .video-arrow {
-      cursor: pointer;
-      font-size: 25px;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      background: transparent;
-      outline: none;
-      border: none;
+  .arrows {
+    .arrow {
       &:hover {
         background: $theme-color;
       }
@@ -760,7 +754,6 @@ section {
     margin-left: 5%;
     margin-top: 3%;
   }
-
   .bands__container {
     margin: 0 auto;
     width: 90%;
@@ -828,7 +821,6 @@ section {
   &__container {
     display: flex;
     justify-content: space-between;
-
     &__item {
       width: 30%;
       img {
@@ -844,7 +836,6 @@ section {
   width: 100%;
   background-color: white;
   text-align: center;
-
   p {
     font-size: 0.8rem;
     color: black;
@@ -1006,7 +997,6 @@ section {
       }
       &__cards {
         width: 100%;
-
         &__card {
           width: 100%;
           height: 20vh;
@@ -1032,7 +1022,6 @@ section {
       width: 100%;
     }
   }
-
   .video__carousel__inner {
     &__item {
       .video-promo {
@@ -1043,7 +1032,6 @@ section {
       }
     }
   }
-
   #bands {
     .bands__container {
       &__promo {
@@ -1059,7 +1047,6 @@ section {
       }
     }
   }
-
   .more__container {
     flex-direction: column;
     &__item {
@@ -1091,7 +1078,6 @@ section {
       }
     }
   }
-
   .news {
     .template__title {
       padding-top: 20px;
@@ -1112,7 +1098,6 @@ section {
       height: 20px;
     }
   }
-
   .video {
     &__carousel__inner {
       align-items: unset;
@@ -1127,18 +1112,13 @@ section {
         }
       }
     }
-    .video-arrows {
-      margin: 0;
-    }
   }
-
   .video-modal {
     &__close {
       position: absolute;
       right: 5%;
     }
   }
-
   #bands {
     .bands__container {
       height: 120vh;
@@ -1164,7 +1144,6 @@ section {
       }
     }
   }
-
   .news,
   .music,
   .video,
@@ -1219,7 +1198,6 @@ section {
       }
     }
   }
-
   #bands {
     .bands__container {
       &__promo {
