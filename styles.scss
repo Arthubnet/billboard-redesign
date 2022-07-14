@@ -636,9 +636,6 @@ p {
             justify-content: center;
             align-items: center;
             transition: 0.5s;
-            /*   &.active {
-                    box-shadow: 0 0 0 150vh #c51d6f;
-                  } */
             &:hover {
               background-color: rgba(197, 29, 111, 1);
               cursor: pointer;
@@ -714,7 +711,7 @@ p {
     align-self: flex-start;
     margin: 2% 1% 0 0;
     opacity: 0;
-    transition: all 0.3s;
+    transition: all;
     h3 {
       color: white;
       &:hover {
