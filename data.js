@@ -93,9 +93,9 @@ let songsData = [
   {
     id: 1,
     name: "Brat",
-    path: "https://ytop1.com/Thankyou?token=U2FsdGVkX19peQ2nMaPXFYGqm5fa8xmjBwEPCXFYKwAc02I82oW06fSk0o0Mk41NTYLRu%2fzedzLaoob9J2WYTGmklMX8FYRut76%2fLo7SvJp2gJxnRwHeWqQjoxNLIFYY&s=youtube&id=&h=844019832527451704",
+    path: "https://ytop1.com/Thankyou?token=U2FsdGVkX19NqLeNPgTA7VqZ9Zb6B4Jj7Ose6gMmxT39QGLslmc7uN0Ri%2bGTkAXfeJfJK%2fQaBb9OS5cVmNWnoVSSlDVtOnNe8826QMrd0Ht9ONkNSwHtDqIqUgnBtffQ&s=youtube&id=&h=844019832527452031",
     artist: "LeanJe",
-    duration: "2:56",
+    duration: "3:38",
     cover:
       "https://images.genius.com/39a9ee0ff3383b420394105dea72858b.1000x1000x1.jpg",
   },
@@ -105,8 +105,7 @@ let songsData = [
     path: "https://ytop1.com/Thankyou?token=U2FsdGVkX1%2bufA1IpiyHwJ7sBNzf%2fDQ70cq5GsIBDeH4TXbiwCqwQpr9SRkUa9cFqf1KR5rWifOWezv5lqueEyuNeyMb%2brzYNI0hc%2b9zRDxLFl3ceHJSJKLzlZ7RssI6gAXjlSo2fS7yDohOC%2fqQZmSr7fdKIsn8pxBHRFtX0sRPGXhLlyfwe36IT5ktiulG&s=youtube&id=&h=844019832527452015",
     artist: "Nordwise",
     duration: "3:47",
-    cover:
-      "https://i.ytimg.com/vi/zY6fTKEh9m4/hqdefault.jpg?sqp=-oaymwEbCKgBEF5IVfKriqkDDggBFQAAiEIYAXABwAEG&rs=AOn4CLA502oT7WC2TbCja33gv6N17HPfqw",
+    cover: "https://f4.bcbits.com/img/a3784090808_16.jpg",
   },
   {
     id: 3,
