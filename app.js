@@ -271,9 +271,10 @@ let stopAnimation = () => {
   });
 };
 
+music.addEventListener("canplay", equalizerOn);
 music.addEventListener("ended", stopAnimation);
 music.addEventListener("pause", pauseOn);
-music.addEventListener("play", equalizerOn);
+/* music.addEventListener("play", equalizerOn); */
 
 songs.forEach((song) => {
   song.addEventListener("click", () => {
@@ -456,6 +457,7 @@ let stopVideo = () => {
 
 document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
+    e.preventDefault();
     stopVideo();
   }
 });
