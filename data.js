@@ -120,7 +120,7 @@ let songsData = [
   {
     id: 1,
     name: "Brat",
-    path: "https://ytop1.com/Thankyou?token=U2FsdGVkX19NqLeNPgTA7VqZ9Zb6B4Jj7Ose6gMmxT39QGLslmc7uN0Ri%2bGTkAXfeJfJK%2fQaBb9OS5cVmNWnoVSSlDVtOnNe8826QMrd0Ht9ONkNSwHtDqIqUgnBtffQ&s=youtube&id=&h=844019832527452031",
+    path: "/assets/img/izzamuzzic_x_shumno_x_ext_snowfall_slowed_-2883142216573641049.mp3",
     artist: "LeanJe",
     duration: "3:38",
     cover:
