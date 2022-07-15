@@ -88,9 +88,7 @@ section {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
   gap: 20px;
-  margin-top: 30px;
 }
 
 .arrows .arrow {
@@ -102,6 +100,7 @@ section {
   background: transparent;
   outline: none;
   border: none;
+  padding-bottom: 3px;
 }
 
 /* templates end */
@@ -319,19 +318,19 @@ section {
 #hero {
   width: 100%;
   height: 100%;
+  display: block;
   overflow: hidden;
 }
 
 .hero__slider {
-  width: 100%;
   height: 100vh;
   overflow: hidden;
   position: relative;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
+  -webkit-transform: translateX();
+          transform: translateX();
   -webkit-transition: -webkit-transform 0.3s ease-out;
   transition: -webkit-transform 0.3s ease-out;
   transition: transform 0.3s ease-out;
@@ -361,6 +360,21 @@ section {
 
 .hero__slider__slide .hero-title h1 span {
   color: #c51d6f;
+}
+
+.hero__slider__slide .arrows {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+
+.hero__slider__slide .arrows .arrow {
+  background: #c51d6f;
+}
+
+.hero__slider__slide .arrows .arrow:hover {
+  color: #c51d6f;
+  background: white;
 }
 
 /* News */
@@ -999,6 +1013,10 @@ section {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   border-left: 14px solid white;
+}
+
+.video .arrows {
+  margin-top: 30px;
 }
 
 .video .arrows .arrow:hover {

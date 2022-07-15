@@ -48,24 +48,45 @@ subscribeBtn.addEventListener("click", () => {
 /* Hero */
 
 const heroSlider = document.querySelector(".hero__slider");
+const heroArrows = document.querySelectorAll(".heroBtn");
 
-heroSlider.innerHTML = heroData.map((slide) => {
+let currentVideoIndex = 0;
+
+let setSliderPosition = (windowWidth) => {
+  heroSlider.style.transform = `translateX(${-windowWidth}px)`;
+};
+
+let translateSlider = () => {
+  setSliderPosition(currentVideoIndex * window.innerWidth);
+};
+
+window.addEventListener("resize", translateSlider);
+
+heroArrows.forEach((arrow) => {
+  arrow.addEventListener("click", (e) => {
+    if (
+      e.target.className.includes("right") &&
+      currentVideoIndex < heroData.length - 1
+    ) {
+      currentVideoIndex++;
+    }
+    if (e.target.className.includes("left") && currentVideoIndex > 0) {
+      currentVideoIndex--;
+    }
+    translateSlider();
+  });
+});
+
+/* heroSlider.innerHTML = heroData.map((slide) => {
   return `<div class="hero__slider__slide">
-          <img
-            class="hero-background"
-            src=${slide.src}
-          />
+          <img class="hero-background" src="${slide.src}"/>
           <div class="hero-title">
-            <p>${slide.journalist}</p>
-            <h1>
-              ${slide.title}
-            </h1>
-            <p>
-              ${slide.footer}
-            </p>
+          <p>${slide.journalist}</p>
+            <h1>${slide.title}</h1>
+            <p>${slide.footer}</p>
           </div>
         </div>`;
-});
+}); */
 
 /* News */
 
@@ -387,8 +408,6 @@ slider.innerHTML = videosData
 
 const vidModal = document.querySelector(".video-modal");
 const carousel = document.querySelector(".video__carousel");
-const rightBtn = document.querySelector(".arrow-right");
-const leftBtn = document.querySelector(".arrow-left");
 const carouselItem = document.querySelector(".video__carousel__inner__item");
 const videoPromo = document.querySelectorAll(".video-promo");
 const iFrame = document.getElementById("youtube");

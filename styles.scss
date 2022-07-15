@@ -82,9 +82,7 @@ section {
 
 .arrows {
   display: flex;
-  width: 100%;
   gap: 20px;
-  margin-top: 30px;
   .arrow {
     cursor: pointer;
     font-size: 25px;
@@ -94,6 +92,7 @@ section {
     background: transparent;
     outline: none;
     border: none;
+    padding-bottom: 3px;
   }
 }
 
@@ -244,15 +243,15 @@ section {
 #hero {
   width: 100%;
   height: 100%;
+  display: block;
   overflow: hidden;
 }
 .hero__slider {
-  width: 100%;
   height: 100vh;
   overflow: hidden;
   position: relative;
   display: inline-flex;
-  transform: translateX(0);
+  transform: translateX();
   transition: transform 0.3s ease-out;
   &__slide {
     width: 100vw;
@@ -272,6 +271,19 @@ section {
       h1 {
         span {
           color: $theme-color;
+        }
+      }
+    }
+    .arrows {
+      position: absolute;
+      bottom: 5%;
+      right: 5%;
+
+      .arrow {
+        background: $theme-color;
+        &:hover {
+          color: $theme-color;
+          background: white;
         }
       }
     }
@@ -688,6 +700,7 @@ section {
     }
   }
   .arrows {
+    margin-top: 30px;
     .arrow {
       &:hover {
         background: $theme-color;
