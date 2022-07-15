@@ -20,7 +20,7 @@ h1 {
   font-size: 4rem;
   text-transform: uppercase;
   font-weight: 500;
-  margin-bottom: 1%;
+  margin: 1% 0;
   padding: 0;
 }
 h2 {
@@ -93,6 +93,10 @@ section {
     outline: none;
     border: none;
     padding-bottom: 3px;
+    &.active {
+      opacity: 0.4;
+      pointer-events: none;
+    }
   }
 }
 
@@ -268,6 +272,12 @@ section {
       color: white;
       bottom: 5%;
       left: 5%;
+      .journalist {
+        width: 50%;
+        display: flex;
+        gap: 10%;
+      }
+
       h1 {
         span {
           color: $theme-color;
@@ -278,13 +288,15 @@ section {
       position: absolute;
       bottom: 5%;
       right: 5%;
-
       .arrow {
         background: $theme-color;
         &:hover {
           color: $theme-color;
           background: white;
         }
+      }
+      @media all and (max-width: 700px) {
+        display: none;
       }
     }
   }
@@ -513,9 +525,6 @@ section {
     img {
       width: 50px;
       height: 50px;
-      @media all and (max-width: 450px) {
-        display: none;
-      }
     }
     &__title {
       h5 {
@@ -529,6 +538,9 @@ section {
         font-weight: 200;
         color: #909090;
       }
+    }
+    @media all and (max-width: 700px) {
+      display: none;
     }
   }
   &-main {
@@ -587,7 +599,7 @@ section {
           transition: width 0.1s linear;
         }
         &:hover .progress-inner {
-          background: #c51d6f;
+          background: $theme-color;
         }
       }
     }
@@ -601,7 +613,7 @@ section {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    @media all and (max-width: 450px) {
+    @media all and (max-width: 700px) {
       display: none;
     }
     img {
@@ -1067,6 +1079,13 @@ section {
     }
   }
 }
+@media all and (max-width: 700px) {
+  .hero__slider__slide {
+    .hero-title {
+      width: 90%;
+    }
+  }
+}
 
 @media all and (max-width: 500px) {
   h1 {
@@ -1219,7 +1238,8 @@ section {
       &__cards {
         &__card {
           height: 27vh;
-          .author {
+          h3 {
+            font-size: 1.2rem;
           }
         }
       }

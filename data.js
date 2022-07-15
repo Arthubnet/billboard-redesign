@@ -3,15 +3,16 @@
 let heroData = [
   {
     src: "https://assets.teenvogue.com/photos/6228d78324ee50e5eeee2500/16:9/w_2560%2Cc_limit/1377055201",
-    journalist: "06/23/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger",
+    journalist: "07/29/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger",
     title: "Woman of the year <span>Olivia Rodrigo</span> is writing new music",
     footer:
       "With the biggest hit of 2021, the singer songwriter was just getting started.",
   },
   {
     src: "https://www.telekom.com/resource/image/494146/landscape_ratio4x3/1296/972/fbd84e9fc30a077d92048d7f26f88d7a/Km/bi-170510-gorillaz-en.jpg",
-    journalist: "06/23/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger",
-    title: "Woman of the year <span>Olivia Rodrigo</span> is writing new music",
+    journalist: "07/25/2022 &nbsp&nbsp&nbsp&nbsp By Andrew Unterberger",
+    title:
+      "Gorillaz release surprise new EP 'Meanwhile', celebrating Notting Hill Carnival",
     footer:
       "With the biggest hit of 2021, the singer songwriter was just getting started.",
   },

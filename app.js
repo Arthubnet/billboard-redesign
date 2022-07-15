@@ -534,7 +534,7 @@ bandCard.forEach((card) => {
     bandsData.map((obj) => {
       if (obj.id === card.id) {
         promo.style.backgroundImage = `url(${obj.img})`;
-        title.children[1].innerHTML = obj.title;
+        title.children[0].innerHTML = obj.title;
       }
     });
   });
