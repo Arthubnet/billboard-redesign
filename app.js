@@ -13,11 +13,14 @@ const navSlide = () => {
     body.classList.toggle("noscroll");
   };
   navLinks.forEach((link) => {
-    link.addEventListener("click", () => {
-      navLinks.forEach((link, index) => {
-        link.style.animation = "";
-      });
-      navbarToggle();
+    link.addEventListener("click", (e) => {
+      if (e.view.innerWidth < 1449) {
+        console.log("click");
+        navLinks.forEach((link, index) => {
+          link.style.animation = "";
+        });
+        navbarToggle();
+      }
     });
   });
 
