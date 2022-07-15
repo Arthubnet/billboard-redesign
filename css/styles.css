@@ -1082,9 +1082,9 @@ section {
   -ms-flex-item-align: start;
       align-self: flex-start;
   margin: 2% 1% 0 0;
-  opacity: 0;
   -webkit-transition: all;
   transition: all;
+  opacity: 0;
 }
 
 .video-modal__close h3 {
@@ -1555,6 +1555,10 @@ section {
   .video-modal__close {
     position: absolute;
     right: 5%;
+    opacity: 1;
+  }
+  .video-modal__close h3 {
+    font-size: 1rem;
   }
   #bands .bands__container {
     height: 120vh;
