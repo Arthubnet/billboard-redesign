@@ -138,13 +138,20 @@ newsWeek.addEventListener("click", () => {
   }
 });
 
-let newsItem = document.querySelectorAll(".news__container__column__item");
-
-newsItem.forEach((item) => {
-  item.addEventListener("click", () => {
-    newsModal.children[0].children[0].textContent =
-      item.children[1].children[1].innerHTML;
-    newsModal.children[0].children[2].src = item.children[0].src;
+let newsItems = document.querySelectorAll(".news__container__column__item");
+let openNewsModal = (item) => {
+  newsModal.children[0].children[0].textContent =
+    item.children[1].children[1].innerHTML;
+  newsModal.children[0].children[2].src = item.children[0].src;
+  newsModal.classList.add("active");
+};
+newsItems.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    if (e.target.innerHTML.toLowerCase().includes(item.childNodes[1].alt)) {
+      openNewsModal(item);
+    } else {
+      openNewsModal(item);
+    }
   });
 });
 
@@ -159,8 +166,6 @@ document.addEventListener("click", (e) => {
     e.target.matches(".modal-close")
   ) {
     newsModal.classList.remove("active");
-  } else if (e.target.matches(".news-img")) {
-    newsModal.classList.add("active");
   }
 });
 
