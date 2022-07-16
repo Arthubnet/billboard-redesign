@@ -156,6 +156,22 @@ Ut diam quam nulla porttitor massa id neque aliquam vestibulum. Non blandit mass
   });
 });
 
+document.addEventListener("click", (e) => {
+  if (
+    e.target.matches(".video-modal") ||
+    e.target.matches(".video-modal__close h3")
+  ) {
+    stopVideo();
+  } else if (
+    e.target.matches(".modal-news") ||
+    e.target.matches(".modal-close")
+  ) {
+    newsModal.classList.remove("active");
+  } else if (e.target.matches(".news-img")) {
+    newsModal.classList.add("active");
+  }
+});
+
 /* Songs */
 
 const music = document.querySelector("audio");
