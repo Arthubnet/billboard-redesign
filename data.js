@@ -28,7 +28,7 @@ let freshData = [
   [
     {
       genre: "MUSIC",
-      title: `The world’s perception of Ukraine has changed’ says singer from cult band Okean Elzy`,
+      title: `'The world’s perception of Ukraine has changed' says singer from cult band Okean Elzy`,
       img: "https://s1.ticketm.net/dam/a/44f/ef2a8f0b-ce68-40fb-9aa9-7823831f844f_92231_TABLET_LANDSCAPE_LARGE_16_9.jpg",
       alt: "okean",
     },

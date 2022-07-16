@@ -137,7 +137,7 @@ newsWeek.addEventListener("click", () => {
     activeFilter = "week";
   }
 });
-
+let heroNavbar = document.querySelector(".hero__navbar");
 let newsItems = document.querySelectorAll(".news__container__column__item");
 let openNewsModal = (item) => {
   newsModal.children[0].children[0].textContent =
@@ -149,8 +149,14 @@ newsItems.forEach((item) => {
   item.addEventListener("click", (e) => {
     if (e.target.innerHTML.toLowerCase().includes(item.childNodes[1].alt)) {
       openNewsModal(item);
+      body.classList.add("noscroll");
+      scrollUp.style.right = "47px";
+      heroNavbar.classList.add("modal");
     } else {
       openNewsModal(item);
+      body.classList.add("noscroll");
+      scrollUp.style.right = "47px";
+      heroNavbar.classList.add("modal");
     }
   });
 });
@@ -166,6 +172,9 @@ document.addEventListener("click", (e) => {
     e.target.matches(".modal-close")
   ) {
     newsModal.classList.remove("active");
+    body.classList.remove("noscroll");
+    scrollUp.style.right = "35px";
+    heroNavbar.classList.remove("modal");
   }
 });
 
