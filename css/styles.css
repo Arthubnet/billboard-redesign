@@ -10,6 +10,7 @@
 
 body {
   background: black;
+  overflow-x: hidden;
 }
 
 body.noscroll {
@@ -55,7 +56,7 @@ p {
 
 /* Veriable */
 section {
-  width: 100%;
+  width: 100vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -115,7 +116,7 @@ section {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 8vh;
   background: black;
   padding: 0 5%;
@@ -1551,6 +1552,9 @@ section {
   }
   .video__carousel__inner__item .video-promo {
     height: auto;
+  }
+  .video .arrows {
+    margin-top: 0;
   }
   #bands .bands__container {
     -webkit-box-orient: vertical;

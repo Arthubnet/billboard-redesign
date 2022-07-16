@@ -8,6 +8,7 @@
 }
 body {
   background: black;
+  overflow-x: hidden;
   &.noscroll {
     overflow: hidden;
     padding-right: 12px;
@@ -58,7 +59,7 @@ p {
 }
 
 section {
-  width: 100%;
+  width: 100vw;
   @include flex;
 }
 
@@ -108,7 +109,7 @@ section {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   height: 8vh;
   background: black;
   padding: 0 5%;
@@ -1114,6 +1115,9 @@ section {
           }
         }
       }
+    }
+    .arrows {
+      margin-top: 0;
     }
   }
   #bands {
