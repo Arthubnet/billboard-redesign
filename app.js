@@ -477,30 +477,36 @@ let checkScrollSize = () => {
   scrollPerClick = carouselItem.clientWidth;
 };
 
+let currentVideo = 1;
+
 window.addEventListener("resize", () => {
   checkScrollSize();
-});
-
-let scrollAmount = 0;
-
-let sliderScrollLeft = () => {
   slider.scrollTo({
     top: 0,
-    left: (scrollAmount -= scrollPerClick),
+    left: scrollPerClick * (currentVideo - 1),
     behavior: "smooth",
   });
-  if (scrollAmount < 0) {
-    scrollAmount = 0;
+});
+
+let sliderScrollLeft = () => {
+  if (currentVideo > 1 && currentVideo < videosData.length + 1) {
+    slider.scrollTo({
+      top: 0,
+      left: scrollPerClick * (currentVideo - 2),
+      behavior: "smooth",
+    });
+    currentVideo--;
   }
 };
 
 let sliderScrollRight = () => {
-  if (scrollAmount <= slider.scrollWidth - slider.clientWidth) {
+  if (currentVideo < videosData.length) {
     slider.scroll({
       top: 0,
-      left: (scrollAmount += scrollPerClick),
+      left: scrollPerClick * currentVideo,
       behavior: "smooth",
     });
+    currentVideo++;
   }
 };
 
