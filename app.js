@@ -162,15 +162,7 @@ newsItems.forEach((item) => {
 });
 
 document.addEventListener("click", (e) => {
-  if (
-    e.target.matches(".video-modal") ||
-    e.target.matches(".video-modal__close h3")
-  ) {
-    stopVideo();
-  } else if (
-    e.target.matches(".modal-news") ||
-    e.target.matches(".modal-close")
-  ) {
+  if (e.target.matches(".modal-news") || e.target.matches(".modal-close")) {
     newsModal.classList.remove("active");
     body.classList.remove("noscroll");
     scrollUp.style.right = "35px";
@@ -434,23 +426,17 @@ const slider = document.querySelector(".video__carousel__inner");
 slider.innerHTML = videosData
   .map((video) => {
     return `<div class="video__carousel__inner__item">
-              <div id="${video.id}" class="video-promo">
-                <img src="${video.img}" alt="${video.genre}" loading="lazy" />
-                <div class="videoBtn">
-                  <span></span>
-                </div>
-              </div>
+            <iframe id="youtube" width="650" height="315" src="${video.path}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
               <div class="video-title">
                 <h4>${video.genre}</h4>
                 <h3>
                   ${video.title}
                 </h3>
-              </div>
+         </div>
             </div>`;
   })
   .join("");
 
-const vidModal = document.querySelector(".video-modal");
 const carousel = document.querySelector(".video__carousel");
 const carouselItem = document.querySelector(".video__carousel__inner__item");
 const videoPromo = document.querySelectorAll(".video-promo");
@@ -470,29 +456,10 @@ let stopSong = () => {
   playerPanel.classList.remove("active");
 };
 
-videoPromo.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    videosData.map((video) => {
-      if (video.id == btn.id) {
-        iFrame.src = video.path;
-      }
-    });
-    iFrame.classList.add("active");
-    stopSong();
-    vidModal.classList.add("active");
-    setTimeout(() => {
-      body.classList.add("noscroll");
-    }, 300);
-  });
-});
-
 let stopVideo = () => {
-  iFrame.classList.remove("active");
   let url = iFrame.getAttribute("src");
   iFrame.setAttribute("src", "");
   iFrame.setAttribute("src", url);
-  vidModal.classList.remove("active");
-  body.classList.remove("noscroll");
 };
 
 document.addEventListener("keydown", function (e) {
@@ -503,17 +470,15 @@ document.addEventListener("keydown", function (e) {
 });
 
 // carousel
-let padding = 50;
-let scrollPerClick = carouselItem.clientWidth + padding;
+
+let scrollPerClick = carouselItem.clientWidth;
 
 let checkScrollSize = () => {
-  scrollPerClick = carouselItem.clientWidth + padding;
+  scrollPerClick = carouselItem.clientWidth;
 };
 
 window.addEventListener("resize", () => {
-  if (window.innerWidth <= 768) {
-    checkScrollSize();
-  }
+  checkScrollSize();
 });
 
 let scrollAmount = 0;
