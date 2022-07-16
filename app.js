@@ -15,7 +15,6 @@ const navSlide = () => {
   navLinks.forEach((link) => {
     link.addEventListener("click", (e) => {
       if (e.view.innerWidth < 1449) {
-        console.log("click");
         navLinks.forEach((link, index) => {
           link.style.animation = "";
         });
@@ -82,25 +81,23 @@ heroArrows.forEach((arrow) => {
 
 /* News */
 
-const newsContainer = document.querySelector(".news__container");
+const newsFreshContainer = document.querySelector(".news__container.fresh");
+const newsWeekContainer = document.querySelector(".news__container.week");
 const newsColumns = document.querySelectorAll(".news__container__column");
-const freshFilter = document.querySelector(".news-fresh");
-const weekFilter = document.querySelector(".news-week");
+const newsFresh = document.querySelector(".news-fresh");
+const newsWeek = document.querySelector(".news-week");
 const closeNewsModal = document.querySelector(".modal-close");
 const newsModal = document.querySelector(".modal-news");
-let newsItem = document.querySelectorAll(".news__container__column__item");
 
-let newsFilter = (filter) => {
-  newsContainer.innerHTML = filter
+let newsFilter = (newsCategory, newsContainer) => {
+  newsContainer.innerHTML = newsCategory
     .map((news) => {
       return `<div class="news__container__column">${news
         .map((column) => {
           return `<div class="news__container__column__item">
-                 <div>
                    <img class="news-img"
                      src="${column.img}" alt="${column.alt}" loading="lazy"
                    />
-                 </div>
                  <div class="news-title">
                    <h4>${column.genre}</h4>
                    <h3>${column.title}</h3>
@@ -110,49 +107,44 @@ let newsFilter = (filter) => {
         .join("")}</div>`;
     })
     .join("");
-  newsItem = document.querySelectorAll(".news__container__column__item");
 };
 
 let newsOnRender = () => {
-  newsFilter(freshData);
-  freshFilter.classList.add("active");
+  newsFilter(freshData, newsFreshContainer);
+  newsFilter(weekData, newsWeekContainer);
+  newsFresh.classList.add("active");
+  newsFreshContainer.classList.add("active");
 };
 
-newsOnRender(freshData);
+newsOnRender();
 
-freshFilter.addEventListener("click", () => {
-  newsFilter(freshData);
-  weekFilter.classList.remove("active");
-  freshFilter.classList.add("active");
+let activeFilter = "fresh";
+newsFresh.addEventListener("click", () => {
+  if (activeFilter == "week") {
+    newsWeek.classList.remove("active");
+    newsFresh.classList.add("active");
+    newsFreshContainer.classList.add("active");
+    newsWeekContainer.classList.remove("active");
+    activeFilter = "fresh";
+  }
 });
-weekFilter.addEventListener("click", () => {
-  newsFilter(weekData);
-  freshFilter.classList.remove("active");
-  weekFilter.classList.add("active");
+newsWeek.addEventListener("click", () => {
+  if (activeFilter == "fresh") {
+    newsFresh.classList.remove("active");
+    newsWeek.classList.add("active");
+    newsFreshContainer.classList.remove("active");
+    newsWeekContainer.classList.add("active");
+    activeFilter = "week";
+  }
 });
+
+let newsItem = document.querySelectorAll(".news__container__column__item");
 
 newsItem.forEach((item) => {
   item.addEventListener("click", () => {
-    console.log("click");
-    /*  item.children[0].innerHTML = `<h2>${item.title}</h2>
-        <div class="journalist">
-        <p>07/23/2022</p> <p>By Brandon Ridish</p>
-        </div>
-        <img class="news-modal-picture" src="${item.img}" alt="${item.alt}" />
-        <div class="modal-paragraph">
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida dictum fusce ut placerat orci. Libero volutpat sed cras ornare arcu dui vivamus arcu. Ut morbi tincidunt augue interdum velit euismod in pellentesque massa. Aliquam nulla facilisi cras fermentum odio eu feugiat pretium. Iaculis nunc sed augue lacus viverra vitae congue eu. Vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Maecenas accumsan lacus vel facilisis. Aenean sed adipiscing diam donec adipiscing tristique risus nec feugiat.<br>
-<br>
-Leo vel fringilla est ullamcorper eget nulla facilisi etiam. Feugiat vivamus at augue eget. At volutpat diam ut venenatis tellus in metus vulputate. In aliquam sem fringilla ut morbi tincidunt. Elementum pulvinar etiam non quam lacus suspendisse faucibus. Hendrerit dolor magna eget est lorem ipsum. Quam lacus suspendisse faucibus interdum posuere lorem ipsum dolor. Bibendum est ultricies integer quis auctor elit sed. Est lorem ipsum dolor sit amet. Blandit cursus risus at ultrices mi tempus imperdiet nulla.<br>
-<br>
-
-Ut diam quam nulla porttitor massa id neque aliquam vestibulum. Non blandit massa enim nec dui nunc. Cursus eget nunc scelerisque viverra mauris. Faucibus in ornare quam viverra orci sagittis eu volutpat. Odio ut sem nulla pharetra. Praesent elementum facilisis leo vel fringilla est ullamcorper eget nulla. Ornare suspendisse sed nisi lacus sed viverra. Vulputate mi sit amet mauris commodo quis imperdiet massa. Commodo elit at imperdiet dui accumsan. Et pharetra pharetra massa massa ultricies mi quis hendrerit. Velit dignissim sodales ut eu sem integer vitae justo. Bibendum arcu vitae elementum curabitur vitae. Enim diam vulputate ut pharetra sit amet aliquam.<br>
-<br>
-        </p>
-        </div>
-        
-        <img class="modal-close" src="assets/img/close.svg" alt="close">`; */
-
-    /*  newsModal.classList.add("active"); */
+    newsModal.children[0].children[0].textContent =
+      item.children[1].children[1].innerHTML;
+    newsModal.children[0].children[2].src = item.children[0].src;
   });
 });
 

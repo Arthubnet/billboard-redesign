@@ -408,12 +408,16 @@ section {
 
 .news__container {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+  display: none;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.news__container.active {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 .news__container__column {
@@ -432,6 +436,7 @@ section {
 
 .news__container__column__item {
   width: 100%;
+  font-size: 0;
 }
 
 .news__container__column__item:hover {
@@ -481,8 +486,8 @@ section {
 .modal-news__container {
   position: relative;
   height: 90vh;
-  left: 25vw;
-  width: 50vw;
+  left: 30vw;
+  width: 40vw;
   top: 9vh;
   background: white;
   padding: 2.5%;
