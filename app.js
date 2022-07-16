@@ -88,6 +88,7 @@ const freshFilter = document.querySelector(".news-fresh");
 const weekFilter = document.querySelector(".news-week");
 const closeNewsModal = document.querySelector(".modal-close");
 const newsModal = document.querySelector(".modal-news");
+let newsItem = document.querySelectorAll(".news__container__column__item");
 
 let newsFilter = (filter) => {
   newsContainer.innerHTML = filter
@@ -96,7 +97,7 @@ let newsFilter = (filter) => {
         .map((column) => {
           return `<div class="news__container__column__item">
                  <div>
-                   <img
+                   <img class="news-img"
                      src="${column.img}" alt="${column.alt}" loading="lazy"
                    />
                  </div>
@@ -109,6 +110,7 @@ let newsFilter = (filter) => {
         .join("")}</div>`;
     })
     .join("");
+  newsItem = document.querySelectorAll(".news__container__column__item");
 };
 
 let newsOnRender = () => {
@@ -117,8 +119,6 @@ let newsOnRender = () => {
 };
 
 newsOnRender(freshData);
-
-const newsItem = document.querySelectorAll(".news__container__column__item");
 
 freshFilter.addEventListener("click", () => {
   newsFilter(freshData);
@@ -133,6 +133,7 @@ weekFilter.addEventListener("click", () => {
 
 newsItem.forEach((item) => {
   item.addEventListener("click", () => {
+    console.log("click");
     /*  item.children[0].innerHTML = `<h2>${item.title}</h2>
         <div class="journalist">
         <p>07/23/2022</p> <p>By Brandon Ridish</p>
@@ -151,7 +152,7 @@ Ut diam quam nulla porttitor massa id neque aliquam vestibulum. Non blandit mass
         
         <img class="modal-close" src="assets/img/close.svg" alt="close">`; */
 
-    newsModal.classList.add("active");
+    /*  newsModal.classList.add("active"); */
   });
 });
 
@@ -476,18 +477,6 @@ document.addEventListener("keydown", function (e) {
   if (e.key === "Escape") {
     e.preventDefault();
     stopVideo();
-  }
-});
-
-document.addEventListener("click", (e) => {
-  if (
-    e.target.matches(".video-modal") ||
-    e.target.matches(".video-modal__close h3")
-  ) {
-    stopVideo();
-  }
-  if (e.target.matches(".modal-news") || e.target.matches(".modal-close")) {
-    newsModal.classList.remove("active");
   }
 });
 
