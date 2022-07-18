@@ -87,7 +87,7 @@ const newsColumns = document.querySelectorAll(".news__container__column");
 const newsFresh = document.querySelector(".news-fresh");
 const newsWeek = document.querySelector(".news-week");
 const closeNewsModal = document.querySelector(".modal-close");
-const newsModal = document.querySelector(".modal-news");
+const newsModal = document.querySelector(".modal");
 
 let newsFilter = (newsCategory, newsContainer) => {
   newsContainer.innerHTML = newsCategory
@@ -140,10 +140,12 @@ newsWeek.addEventListener("click", () => {
 let heroNavbar = document.querySelector(".hero__navbar");
 let newsItems = document.querySelectorAll(".news__container__column__item");
 let openNewsModal = (item) => {
-  newsModal.children[0].children[0].textContent =
+  newsModal.children[0].children[0].children[0].textContent =
     item.children[1].children[1].innerHTML;
-  newsModal.children[0].children[2].src = item.children[0].src;
-  newsModal.classList.add("active");
+  newsModal.children[0].children[0].children[2].src = item.children[0].src;
+  newsModal.classList.remove("out");
+  newsModal.classList.remove("in");
+  newsModal.classList.add("in");
 };
 newsItems.forEach((item) => {
   item.addEventListener("click", (e) => {
@@ -162,8 +164,11 @@ newsItems.forEach((item) => {
 });
 
 document.addEventListener("click", (e) => {
-  if (e.target.matches(".modal-news") || e.target.matches(".modal-close")) {
-    newsModal.classList.remove("active");
+  if (
+    e.target.matches(".modal-background") ||
+    e.target.matches(".modal-close")
+  ) {
+    newsModal.classList.add("out");
     body.classList.remove("noscroll");
     scrollUp.style.right = "35px";
     heroNavbar.classList.remove("modal");
