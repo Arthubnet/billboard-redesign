@@ -1165,6 +1165,24 @@ section {
   display: none;
 }
 
+@media all and (max-width: 1500px) {
+  .video__carousel__inner__item .videoPlayer {
+    width: 80vw;
+  }
+}
+
+@media all and (max-width: 1350px) {
+  .video__carousel__inner__item .videoPlayer {
+    width: 90vw;
+  }
+}
+
+@media all and (max-width: 500px) {
+  .video__carousel__inner__item .videoPlayer {
+    width: 95vw;
+  }
+}
+
 .video__carousel__inner__item .video-title {
   margin: 0 15%;
 }

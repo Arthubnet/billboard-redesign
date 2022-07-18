@@ -822,6 +822,15 @@ section {
             display: none;
           }
         }
+        @media all and (max-width: 1500px) {
+          width: 80vw;
+        }
+        @media all and (max-width: 1350px) {
+          width: 90vw;
+        }
+        @media all and (max-width: 500px) {
+          width: 95vw;
+        }
       }
       .video-title {
         margin: 0 15%;
