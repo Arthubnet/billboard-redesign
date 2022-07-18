@@ -216,16 +216,16 @@ const prevController = document.querySelector(".prevBtn");
 const nextController = document.querySelector(".nextBtn");
 const closeController = document.querySelector(".closeBtn");
 
-let playing = false;
+let playingSong = false;
 let playerActive = false;
 
 let onPause = () => {
-  playing = true;
+  playingSong = true;
   music.play();
 };
 
 let onPlay = () => {
-  playing = false;
+  playingSong = false;
   music.pause();
 };
 
@@ -311,6 +311,9 @@ music.addEventListener("play", equalizerOn);
 
 songs.forEach((song) => {
   song.addEventListener("click", () => {
+    videoPlayer.forEach((video) => {
+      video.pause();
+    });
     if (Number(music.id) != song.id) {
       songsData.map((item) => {
         if (item.id == song.id) {
@@ -321,7 +324,7 @@ songs.forEach((song) => {
         playerActive = true;
         playerPanel.classList.add("active");
       }
-      if (playing) {
+      if (playingSong) {
         onPause();
       } else {
         onPause();
@@ -329,7 +332,7 @@ songs.forEach((song) => {
       return;
     }
     if (Number(music.id) == song.id) {
-      if (playing) {
+      if (playingSong) {
         onPlay();
       } else {
         onPause();
@@ -358,11 +361,14 @@ const volumeProgress = document.querySelector(".progress-volume");
 const volumeProgressInner = document.querySelector(".progress-volume__inner");
 
 playController.addEventListener("click", () => {
-  if (!playing) {
-    playing = true;
+  videoPlayer.forEach((video) => {
+    video.pause();
+  });
+  if (!playingSong) {
+    playingSong = true;
     music.play();
   } else {
-    playing = false;
+    playingSong = false;
     music.pause();
   }
 });
@@ -449,7 +455,6 @@ const carouselItem = document.querySelector(".video__carousel__inner__item");
 const videoPLayerBackground = document.querySelectorAll(
   ".videoPlayer__background"
 );
-
 let videoPlayerLeftArrow = document.querySelectorAll(".videoPlayer-leftArrow");
 let videoPlayerRightArrow = document.querySelectorAll(
   ".videoPlayer-rightArrow"
@@ -457,6 +462,7 @@ let videoPlayerRightArrow = document.querySelectorAll(
 
 videoPLayerBackground.forEach((item) => {
   item.addEventListener("click", () => {
+    stopSong();
     item.classList.add("hidden");
     item.parentElement.children[0].play();
   });
@@ -474,22 +480,8 @@ videoPlayerRightArrow.forEach((arrow) => {
   });
 });
 
-/* var stopAllYouTubeVideos = () => {
-  var iframes = document.querySelectorAll("iframe");
-  Array.prototype.forEach.call(iframes, (iframe) => {
-    iframe.contentWindow.postMessage(
-      JSON.stringify({ event: "command", func: "stopVideo" }),
-      "*"
-    );
-  });
-};
-
-setTimeout(() => {
-  stopAllYouTubeVideos();
-}, 2000); */
-
 let stopSong = () => {
-  playing = playerActive = false;
+  playingSong = playerActive = false;
   music.pause();
   songs.forEach((song) => {
     song.addEventListener("click", () => {});
@@ -502,19 +494,13 @@ let stopSong = () => {
   playerPanel.classList.remove("active");
 };
 
-/* let stopVideo = () => {
-  let url = iFrame.getAttribute("src");
-  iFrame.setAttribute("src", "");
-  iFrame.setAttribute("src", url);
-}; */
-
 // carousel
 
-let currentVideo = 1;
-let scrollPerClick = -carouselItem.clientWidth * (currentVideo - 1);
+let currentVideoId = 1;
+let scrollPerClick = -carouselItem.clientWidth * (currentVideoId - 1);
 
 let checkScrollSize = () => {
-  scrollPerClick = -carouselItem.clientWidth * (currentVideo - 1);
+  scrollPerClick = -carouselItem.clientWidth * (currentVideoId - 1);
 };
 
 window.addEventListener("resize", () => {
@@ -523,22 +509,22 @@ window.addEventListener("resize", () => {
 });
 
 let sliderScrollLeft = () => {
-  if (currentVideo > 1 && currentVideo < videosData.length + 1) {
+  if (currentVideoId > 1 && currentVideoId < videosData.length + 1) {
     videoPlayer.forEach((video) => {
       video.pause();
     });
-    currentVideo--;
+    currentVideoId--;
     checkScrollSize();
     slider.style.transform = `translateX(${scrollPerClick}px)`;
   }
 };
 
 let sliderScrollRight = () => {
-  if (currentVideo < videosData.length) {
+  if (currentVideoId < videosData.length) {
     videoPlayer.forEach((video) => {
       video.pause();
     });
-    currentVideo++;
+    currentVideoId++;
     checkScrollSize();
     slider.style.transform = `translateX(${scrollPerClick}px)`;
   }

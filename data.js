@@ -159,44 +159,27 @@ let videosData = [
   {
     id: "1",
     genre: "Video Top",
-    title:
-      "Listen to In Me(azi version) by Izzamuzzic in Izzamusic playlist online",
-    img: "https://i.ytimg.com/vi/yJkxkKNIBqg/maxresdefault.jpg",
-    path: "assets/video/roy.mp4",
-    alt: "roy",
+    title: `Okean Elzy & Odyn v kanoe - Misto vesny || Official video`,
+    img: "https://zn.ua/img/forall/u/14/3/%D0%9C%D1%96%D1%81%D1%82%D0%BE%20%D0%B2%D0%B5%D1%81%D0%BD%D0%B8.jpg",
+    path: "assets/video/okean.mp4",
+    alt: "okean",
   },
   {
     id: "2",
     genre: "Video Top",
-    title:
-      "Leon The Professional New York City Jean Reno Movie Art Huge Print Poster",
-    img: "https://i.pinimg.com/736x/6d/2d/a3/6d2da327cc1d129d40db6affdabff7d1.jpg",
+    title: `Song of the Day: Jezebel by Sade, Live`,
+    img: "https://distracttv.com/wp-content/uploads/2017/09/SADE-Singer-featured-image.jpg",
     path: "assets/video/sade.mp4",
-    alt: "roy",
+    alt: "sade",
   },
   {
     id: "3",
     genre: "Video Top",
-    title: "Bird's Teardrops || Estas Tonne feat. Peia || Ashland, Oregon",
-    img: "https://render.fineartamerica.com/images/rendered/default/poster/10/8/break/images/artworkimages/medium/2/estas-tonne-no8-fei-a.jpg",
-    path: "assets/video/model.mp4",
-    alt: "roy",
+    title: `Assassin's Creed II: Ezio’s Family Concert Suite (Live) | WDR Funkhausorchester`,
+    img: "https://images.squarespace-cdn.com/content/v1/5db1566728a93917fe96692d/1592920974218-NUD98QP2L818EB3G5H7V/2020_06_19_WSO_0821.jpg",
+    path: "assets/video/assasin.mp4",
+    alt: "assasin",
   },
-  /* {
-    id: "4",
-    genre: "Video Top",
-    title: "Song of the Day: Jezebel by Sade, Live",
-    img: "http://untitled-magazine.com/online/wp-content/uploads/2022/02/sade.jpg",
-    path: "https://www.youtube.com/embed/yK3IlV3l9xY?enablejsapi=1&rel=0",
-  },
-
-  {
-    id: "5",
-    genre: "Video Top",
-    title: "Eternal Eclipse - Yearning Hearts (Official Music Video)",
-    img: "https://i.ytimg.com/vi/pMIb9HRKJJQ/maxresdefault.jpg",
-    path: "https://www.youtube.com/embed/sJMc6EpHPHI?enablejsapi=1&rel=0",
-  }, */
 ];
 
 /* Bands */
