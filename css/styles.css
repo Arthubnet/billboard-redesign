@@ -1818,18 +1818,18 @@ section {
 }
 
 @media all and (max-width: 768px) {
-  .news__container {
+  .news__containers .news__container {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
     gap: 20px;
   }
-  .news__container__column {
+  .news__containers .news__container__column {
     width: 100%;
     gap: 20px;
   }
-  .news__container__item {
+  .news__containers .news__container__item {
     width: 100%;
   }
   .video__carousel__inner__item .video-promo img {
@@ -1888,6 +1888,10 @@ section {
   }
   .news .template__title {
     padding-top: 20px;
+    padding-left: 2.5%;
+  }
+  .news .news__containers .news__container {
+    padding: 0 2.5%;
   }
   .music__list .song-artist {
     display: none;

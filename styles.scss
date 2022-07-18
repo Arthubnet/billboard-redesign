@@ -1279,15 +1279,17 @@ section {
 }
 
 @media all and (max-width: 768px) {
-  .news__container {
-    flex-direction: column;
-    gap: 20px;
-    &__column {
-      width: 100%;
+  .news__containers {
+    .news__container {
+      flex-direction: column;
       gap: 20px;
-    }
-    &__item {
-      width: 100%;
+      &__column {
+        width: 100%;
+        gap: 20px;
+      }
+      &__item {
+        width: 100%;
+      }
     }
   }
   .video__carousel__inner {
@@ -1356,6 +1358,12 @@ section {
   .news {
     .template__title {
       padding-top: 20px;
+      padding-left: 2.5%;
+    }
+    .news__containers {
+      .news__container {
+        padding: 0 2.5%;
+      }
     }
   }
   .music__list {
