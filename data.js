@@ -157,43 +157,43 @@ let songsData = [
 
 let videosData = [
   {
-    id: 104,
+    id: "1",
     genre: "Video Top",
     title:
       "Listen to In Me(azi version) by Izzamuzzic in Izzamusic playlist online",
-    img: "https://i1.sndcdn.com/artworks-000246135340-ub19jf-t500x500.jpg",
-    path: "https://www.youtube.com/embed/ftIhTuro_wg",
+    img: "https://i.ytimg.com/vi/yJkxkKNIBqg/maxresdefault.jpg",
+    path: "assets/video/roy.mp4",
   },
   {
-    id: 100,
+    id: "2",
     genre: "Video Top",
     title:
       "Leon The Professional New York City Jean Reno Movie Art Huge Print Poster",
     img: "https://i.pinimg.com/736x/6d/2d/a3/6d2da327cc1d129d40db6affdabff7d1.jpg",
-    path: "https://www.youtube.com/embed/QK-Z1K67uaA",
+    path: "assets/video/sade.mp4",
   },
   {
-    id: 101,
+    id: "3",
     genre: "Video Top",
     title: "Bird's Teardrops || Estas Tonne feat. Peia || Ashland, Oregon",
     img: "https://render.fineartamerica.com/images/rendered/default/poster/10/8/break/images/artworkimages/medium/2/estas-tonne-no8-fei-a.jpg",
-    path: "https://www.youtube.com/embed/hn10okvX19E",
+    path: "assets/video/model.mp4",
   },
-  {
-    id: 102,
+  /* {
+    id: "4",
     genre: "Video Top",
     title: "Song of the Day: Jezebel by Sade, Live",
     img: "http://untitled-magazine.com/online/wp-content/uploads/2022/02/sade.jpg",
-    path: "https://www.youtube.com/embed/yK3IlV3l9xY",
+    path: "https://www.youtube.com/embed/yK3IlV3l9xY?enablejsapi=1&rel=0",
   },
 
   {
-    id: 103,
+    id: "5",
     genre: "Video Top",
     title: "Eternal Eclipse - Yearning Hearts (Official Music Video)",
     img: "https://i.ytimg.com/vi/pMIb9HRKJJQ/maxresdefault.jpg",
-    path: "https://www.youtube.com/embed/sJMc6EpHPHI",
-  },
+    path: "https://www.youtube.com/embed/sJMc6EpHPHI?enablejsapi=1&rel=0",
+  }, */
 ];
 
 /* Bands */

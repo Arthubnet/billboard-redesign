@@ -162,6 +162,7 @@ newsItems.forEach((item) => {
 });
 
 document.addEventListener("click", (e) => {
+  console.log(e.target);
   if (e.target.matches(".modal-news") || e.target.matches(".modal-close")) {
     newsModal.classList.remove("active");
     body.classList.remove("noscroll");
@@ -425,8 +426,12 @@ const slider = document.querySelector(".video__carousel__inner");
 
 slider.innerHTML = videosData
   .map((video) => {
-    return `<div class="video__carousel__inner__item">
-            <iframe id="youtube" width="650" height="315" src="${video.path}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    return ` <div class="video__carousel__inner__item">
+    <div class="videoPlayer">
+    <video videoPlayer src="${video.path}" controls></video>
+    <div class="videoArrow videoPlayer-leftArrow"></div>
+    <div class="videoArrow videoPlayer-rightArrow"></div>
+    </div>
               <div class="video-title">
                 <h4>${video.genre}</h4>
                 <h3>
@@ -440,7 +445,37 @@ slider.innerHTML = videosData
 const carousel = document.querySelector(".video__carousel");
 const carouselItem = document.querySelector(".video__carousel__inner__item");
 const videoPromo = document.querySelectorAll(".video-promo");
-const iFrame = document.getElementById("youtube");
+let videoPlayer = document.querySelectorAll("video");
+let videoPlayerLeftArrow = document.querySelectorAll(".videoPlayer-leftArrow");
+let videoPlayerRightArrow = document.querySelectorAll(
+  ".videoPlayer-rightArrow"
+);
+
+videoPlayerLeftArrow.forEach((arrow) => {
+  arrow.addEventListener("click", () => {
+    sliderScrollLeft();
+  });
+});
+
+videoPlayerRightArrow.forEach((arrow) => {
+  arrow.addEventListener("click", () => {
+    sliderScrollRight();
+  });
+});
+
+/* var stopAllYouTubeVideos = () => {
+  var iframes = document.querySelectorAll("iframe");
+  Array.prototype.forEach.call(iframes, (iframe) => {
+    iframe.contentWindow.postMessage(
+      JSON.stringify({ event: "command", func: "stopVideo" }),
+      "*"
+    );
+  });
+};
+
+setTimeout(() => {
+  stopAllYouTubeVideos();
+}, 2000); */
 
 let stopSong = () => {
   playing = playerActive = false;
@@ -456,57 +491,45 @@ let stopSong = () => {
   playerPanel.classList.remove("active");
 };
 
-let stopVideo = () => {
+/* let stopVideo = () => {
   let url = iFrame.getAttribute("src");
   iFrame.setAttribute("src", "");
   iFrame.setAttribute("src", url);
-};
-
-document.addEventListener("keydown", function (e) {
-  if (e.key === "Escape") {
-    e.preventDefault();
-    stopVideo();
-  }
-});
+}; */
 
 // carousel
 
-let scrollPerClick = carouselItem.clientWidth;
+let currentVideo = 1;
+let scrollPerClick = -carouselItem.clientWidth * (currentVideo - 1);
 
 let checkScrollSize = () => {
-  scrollPerClick = carouselItem.clientWidth;
+  scrollPerClick = -carouselItem.clientWidth * (currentVideo - 1);
 };
-
-let currentVideo = 1;
 
 window.addEventListener("resize", () => {
   checkScrollSize();
-  slider.scrollTo({
-    top: 0,
-    left: scrollPerClick * (currentVideo - 1),
-    behavior: "smooth",
-  });
+  slider.style.transform = `translateX(${scrollPerClick}px)`;
 });
 
 let sliderScrollLeft = () => {
   if (currentVideo > 1 && currentVideo < videosData.length + 1) {
-    slider.scrollTo({
-      top: 0,
-      left: scrollPerClick * (currentVideo - 2),
-      behavior: "smooth",
+    videoPlayer.forEach((video) => {
+      video.pause();
     });
     currentVideo--;
+    checkScrollSize();
+    slider.style.transform = `translateX(${scrollPerClick}px)`;
   }
 };
 
 let sliderScrollRight = () => {
   if (currentVideo < videosData.length) {
-    slider.scroll({
-      top: 0,
-      left: scrollPerClick * currentVideo,
-      behavior: "smooth",
+    videoPlayer.forEach((video) => {
+      video.pause();
     });
     currentVideo++;
+    checkScrollSize();
+    slider.style.transform = `translateX(${scrollPerClick}px)`;
   }
 };
 

@@ -756,40 +756,65 @@ section {
 
 /* Video */
 
-.video {
-  width: 90%;
-  padding: 5% 0;
-  display: flex;
-  flex-direction: column;
-  &__carousel {
-    width: 100%;
-    position: relative;
-    transition: all 0.5s;
+.video__carousel {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  margin: 0 0 10% 0;
+  &__inner {
+    display: inline-flex;
     overflow: hidden;
-    &__inner {
-      width: 100%;
-      display: inline-flex;
-      overflow: hidden;
-      &__item {
-        width: 100%;
-        height: 80vh;
-        display: flex;
-        flex-direction: column;
+    transform: translate(0);
+    transition: transform 0.6s;
+    &__item {
+      width: 100vw;
+      max-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      .videoPlayer {
+        width: 70vw;
+        height: auto;
+        position: relative;
+        margin: 0 auto;
+        &:hover {
+          cursor: pointer;
+        }
+        &:hover .videoArrow {
+          opacity: 1;
+        }
+        video {
+          width: 100%;
+          height: auto;
+        }
+        .videoArrow {
+          width: 50px;
+          height: 100%;
+          position: absolute;
+          background-color: rgba(128, 128, 128, 0.5);
+          opacity: 0;
+          transition: 0.5s;
+          top: 0;
+        }
+        .videoPlayer-leftArrow {
+          left: 0;
+        }
+        .videoPlayer-rightArrow {
+          right: 0;
+        }
       }
-    }
-  }
-  .arrows {
-    .arrow {
-      &:hover {
-        background: $theme-color;
+      .video-title {
+        margin: 0 15%;
       }
     }
   }
 }
-
-#youtube {
-  width: 90vw;
-  height: 70vh;
+.arrows {
+  margin: 0 auto;
+  .arrow {
+    &:hover {
+      background: $theme-color;
+    }
+  }
 }
 
 /* Bands */
@@ -849,7 +874,7 @@ section {
         flex-direction: column;
         justify-content: space-between;
         &.active {
-          background-color: rgba(197, 29, 111, 0.5);
+          background-color: $theme-color;
         }
         &:hover {
           cursor: pointer;
