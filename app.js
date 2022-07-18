@@ -428,9 +428,10 @@ slider.innerHTML = videosData
   .map((video) => {
     return ` <div class="video__carousel__inner__item">
     <div class="videoPlayer">
-    <video videoPlayer src="${video.path}" controls></video>
+    <video src="${video.path}" controls></video>
     <div class="videoArrow videoPlayer-leftArrow"></div>
     <div class="videoArrow videoPlayer-rightArrow"></div>
+    <div class="videoPlayer__background"> <img src="${video.img}" alt=""/> </div>
     </div>
               <div class="video-title">
                 <h4>${video.genre}</h4>
@@ -442,14 +443,24 @@ slider.innerHTML = videosData
   })
   .join("");
 
+const videoPlayer = document.querySelectorAll("video");
 const carousel = document.querySelector(".video__carousel");
 const carouselItem = document.querySelector(".video__carousel__inner__item");
-const videoPromo = document.querySelectorAll(".video-promo");
-let videoPlayer = document.querySelectorAll("video");
+const videoPLayerBackground = document.querySelectorAll(
+  ".videoPlayer__background"
+);
+
 let videoPlayerLeftArrow = document.querySelectorAll(".videoPlayer-leftArrow");
 let videoPlayerRightArrow = document.querySelectorAll(
   ".videoPlayer-rightArrow"
 );
+
+videoPLayerBackground.forEach((item) => {
+  item.addEventListener("click", () => {
+    item.classList.add("hidden");
+    item.parentElement.children[0].play();
+  });
+});
 
 videoPlayerLeftArrow.forEach((arrow) => {
   arrow.addEventListener("click", () => {

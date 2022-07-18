@@ -794,12 +794,28 @@ section {
           opacity: 0;
           transition: 0.5s;
           top: 0;
+          z-index: 6;
         }
         .videoPlayer-leftArrow {
           left: 0;
         }
         .videoPlayer-rightArrow {
           right: 0;
+        }
+        &__background {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          img {
+            width: 100%;
+            height: 100%;
+            z-index: 5;
+          }
+          &.hidden {
+            display: none;
+          }
         }
       }
       .video-title {

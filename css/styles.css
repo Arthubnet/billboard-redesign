@@ -1127,6 +1127,7 @@ section {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   top: 0;
+  z-index: 6;
 }
 
 .video__carousel__inner__item .videoPlayer .videoPlayer-leftArrow {
@@ -1135,6 +1136,24 @@ section {
 
 .video__carousel__inner__item .videoPlayer .videoPlayer-rightArrow {
   right: 0;
+}
+
+.video__carousel__inner__item .videoPlayer__background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.video__carousel__inner__item .videoPlayer__background img {
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+}
+
+.video__carousel__inner__item .videoPlayer__background.hidden {
+  display: none;
 }
 
 .video__carousel__inner__item .video-title {

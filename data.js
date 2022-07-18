@@ -163,6 +163,7 @@ let videosData = [
       "Listen to In Me(azi version) by Izzamuzzic in Izzamusic playlist online",
     img: "https://i.ytimg.com/vi/yJkxkKNIBqg/maxresdefault.jpg",
     path: "assets/video/roy.mp4",
+    alt: "roy",
   },
   {
     id: "2",
@@ -171,6 +172,7 @@ let videosData = [
       "Leon The Professional New York City Jean Reno Movie Art Huge Print Poster",
     img: "https://i.pinimg.com/736x/6d/2d/a3/6d2da327cc1d129d40db6affdabff7d1.jpg",
     path: "assets/video/sade.mp4",
+    alt: "roy",
   },
   {
     id: "3",
@@ -178,6 +180,7 @@ let videosData = [
     title: "Bird's Teardrops || Estas Tonne feat. Peia || Ashland, Oregon",
     img: "https://render.fineartamerica.com/images/rendered/default/poster/10/8/break/images/artworkimages/medium/2/estas-tonne-no8-fei-a.jpg",
     path: "assets/video/model.mp4",
+    alt: "roy",
   },
   /* {
     id: "4",
