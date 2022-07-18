@@ -432,10 +432,11 @@ slider.innerHTML = videosData
   .map((video) => {
     return ` <div class="video__carousel__inner__item">
     <div class="videoPlayer">
-    <video src="${video.path}" controls></video>
-    <div class="videoArrow videoPlayer-leftArrow"></div>
-    <div class="videoArrow videoPlayer-rightArrow"></div>
-    <div class="videoPlayer__background"> <img src="${video.img}" alt=""/> </div>
+      <video src="${video.path}" controls></video>
+      <div class="videoArrow videoPlayer-leftArrow"> <img src="assets/img/prev-svg.svg"/></div>
+      <div class="videoArrow videoPlayer-rightArrow"><img src="assets/img/next-svg.svg"/></div>
+      <div class="videoPlayer__background"> <img src="${video.img}" alt="${video.alt}"/><div class="videoPlayer__playBtn" ><img src="assets/img/pink-play.svg" /></div></div>
+      
     </div>
               <div class="video-title">
                 <h4>${video.genre}</h4>
@@ -514,6 +515,7 @@ let sliderScrollLeft = (arrow) => {
   if (currentVideoId > 1 && currentVideoId < videosData.length + 1) {
     videoPlayer.forEach((video) => {
       arrow.parentElement.children[3].classList.remove("hidden");
+      playingVideo.currentTime = 0;
       video.pause();
     });
     currentVideoId--;
@@ -526,6 +528,7 @@ let sliderScrollRight = (arrow) => {
   if (currentVideoId < videosData.length) {
     videoPlayer.forEach((video) => {
       arrow.parentElement.children[3].classList.remove("hidden");
+      playingVideo.currentTime = 0;
       video.pause();
     });
     currentVideoId++;
