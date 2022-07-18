@@ -147,16 +147,15 @@ let openNewsModal = (item) => {
   newsModal.classList.remove("in");
   newsModal.classList.add("in");
 };
+
 newsItems.forEach((item) => {
   item.addEventListener("click", (e) => {
     if (e.target.innerHTML.toLowerCase().includes(item.childNodes[1].alt)) {
       openNewsModal(item);
-      body.classList.add("noscroll");
-      scrollUp.style.right = "47px";
+      noScrollPadding();
     } else {
       openNewsModal(item);
-      body.classList.add("noscroll");
-      scrollUp.style.right = "47px";
+      noScrollPadding();
     }
   });
 });
@@ -169,6 +168,7 @@ document.addEventListener("click", (e) => {
     newsModal.classList.add("out");
     body.classList.remove("noscroll");
     scrollUp.style.right = "35px";
+    playerPanel.style.padding = "0";
   }
 });
 
@@ -426,6 +426,12 @@ volumeProgress.addEventListener("click", setVolume);
 progressBar.addEventListener("click", setCurrentTime);
 music.addEventListener("timeupdate", time);
 
+let noScrollPadding = () => {
+  body.classList.add("noscroll");
+  scrollUp.style.right = "47px";
+  playerPanel.style.padding = "0 12px 0 0";
+};
+
 /* Video */
 
 const slider = document.querySelector(".video__carousel__inner");
@@ -611,12 +617,10 @@ moreNewsItems.forEach((item) => {
   item.addEventListener("click", (e) => {
     if (e.target.innerHTML.toLowerCase().includes(item.childNodes[1].alt)) {
       openNewsModal(item);
-      body.classList.add("noscroll");
-      scrollUp.style.right = "47px";
+      noScrollPadding();
     } else {
       openNewsModal(item);
-      body.classList.add("noscroll");
-      scrollUp.style.right = "47px";
+      noScrollPadding();
     }
   });
 });
