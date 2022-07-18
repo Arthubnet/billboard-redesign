@@ -149,12 +149,10 @@ let openNewsModal = (item) => {
 };
 newsItems.forEach((item) => {
   item.addEventListener("click", (e) => {
-    console.log(item);
     if (e.target.innerHTML.toLowerCase().includes(item.childNodes[1].alt)) {
       openNewsModal(item);
       body.classList.add("noscroll");
       scrollUp.style.right = "47px";
-      heroNavbar.classList.add("modal");
     } else {
       openNewsModal(item);
       body.classList.add("noscroll");
@@ -611,12 +609,10 @@ let moreNewsItems = document.querySelectorAll(".more__container__item");
 
 moreNewsItems.forEach((item) => {
   item.addEventListener("click", (e) => {
-    console.log(item);
     if (e.target.innerHTML.toLowerCase().includes(item.childNodes[1].alt)) {
       openNewsModal(item);
       body.classList.add("noscroll");
       scrollUp.style.right = "47px";
-      heroNavbar.classList.add("modal");
     } else {
       openNewsModal(item);
       body.classList.add("noscroll");
