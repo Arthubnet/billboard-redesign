@@ -218,6 +218,7 @@ const closeController = document.querySelector(".closeBtn");
 
 let playingSong = false;
 let playerActive = false;
+let playingVideo = {};
 
 let onPause = () => {
   playingSong = true;
@@ -311,9 +312,6 @@ music.addEventListener("play", equalizerOn);
 
 songs.forEach((song) => {
   song.addEventListener("click", () => {
-    videoPlayer.forEach((video) => {
-      video.pause();
-    });
     if (Number(music.id) != song.id) {
       songsData.map((item) => {
         if (item.id == song.id) {
@@ -361,9 +359,6 @@ const volumeProgress = document.querySelector(".progress-volume");
 const volumeProgressInner = document.querySelector(".progress-volume__inner");
 
 playController.addEventListener("click", () => {
-  videoPlayer.forEach((video) => {
-    video.pause();
-  });
   if (!playingSong) {
     playingSong = true;
     music.play();
@@ -470,13 +465,13 @@ videoPLayerBackground.forEach((item) => {
 
 videoPlayerLeftArrow.forEach((arrow) => {
   arrow.addEventListener("click", () => {
-    sliderScrollLeft();
+    sliderScrollLeft(arrow);
   });
 });
 
 videoPlayerRightArrow.forEach((arrow) => {
   arrow.addEventListener("click", () => {
-    sliderScrollRight();
+    sliderScrollRight(arrow);
   });
 });
 
@@ -508,9 +503,10 @@ window.addEventListener("resize", () => {
   slider.style.transform = `translateX(${scrollPerClick}px)`;
 });
 
-let sliderScrollLeft = () => {
+let sliderScrollLeft = (arrow) => {
   if (currentVideoId > 1 && currentVideoId < videosData.length + 1) {
     videoPlayer.forEach((video) => {
+      arrow.parentElement.children[3].classList.remove("hidden");
       video.pause();
     });
     currentVideoId--;
@@ -519,9 +515,10 @@ let sliderScrollLeft = () => {
   }
 };
 
-let sliderScrollRight = () => {
+let sliderScrollRight = (arrow) => {
   if (currentVideoId < videosData.length) {
     videoPlayer.forEach((video) => {
+      arrow.parentElement.children[3].classList.remove("hidden");
       video.pause();
     });
     currentVideoId++;
