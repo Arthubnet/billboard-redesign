@@ -149,6 +149,7 @@ let openNewsModal = (item) => {
 };
 newsItems.forEach((item) => {
   item.addEventListener("click", (e) => {
+    console.log(item);
     if (e.target.innerHTML.toLowerCase().includes(item.childNodes[1].alt)) {
       openNewsModal(item);
       body.classList.add("noscroll");
@@ -594,15 +595,35 @@ moreNews.innerHTML = moreNewsData
   .map((arr) => {
     return `<div class="more__container__item">
             <img
-              src="${arr.img}" alt="${arr.name}" loading="lazy"
+              src="${arr.img}" alt="${arr.alt}" loading="lazy"
             />
+            <div class="more-title">
             <h4>${arr.genre}</h4>
             <h3>
               ${arr.title}
             </h3>
+            </div>
           </div>`;
   })
   .join("");
+
+let moreNewsItems = document.querySelectorAll(".more__container__item");
+
+moreNewsItems.forEach((item) => {
+  item.addEventListener("click", (e) => {
+    console.log(item);
+    if (e.target.innerHTML.toLowerCase().includes(item.childNodes[1].alt)) {
+      openNewsModal(item);
+      body.classList.add("noscroll");
+      scrollUp.style.right = "47px";
+      heroNavbar.classList.add("modal");
+    } else {
+      openNewsModal(item);
+      body.classList.add("noscroll");
+      scrollUp.style.right = "47px";
+    }
+  });
+});
 
 /* Scroll up arrow */
 

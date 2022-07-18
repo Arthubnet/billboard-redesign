@@ -1077,6 +1077,19 @@ section {
       width: 30%;
       img {
         width: 100%;
+        transition: all 0.3s ease;
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.02);
+        }
+      }
+      .more-title {
+        h3 {
+          &:hover {
+            cursor: pointer;
+            opacity: 0.7;
+          }
+        }
       }
     }
   }

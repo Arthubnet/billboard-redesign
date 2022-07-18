@@ -1584,6 +1584,19 @@ section {
 
 .more__container__item img {
   width: 100%;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.more__container__item img:hover {
+  cursor: pointer;
+  -webkit-transform: scale(1.02);
+          transform: scale(1.02);
+}
+
+.more__container__item .more-title h3:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 /* Footer */

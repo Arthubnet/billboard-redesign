@@ -217,24 +217,21 @@ let bandsData = [
 
 let moreNewsData = [
   {
-    name: "Sriya",
-    genre: "Music",
-    title:
-      "Sriya as a K-pop idol is no fluke. A well-oiled industry is hunting for Indian stars",
+    genre: "MUSIC",
+    title: `Sriya as a K-pop idol is no fluke. A well-oiled industry is hunting for Indian stars`,
     img: "https://static.theprint.in/wp-content/uploads/2022/06/K-Pop-copy.jpg?compress=true&quality=80&w=800&dpr=1.0",
+    alt: "sriya",
   },
   {
-    name: "Bred Pitt",
     genre: "TV/FILM",
-    title:
-      "'Who did the body?' Brad Pitt's GQ magazine cover is 'very upsetting' to some people",
+    title: `'Who did the body?' Brad Pitt's GQ magazine cover is 'very upsetting' to some people`,
     img: "https://static.foxnews.com/foxnews.com/content/uploads/2019/09/brad-pitt-ad-astra-tokyo-getty.jpg",
+    alt: "brad",
   },
   {
-    name: "Nayeon",
-    genre: "Music",
-    title:
-      "TWICE’s Nayeon Is the Perfect ‘Pop!’ Star With Debut Solo Album: Listen",
+    genre: "MUSIC",
+    title: `TWICE’s Nayeon Is the Perfect ‘Pop!’ Star With Debut Solo Album: Listen`,
     img: "https://www.billboard.com/wp-content/uploads/2022/05/nayeon-twice-2022-press-billboard-1548.png?w=910&h=511&crop=1&resize=681%2C383",
+    alt: "nayeon",
   },
 ];
