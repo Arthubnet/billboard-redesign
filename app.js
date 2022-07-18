@@ -83,7 +83,6 @@ heroArrows.forEach((arrow) => {
 
 const newsFreshContainer = document.querySelector(".news__container.fresh");
 const newsWeekContainer = document.querySelector(".news__container.week");
-const newsColumns = document.querySelectorAll(".news__container__column");
 const newsFresh = document.querySelector(".news-fresh");
 const newsWeek = document.querySelector(".news-week");
 const closeNewsModal = document.querySelector(".modal-close");
@@ -119,6 +118,7 @@ let newsOnRender = () => {
 newsOnRender();
 
 let activeFilter = "fresh";
+
 newsFresh.addEventListener("click", () => {
   if (activeFilter == "week") {
     newsWeek.classList.remove("active");
@@ -132,8 +132,8 @@ newsWeek.addEventListener("click", () => {
   if (activeFilter == "fresh") {
     newsFresh.classList.remove("active");
     newsWeek.classList.add("active");
-    newsFreshContainer.classList.remove("active");
     newsWeekContainer.classList.add("active");
+    newsFreshContainer.classList.remove("active");
     activeFilter = "week";
   }
 });
@@ -189,7 +189,7 @@ musicList.innerHTML = songsData
               </div>
               <div class="song-name"><h3>${song.name}</h3></div>
               <div class="song-artist"><p>${song.artist}</p></div>
-              <div class="song-equalizer">
+              <div class="song-equalizer active">
                 <div class="bar"></div>
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -348,7 +348,7 @@ songs.forEach((song) => {
 let setMusic = (id) => {
   songsData.map((song) => {
     if (song.id == id) {
-      music.src = song.path;
+      music.src = song.link;
       music.id = song.id;
     }
   });
