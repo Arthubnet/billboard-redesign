@@ -158,7 +158,6 @@ newsItems.forEach((item) => {
       openNewsModal(item);
       body.classList.add("noscroll");
       scrollUp.style.right = "47px";
-      heroNavbar.classList.add("modal");
     }
   });
 });
@@ -171,7 +170,6 @@ document.addEventListener("click", (e) => {
     newsModal.classList.add("out");
     body.classList.remove("noscroll");
     scrollUp.style.right = "35px";
-    heroNavbar.classList.remove("modal");
   }
 });
 
@@ -437,7 +435,7 @@ slider.innerHTML = videosData
   .map((video) => {
     return ` <div class="video__carousel__inner__item">
     <div class="videoPlayer">
-      <video src="${video.path}" controls></video>
+      <video src="${video.path}" controlsList="nodownload" controls></video>
       <div class="videoArrow videoPlayer-leftArrow"> <img src="assets/img/prev-svg.svg"/></div>
       <div class="videoArrow videoPlayer-rightArrow"><img src="assets/img/next-svg.svg"/></div>
       <div class="videoPlayer__background"> <img src="${video.img}" alt="${video.alt}"/><div class="videoPlayer__playBtn" ><img src="assets/img/pink-play.svg" /></div></div>
