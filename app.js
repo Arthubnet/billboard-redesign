@@ -162,7 +162,6 @@ newsItems.forEach((item) => {
 });
 
 document.addEventListener("click", (e) => {
-  console.log(e.target);
   if (e.target.matches(".modal-news") || e.target.matches(".modal-close")) {
     newsModal.classList.remove("active");
     body.classList.remove("noscroll");
@@ -218,7 +217,7 @@ const closeController = document.querySelector(".closeBtn");
 
 let playingSong = false;
 let playerActive = false;
-let playingVideo = {};
+let playingVideo = "";
 
 let onPause = () => {
   playingSong = true;
@@ -312,6 +311,10 @@ music.addEventListener("play", equalizerOn);
 
 songs.forEach((song) => {
   song.addEventListener("click", () => {
+    if (playingVideo) {
+      playingVideo.pause();
+    }
+
     if (Number(music.id) != song.id) {
       songsData.map((item) => {
         if (item.id == song.id) {
@@ -457,6 +460,10 @@ let videoPlayerRightArrow = document.querySelectorAll(
 
 videoPLayerBackground.forEach((item) => {
   item.addEventListener("click", () => {
+    playingVideo = item.parentElement.children[0];
+    playingVideo.addEventListener("play", () => {
+      stopSong();
+    });
     stopSong();
     item.classList.add("hidden");
     item.parentElement.children[0].play();
