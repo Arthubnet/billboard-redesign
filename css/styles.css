@@ -1165,9 +1165,16 @@ section {
   display: none;
 }
 
+.video__carousel__inner__item .video-title {
+  margin: 0 15%;
+}
+
 @media all and (max-width: 1500px) {
   .video__carousel__inner__item .videoPlayer {
     width: 80vw;
+  }
+  .video__carousel__inner__item .video-title {
+    margin: 0 10%;
   }
 }
 
@@ -1175,16 +1182,18 @@ section {
   .video__carousel__inner__item .videoPlayer {
     width: 90vw;
   }
-}
-
-@media all and (max-width: 500px) {
-  .video__carousel__inner__item .videoPlayer {
-    width: 95vw;
+  .video__carousel__inner__item .video-title {
+    margin: 0 5%;
   }
 }
 
-.video__carousel__inner__item .video-title {
-  margin: 0 15%;
+@media all and (max-width: 1350px) {
+  .video__carousel__inner__item .videoPlayer {
+    width: 95vw;
+  }
+  .video__carousel__inner__item .video-title {
+    margin: 0 2.5%;
+  }
 }
 
 .arrows {
