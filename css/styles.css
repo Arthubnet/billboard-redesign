@@ -172,6 +172,10 @@ section {
   color: #c51d6f;
 }
 
+.hero__navbar-menu li a.active {
+  color: #c51d6f;
+}
+
 .hero__navbar .subscribe {
   height: 40px;
   width: 400px;

@@ -143,6 +143,9 @@ section {
         &:hover {
           color: $theme-color;
         }
+        &.active {
+          color: $theme-color;
+        }
       }
     }
   }

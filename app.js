@@ -5,17 +5,17 @@ const body = document.body;
 const navSlide = () => {
   let burger = document.querySelector(".hero__navbar-burger");
   let navbar = document.querySelector(".hero__navbar-lists");
-  let navLinks = document.querySelectorAll(".hero__navbar-lists li");
+  let navLists = document.querySelectorAll(".hero__navbar-lists li");
 
   let navbarToggle = () => {
     navbar.classList.toggle("nav-active");
     burger.classList.toggle("active");
     body.classList.toggle("noscroll");
   };
-  navLinks.forEach((link) => {
+  navLists.forEach((link) => {
     link.addEventListener("click", (e) => {
       if (e.view.innerWidth < 1449) {
-        navLinks.forEach((link, index) => {
+        navLists.forEach((link, index) => {
           link.style.animation = "";
         });
         navbarToggle();
@@ -26,7 +26,7 @@ const navSlide = () => {
   burger.addEventListener("click", () => {
     navbarToggle();
     //Animate links
-    navLinks.forEach((link, index) => {
+    navLists.forEach((link, index) => {
       if (link.style.animation) {
         link.style.animation = "";
       } else {
@@ -80,7 +80,7 @@ heroArrows.forEach((arrow) => {
 });
 
 /* News */
-
+const news = document.getElementById("news");
 const newsFreshContainer = document.querySelector(".news__container.fresh");
 const newsWeekContainer = document.querySelector(".news__container.week");
 const newsFresh = document.querySelector(".news-fresh");
@@ -173,8 +173,8 @@ document.addEventListener("click", (e) => {
 });
 
 /* Songs */
-
-const music = document.querySelector("audio");
+const music = document.getElementById("music");
+const audio = document.querySelector("audio");
 const musicList = document.querySelector(".music__list");
 
 musicList.innerHTML = songsData
@@ -223,17 +223,17 @@ let playingVideo = "";
 
 let onPause = () => {
   playingSong = true;
-  music.play();
+  audio.play();
 };
 
 let onPlay = () => {
   playingSong = false;
-  music.pause();
+  audio.pause();
 };
 
 nextController.addEventListener("click", () => {
-  if (parseInt(music.id) < songsData.length) {
-    let nextSong = parseInt(music.id) + 1;
+  if (parseInt(audio.id) < songsData.length) {
+    let nextSong = parseInt(audio.id) + 1;
     setMusic(nextSong);
     onPause();
   } else {
@@ -243,8 +243,8 @@ nextController.addEventListener("click", () => {
 });
 
 prevController.addEventListener("click", () => {
-  if (parseInt(music.id) > 1) {
-    let nextSong = parseInt(music.id) - 1;
+  if (parseInt(audio.id) > 1) {
+    let nextSong = parseInt(audio.id) - 1;
     setMusic(nextSong);
     onPause();
   } else {
@@ -306,10 +306,10 @@ let stopAnimation = () => {
   });
 };
 
-music.addEventListener("canplay", equalizerOn);
-music.addEventListener("ended", stopAnimation);
-music.addEventListener("pause", pauseOn);
-music.addEventListener("play", equalizerOn);
+audio.addEventListener("canplay", equalizerOn);
+audio.addEventListener("ended", stopAnimation);
+audio.addEventListener("pause", pauseOn);
+audio.addEventListener("play", equalizerOn);
 
 songs.forEach((song) => {
   song.addEventListener("click", () => {
@@ -317,7 +317,7 @@ songs.forEach((song) => {
       playingVideo.pause();
     }
 
-    if (Number(music.id) != song.id) {
+    if (Number(audio.id) != song.id) {
       songsData.map((item) => {
         if (item.id == song.id) {
           setMusic(song.id);
@@ -334,7 +334,7 @@ songs.forEach((song) => {
       }
       return;
     }
-    if (Number(music.id) == song.id) {
+    if (Number(audio.id) == song.id) {
       if (playingSong) {
         onPlay();
       } else {
@@ -347,8 +347,8 @@ songs.forEach((song) => {
 let setMusic = (id) => {
   songsData.map((song) => {
     if (song.id == id) {
-      music.src = song.link;
-      music.id = song.id;
+      audio.src = song.link;
+      audio.id = song.id;
     }
   });
 };
@@ -366,10 +366,10 @@ const volumeProgressInner = document.querySelector(".progress-volume__inner");
 playController.addEventListener("click", () => {
   if (!playingSong) {
     playingSong = true;
-    music.play();
+    audio.play();
   } else {
     playingSong = false;
-    music.pause();
+    audio.pause();
   }
 });
 
@@ -399,24 +399,24 @@ let time = (event) => {
 };
 
 let setCurrentTime = (e) => {
-  music.currentTime = (e.offsetX / progressBar.clientWidth) * music.duration;
+  audio.currentTime = (e.offsetX / progressBar.clientWidth) * audio.duration;
 };
 
 let setVolume = (e) => {
   volumeProgressInner.style.width = `${e.offsetX}px`;
-  music.volume = e.offsetX / volumeProgress.clientWidth;
+  audio.volume = e.offsetX / volumeProgress.clientWidth;
 };
 
 let currentVolume;
 volumeBtn.addEventListener("click", () => {
-  if (music.volume) {
-    currentVolume = music.volume;
-    music.volume = 0;
+  if (audio.volume) {
+    currentVolume = audio.volume;
+    audio.volume = 0;
     volumeProgressInner.style.width = `0%`;
     volumeBtn.src = "./assets/img/volume-off-solid.svg";
     return;
   } else {
-    music.volume = currentVolume;
+    audio.volume = currentVolume;
     volumeProgressInner.style.width = `${currentVolume * 100}%`;
     volumeBtn.src = "./assets/img/volume-high-solid.svg";
   }
@@ -424,7 +424,7 @@ volumeBtn.addEventListener("click", () => {
 
 volumeProgress.addEventListener("click", setVolume);
 progressBar.addEventListener("click", setCurrentTime);
-music.addEventListener("timeupdate", time);
+audio.addEventListener("timeupdate", time);
 
 let noScrollPadding = () => {
   body.classList.add("noscroll");
@@ -455,7 +455,7 @@ slider.innerHTML = videosData
             </div>`;
   })
   .join("");
-
+const video = document.getElementById("video");
 const videoPlayer = document.querySelectorAll("video");
 const carousel = document.querySelector(".video__carousel");
 const carouselItem = document.querySelector(".video__carousel__inner__item");
@@ -493,7 +493,7 @@ videoPlayerRightArrow.forEach((arrow) => {
 
 let stopSong = () => {
   playingSong = playerActive = false;
-  music.pause();
+  audio.pause();
   songs.forEach((song) => {
     song.addEventListener("click", () => {});
     song.children[1].classList.add("pause");
@@ -546,7 +546,7 @@ let sliderScrollRight = (arrow) => {
 };
 
 /* Bands */
-
+const bands = document.getElementById("bands");
 const bandCards = document.querySelector(".bands__container__cards");
 const promo = document.querySelector(".bands__container__promo");
 const title = document.querySelector(".promo-title");
@@ -659,4 +659,48 @@ scrollUp.addEventListener("click", () => {
     top: 0,
     behavior: "smooth",
   });
+});
+
+let navLinks = document.querySelectorAll(".nav-link");
+let currentLink = "";
+
+let animateLinks = (location) => {
+  if (currentLink) {
+    currentLink.classList.remove("active");
+  }
+  navLinks.forEach((link) => {
+    if (link.href.includes(location)) {
+      currentLink = link;
+      link.classList.add("active");
+    }
+  });
+};
+
+window.addEventListener("scroll", () => {
+  if (window.pageYOffset < music.offsetTop) {
+    if (currentLink) {
+      currentLink.classList.remove("active");
+    }
+  }
+  if (
+    window.pageYOffset >= news.offsetTop - 1 &&
+    window.pageYOffset < music.offsetTop
+  ) {
+    animateLinks("news");
+  }
+  if (
+    window.pageYOffset >= music.offsetTop - 1 &&
+    window.pageYOffset < video.offsetTop
+  ) {
+    animateLinks("music");
+  }
+  if (
+    window.pageYOffset >= video.offsetTop - 1 &&
+    window.pageYOffset < bands.offsetTop
+  ) {
+    animateLinks("video");
+  }
+  if (window.pageYOffset >= bands.offsetTop - 1) {
+    animateLinks("bands");
+  }
 });
