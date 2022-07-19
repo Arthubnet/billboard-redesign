@@ -317,7 +317,6 @@ let stopAnimation = () => {
 };
 
 audio.addEventListener("canplay", (e) => {
-  console.log("canplay");
   equalizerOn(e);
   controlsOn(e);
   songRepeating++;
@@ -326,7 +325,6 @@ audio.addEventListener("ended", stopAnimation);
 audio.addEventListener("pause", pauseOn);
 audio.addEventListener("play", (e) => {
   if (songRepeating) {
-    console.log("onplay");
     equalizerOn(e);
     controlsOn(e);
   }
