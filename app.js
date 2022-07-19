@@ -661,6 +661,7 @@ scrollUp.addEventListener("click", () => {
   });
 });
 
+/* Navlinks animation */
 let navLinks = document.querySelectorAll(".nav-link");
 let currentLink = "";
 
@@ -683,24 +684,24 @@ window.addEventListener("scroll", () => {
     }
   }
   if (
-    window.pageYOffset >= news.offsetTop - 1 &&
+    window.pageYOffset >= news.offsetTop - 400 &&
     window.pageYOffset < music.offsetTop
   ) {
     animateLinks("news");
   }
   if (
-    window.pageYOffset >= music.offsetTop - 1 &&
+    window.pageYOffset >= music.offsetTop - 400 &&
     window.pageYOffset < video.offsetTop
   ) {
     animateLinks("music");
   }
   if (
-    window.pageYOffset >= video.offsetTop - 1 &&
+    window.pageYOffset >= video.offsetTop - 400 &&
     window.pageYOffset < bands.offsetTop
   ) {
     animateLinks("video");
   }
-  if (window.pageYOffset >= bands.offsetTop - 1) {
+  if (window.pageYOffset >= bands.offsetTop - 400) {
     animateLinks("bands");
   }
 });
