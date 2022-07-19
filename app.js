@@ -313,6 +313,7 @@ let stopAnimation = () => {
   bars.forEach((bar) => {
     bar.classList.remove("active");
   });
+  playingSong = false;
 };
 
 audio.addEventListener("canplay", (e) => {
