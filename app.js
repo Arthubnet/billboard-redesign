@@ -220,6 +220,7 @@ const closeController = document.querySelector(".closeBtn");
 let playingSong = false;
 let playerActive = false;
 let playingVideo = "";
+let songRepeating = 0;
 
 let onPause = () => {
   playingSong = true;
@@ -240,6 +241,7 @@ nextController.addEventListener("click", () => {
     setMusic(1);
     onPause();
   }
+  songRepeating = 0;
 });
 
 prevController.addEventListener("click", () => {
@@ -251,6 +253,7 @@ prevController.addEventListener("click", () => {
     setMusic(songsData.length);
     onPause();
   }
+  songRepeating = 0;
 });
 
 closeController.addEventListener("click", () => {
@@ -260,7 +263,6 @@ closeController.addEventListener("click", () => {
 
 let equalizerOn = (e) => {
   songs.forEach((song) => {
-    song.children[1].classList.add("pause");
     if (song.id == Number(e.srcElement.id)) {
       bars.forEach((bar) => {
         bar.classList.remove("active");
@@ -269,6 +271,13 @@ let equalizerOn = (e) => {
       equalizer.forEach((item) => {
         item.classList.add("active");
       });
+    }
+  });
+};
+let controlsOn = (e) => {
+  songs.forEach((song) => {
+    song.children[1].classList.add("pause");
+    if (song.id == Number(e.srcElement.id)) {
       song.children[1].classList.remove("pause");
       playController.src = "./assets/img/circle-pause-solid.svg";
       playController.title = "Pause";
@@ -306,18 +315,29 @@ let stopAnimation = () => {
   });
 };
 
-audio.addEventListener("canplay", equalizerOn);
+audio.addEventListener("canplay", (e) => {
+  console.log("canplay");
+  equalizerOn(e);
+  controlsOn(e);
+  songRepeating++;
+});
 audio.addEventListener("ended", stopAnimation);
 audio.addEventListener("pause", pauseOn);
-audio.addEventListener("play", equalizerOn);
+audio.addEventListener("play", (e) => {
+  if (songRepeating) {
+    console.log("onplay");
+    equalizerOn(e);
+    controlsOn(e);
+  }
+});
 
 songs.forEach((song) => {
   song.addEventListener("click", () => {
     if (playingVideo) {
       playingVideo.pause();
     }
-
     if (Number(audio.id) != song.id) {
+      songRepeating = 0;
       songsData.map((item) => {
         if (item.id == song.id) {
           setMusic(song.id);
@@ -400,6 +420,7 @@ let time = (event) => {
 
 let setCurrentTime = (e) => {
   audio.currentTime = (e.offsetX / progressBar.clientWidth) * audio.duration;
+  onPause();
 };
 
 let setVolume = (e) => {
