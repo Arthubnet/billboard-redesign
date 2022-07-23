@@ -653,6 +653,17 @@ moreNewsItems.forEach((item) => {
   });
 });
 
+/* Footer */
+
+const footerContainer = document.querySelector(".footer");
+
+footerContainer.innerHTML = ` <p>
+        © ${new Date().getFullYear()} Built and designed by
+        <a href="https://www.linkedin.com/in/artem-trehub/" target="_blank">
+          Artem Trehub
+        </a>
+      </p>`;
+
 /* Scroll up arrow */
 
 const offset = 400;
