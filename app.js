@@ -535,6 +535,13 @@ let checkScrollSize = () => {
   scrollPerClick = -carouselItem.clientWidth * (currentVideoId - 1);
 };
 
+let arrowVisability = () => {
+  slider.children[0].children[0].children[1].style.display = "none";
+  slider.lastChild.children[0].children[2].style.display = "none";
+};
+
+arrowVisability();
+
 window.addEventListener("resize", () => {
   checkScrollSize();
   slider.style.transform = `translateX(${scrollPerClick}px)`;

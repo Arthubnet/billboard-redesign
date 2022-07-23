@@ -1385,6 +1385,10 @@ section {
   left: 0;
 }
 
+.video__carousel__inner__item .videoPlayer .videoPlayer-leftArrow:first-child {
+  display: none;
+}
+
 .video__carousel__inner__item .videoPlayer .videoPlayer-rightArrow {
   right: 0;
 }
