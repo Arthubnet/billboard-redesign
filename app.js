@@ -536,8 +536,10 @@ let checkScrollSize = () => {
 };
 
 let arrowVisability = () => {
-  slider.children[0].children[0].children[1].style.display = "none";
-  slider.lastChild.children[0].children[2].style.display = "none";
+  setTimeout(() => {
+    slider.children[0].children[0].children[1].style.display = "none";
+    slider.lastChild.children[0].children[2].style.display = "none";
+  }, 2000);
 };
 
 arrowVisability();
