@@ -368,6 +368,7 @@ let setMusic = (id) => {
     if (song.id == id) {
       audio.src = song.link;
       audio.id = song.id;
+      audio.setAttribute("type", "audio/mpeg");
     }
   });
 };
